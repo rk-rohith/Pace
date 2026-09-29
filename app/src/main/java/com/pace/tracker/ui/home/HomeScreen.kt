@@ -15,12 +15,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Celebration
-import androidx.compose.material.icons.filled.DirectionsWalk
+import androidx.compose.material.icons.automirrored.filled.DirectionsWalk
 import androidx.compose.material.icons.filled.EditNote
 import androidx.compose.material.icons.filled.LocalDrink
 import androidx.compose.material.icons.filled.LocalFireDepartment
 import androidx.compose.material.icons.filled.Restaurant
-import androidx.compose.material.icons.filled.TrendingDown
+import androidx.compose.material.icons.automirrored.filled.TrendingDown
 import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -223,7 +223,7 @@ fun HomeScreen(onLogToday: () -> Unit, onOpen: (String) -> Unit) {
             }
 
             s.unseenRecal?.let { r ->
-                SectionCard("Week ${r.weekIndex} recalibration", icon = Icons.Filled.TrendingDown, trailing = {
+                SectionCard("Week ${r.weekIndex} recalibration", icon = Icons.AutoMirrored.Filled.TrendingDown, trailing = {
                     Pill(r.status.label, statusColor(r.status))
                 }) {
                     Text(r.explanation, style = MaterialTheme.typography.bodyMedium)
@@ -251,7 +251,7 @@ fun HomeScreen(onLogToday: () -> Unit, onOpen: (String) -> Unit) {
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 StatTile(
                     "Steps today", s.steps.grouped(), Modifier.weight(1f),
-                    sub = "goal ${s.stepGoal.grouped()}", icon = Icons.Filled.DirectionsWalk,
+                    sub = "goal ${s.stepGoal.grouped()}", icon = Icons.AutoMirrored.Filled.DirectionsWalk,
                     accent = if (s.steps >= s.stepGoal) PaceColors.Ahead else PaceColors.Tertiary,
                 )
                 StatTile(

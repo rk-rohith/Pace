@@ -30,6 +30,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val container = (application as PaceApp).container
         pendingRoute = routeFrom(intent)
+        if (savedInstanceState == null) {
+            // Re-arm reminders whenever the user opens the app (covers force-stop, which clears alarms).
+            container.appScope.launch { runCatching { container.reminderScheduler.rescheduleAll() } }
+        }
 
         // null = still loading, false = no profile yet (onboarding), true = ready.
         val hasProfileFlow = container.repository.profile.map { it != null }

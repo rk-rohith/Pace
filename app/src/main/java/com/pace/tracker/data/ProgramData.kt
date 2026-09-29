@@ -2,6 +2,7 @@ package com.pace.tracker.data
 
 import com.pace.tracker.data.db.DailyLogEntity
 import com.pace.tracker.data.db.DayWorkouts
+import com.pace.tracker.data.db.effectiveSteps
 import com.pace.tracker.data.db.MeasurementEntity
 import com.pace.tracker.data.db.ProfileEntity
 import com.pace.tracker.data.db.ProgressPhotoEntity

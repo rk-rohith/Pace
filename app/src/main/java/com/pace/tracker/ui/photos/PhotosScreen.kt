@@ -243,7 +243,7 @@ private fun Compare(data: ProgramData) {
         }
         val wl = left?.let { data.weightNear(it) }
         val wr = right?.let { data.weightNear(it) }
-        if (wl != null && wr != null && left != null && right != null) {
+        if (wl != null && wr != null) {
             SectionCard {
                 Text("${(right - left)} days apart · ${(wr - wl).signedKg()}", style = MaterialTheme.typography.titleMedium,
                     color = if (wr <= wl) PaceColors.Ahead else PaceColors.Behind)

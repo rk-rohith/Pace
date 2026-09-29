@@ -36,7 +36,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.pace.tracker.data.PaceRepository
 import com.pace.tracker.domain.ActivityLevel
 import com.pace.tracker.domain.AdaptiveConfig
@@ -56,11 +55,13 @@ import com.pace.tracker.ui.components.paceViewModel
 import com.pace.tracker.ui.components.shortDate
 import com.pace.tracker.ui.components.toDecimalOrNull
 import com.pace.tracker.data.today
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 class OnboardingViewModel(
     private val repository: PaceRepository,
     private val scheduler: ReminderScheduler,
+    private val appScope: CoroutineScope,
 ) : ViewModel() {
     var saving by mutableStateOf(false)
         private set
@@ -68,7 +69,8 @@ class OnboardingViewModel(
     fun finish(inputs: ProfileInputs, stepGoal: Int, waterGoal: Int) {
         if (saving) return
         saving = true
-        viewModelScope.launch {
+        // App scope: saving the profile swaps the nav graph, which clears this ViewModel.
+        appScope.launch {
             repository.createProfile(inputs, stepGoal, waterGoal)
             runCatching { scheduler.rescheduleAll() }
         }
@@ -77,7 +79,7 @@ class OnboardingViewModel(
 
 @Composable
 fun OnboardingScreen() {
-    val vm = paceViewModel { OnboardingViewModel(it.repository, it.reminderScheduler) }
+    val vm = paceViewModel { OnboardingViewModel(it.repository, it.reminderScheduler, it.appScope) }
     var step by rememberSaveable { mutableIntStateOf(0) }
     var sex by rememberSaveable { mutableStateOf(Sex.MALE) }
     var age by rememberSaveable { mutableStateOf("") }

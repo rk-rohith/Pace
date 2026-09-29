@@ -50,15 +50,15 @@ data class DailyLogEntity(
     val sleepHours: Double? = null,
     val notes: String = "",
     val updatedAt: Long = System.currentTimeMillis(),
-) {
-    /** Manual entry wins; otherwise the larger of Health Connect and the in-app sensor. */
-    val effectiveSteps: Int?
-        get() = stepsManual ?: when {
-            stepsHealthConnect != null -> maxOf(stepsHealthConnect, stepsSensor)
-            stepsSensor > 0 -> stepsSensor
-            else -> null
-        }
-}
+)
+
+/** Manual entry wins; otherwise the larger of Health Connect and the in-app sensor. */
+val DailyLogEntity.effectiveSteps: Int?
+    get() = stepsManual ?: when {
+        stepsHealthConnect != null -> maxOf(stepsHealthConnect, stepsSensor)
+        stepsSensor > 0 -> stepsSensor
+        else -> null
+    }
 
 @Entity(tableName = "meal", indices = [Index("epochDay")])
 data class MealEntity(

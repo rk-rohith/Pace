@@ -13,7 +13,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Celebration
-import androidx.compose.material.icons.filled.DirectionsWalk
+import androidx.compose.material.icons.automirrored.filled.DirectionsWalk
 import androidx.compose.material.icons.filled.EditNote
 import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material.icons.filled.FitnessCenter
@@ -70,7 +70,7 @@ fun StreaksScreen(onBack: () -> Unit) {
                 StatTile("Daily logging", "${s.logging.current} days", Modifier.weight(1f), sub = "best ${s.logging.best}",
                     icon = Icons.Filled.EditNote, accent = PaceColors.Pink)
                 StatTile("Step goal", "${s.steps.current} days", Modifier.weight(1f), sub = "best ${s.steps.best}",
-                    icon = Icons.Filled.DirectionsWalk, accent = PaceColors.Tertiary)
+                    icon = Icons.AutoMirrored.Filled.DirectionsWalk, accent = PaceColors.Tertiary)
             }
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 StatTile("Calorie adherence", "${s.calories.current} days", Modifier.weight(1f), sub = "best ${s.calories.best}",

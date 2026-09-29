@@ -24,7 +24,7 @@ import androidx.compose.material.icons.filled.Bedtime
 import androidx.compose.material.icons.filled.ChevronLeft
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.DirectionsWalk
+import androidx.compose.material.icons.automirrored.filled.DirectionsWalk
 import androidx.compose.material.icons.filled.EditNote
 import androidx.compose.material.icons.filled.FitnessCenter
 import androidx.compose.material.icons.filled.LocalDrink
@@ -62,6 +62,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import com.pace.tracker.data.db.MealEntity
 import com.pace.tracker.data.db.WorkoutEntity
+import com.pace.tracker.data.db.effectiveSteps
 import com.pace.tracker.data.today
 import com.pace.tracker.domain.MealType
 import com.pace.tracker.photo.PhotoInputButtons
@@ -200,7 +201,7 @@ fun LogScreen(initialDay: Long) {
             }
 
             // ---- Steps
-            SectionCard("Steps", icon = Icons.Filled.DirectionsWalk, trailing = {
+            SectionCard("Steps", icon = Icons.AutoMirrored.Filled.DirectionsWalk, trailing = {
                 IconButton(onClick = { vm.syncHealthConnect() }, modifier = Modifier.size(48.dp)) {
                     Icon(Icons.Filled.Sync, "Sync Health Connect")
                 }

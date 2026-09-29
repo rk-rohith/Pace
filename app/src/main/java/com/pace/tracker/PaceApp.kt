@@ -32,9 +32,11 @@ class PaceApp : Application() {
         super.onCreate()
         container = AppContainer(this)
         Notifications.createChannels(this)
+        // Reminders are NOT rescheduled here: this also runs when WorkManager starts the process
+        // to deliver a reminder, and re-enqueueing would cancel that very job. MainActivity and
+        // BootReceiver handle rescheduling instead.
         container.appScope.launch {
             runCatching { container.repository.runPendingRecalibrations() }
-            runCatching { container.reminderScheduler.rescheduleAll() }
         }
     }
 }

@@ -15,7 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.DirectionsWalk
+import androidx.compose.material.icons.automirrored.filled.DirectionsWalk
 import androidx.compose.material.icons.filled.HealthAndSafety
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.Button
@@ -115,7 +115,7 @@ fun HealthScreen(onBack: () -> Unit) {
                 }
             }
 
-            SectionCard("In-app step counter", icon = Icons.Filled.DirectionsWalk) {
+            SectionCard("In-app step counter", icon = Icons.AutoMirrored.Filled.DirectionsWalk) {
                 if (!sensor.isSupported) {
                     Text("This device has no step-counter sensor.")
                 } else if (sensorGranted) {

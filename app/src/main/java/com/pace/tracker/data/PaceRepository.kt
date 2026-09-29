@@ -11,6 +11,7 @@ import com.pace.tracker.data.db.ReminderEntity
 import com.pace.tracker.data.db.SettingEntity
 import com.pace.tracker.data.db.WeeklyReflectionEntity
 import com.pace.tracker.data.db.WorkoutEntity
+import com.pace.tracker.data.db.effectiveSteps
 import com.pace.tracker.domain.AdaptiveConfig
 import com.pace.tracker.domain.AdaptiveEngine
 import com.pace.tracker.domain.BodyMath

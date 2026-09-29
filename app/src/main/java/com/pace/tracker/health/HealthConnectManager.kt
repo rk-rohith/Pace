@@ -30,9 +30,9 @@ class HealthConnectManager(private val context: Context, private val repository:
         else -> HealthConnectAvailability.UNSUPPORTED
     }
 
-    private val client: HealthConnectClient? by lazy {
-        if (availability() == HealthConnectAvailability.AVAILABLE) HealthConnectClient.getOrCreate(context) else null
-    }
+    /** Looked up on each use so installing Health Connect later works without restarting the app. */
+    private val client: HealthConnectClient?
+        get() = if (availability() == HealthConnectAvailability.AVAILABLE) HealthConnectClient.getOrCreate(context) else null
 
     fun permissionContract(): ActivityResultContract<Set<String>, Set<String>> =
         PermissionController.createRequestPermissionResultContract()
