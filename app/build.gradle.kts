@@ -69,8 +69,9 @@ dependencies {
     implementation(libs.androidx.camera.camera2)
     implementation(libs.androidx.camera.lifecycle)
     implementation(libs.androidx.camera.view)
-    // CameraX returns Guava's ListenableFuture but only ships it at runtime.
-    implementation(libs.guava.listenablefuture)
+    // CameraX returns Guava's ListenableFuture. Its standalone artifact gets replaced by the empty
+    // "9999.0-empty-to-avoid-conflict-with-guava" stub on the compile classpath, so use full Guava.
+    implementation(libs.guava)
     implementation(libs.androidx.health.connect)
     implementation(libs.vico.compose.m3)
     implementation(libs.coil.compose)
