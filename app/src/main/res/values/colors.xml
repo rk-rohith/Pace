@@ -1,0 +1,6 @@
+<resources>
+    <color name="pace_background">#FF0D1114</color>
+    <color name="pace_surface">#FF161B20</color>
+    <color name="pace_primary">#FF4FD1A5</color>
+    <color name="ic_launcher_background">#FF0D1114</color>
+</resources>
