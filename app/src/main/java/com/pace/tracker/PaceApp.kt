@@ -1,8 +1,10 @@
 package com.pace.tracker
 
 import android.app.Application
+import com.pace.tracker.data.MealPlanLoader
 import com.pace.tracker.data.PaceRepository
 import com.pace.tracker.data.db.PaceDatabase
+import com.pace.tracker.domain.MealPlan
 import com.pace.tracker.health.HealthConnectManager
 import com.pace.tracker.health.StepSensorTracker
 import com.pace.tracker.photo.PhotoStorage
@@ -22,6 +24,7 @@ class AppContainer(app: Application) {
     val healthConnect = HealthConnectManager(app, repository)
     val reminderScheduler = ReminderScheduler(app, repository)
     val stepTracker = StepSensorTracker(app, repository, appScope)
+    val mealPlan: MealPlan by lazy { MealPlanLoader.load(app) }
 }
 
 class PaceApp : Application() {

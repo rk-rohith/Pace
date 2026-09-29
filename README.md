@@ -115,6 +115,10 @@ All reminders live in **More → Reminders**; each one is individually toggleabl
 - **Weekly review** — automatic summary (weight change, average calories, total steps, workouts, photos,
   streak status), that week's recalibration explanation, editable reflection, comparison table across weeks.
 - **Target history** — every calorie-target change with its explanation and a chart of the target over time.
+- **Meal plan** — two alternating weeks (Week A from the High-Protein Recipes handbook, Week B from
+  Instagram reels) at 1,650–1,900 kcal and ~150 g protein a day: today's menu with one-tap logging,
+  44 recipes with macros and method, weekly grocery checklists and Sunday prep. Generated from
+  `tools/mealplan/` into `app/src/main/assets/meal_plan.json`.
 - **Streaks & badges** — daily logging, step goal, calorie adherence (days) and workouts (weeks);
   badges at 7 / 30 / 50 / 80 days; adaptive wins ("3 weeks on pace in a row", "new low weight", "5 kg down").
 

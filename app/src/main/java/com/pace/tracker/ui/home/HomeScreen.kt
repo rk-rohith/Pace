@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -49,10 +50,13 @@ import com.pace.tracker.data.pendingSuggestion
 import com.pace.tracker.data.stepsFor
 import com.pace.tracker.data.streaks
 import com.pace.tracker.data.targetForDay
+import com.pace.tracker.data.toEngine
 import com.pace.tracker.data.today
 import com.pace.tracker.data.unseenRecal
 import com.pace.tracker.data.weeklyRecals
 import com.pace.tracker.data.weights
+import com.pace.tracker.domain.MealPlan
+import com.pace.tracker.domain.MealPlanSchedule
 import com.pace.tracker.domain.PaceIndicator
 import com.pace.tracker.domain.StreakCalculator
 import com.pace.tracker.ui.components.Pill
@@ -73,6 +77,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import java.time.LocalDate
 
 data class HomeState(
     val loaded: Boolean = false,
@@ -97,9 +102,13 @@ data class HomeState(
     val unseenRecal: RecalibrationEntity? = null,
     val suggestion: RecalibrationEntity? = null,
     val projectedFinish: Double? = null,
+    val menuWeek: String = "",
+    val menu: List<Pair<String, String>> = emptyList(),
+    val menuKcal: Int = 0,
+    val menuVeg: Boolean = false,
 )
 
-class HomeViewModel(private val repository: PaceRepository) : ViewModel() {
+class HomeViewModel(private val repository: PaceRepository, private val mealPlan: MealPlan) : ViewModel() {
     val state: StateFlow<HomeState> = repository.programData.map { it.toHome() }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), HomeState())
 
@@ -111,6 +120,9 @@ class HomeViewModel(private val repository: PaceRepository) : ViewModel() {
         val toLose = (p.startWeightKg - p.targetWeightKg).coerceAtLeast(0.1)
         val lost = current?.let { p.startWeightKg - it } ?: 0.0
         val s = streaks(t)
+        val week = mealPlan.weeks.takeIf { it.isNotEmpty() }
+            ?.let { mealPlan.week(MealPlanSchedule.weekIdFor(p.toEngine().weekOf(t).coerceAtLeast(1))) }
+        val planDay = week?.days?.getOrNull(MealPlanSchedule.dayIndex(LocalDate.ofEpochDay(t)))
         return HomeState(
             loaded = true,
             dayNumber = dayNumber,
@@ -134,6 +146,10 @@ class HomeViewModel(private val repository: PaceRepository) : ViewModel() {
             unseenRecal = unseenRecal(),
             suggestion = pendingSuggestion(),
             projectedFinish = weeklyRecals.lastOrNull()?.projectedFinishKg,
+            menuWeek = week?.title ?: "",
+            menu = planDay?.meals?.map { "${it.time}  ${it.label}" to mealPlan.title(it) } ?: emptyList(),
+            menuKcal = planDay?.let { mealPlan.dayKcal(it) } ?: 0,
+            menuVeg = planDay?.veg == true,
         )
     }
 
@@ -148,7 +164,7 @@ class HomeViewModel(private val repository: PaceRepository) : ViewModel() {
 
 @Composable
 fun HomeScreen(onLogToday: () -> Unit, onOpen: (String) -> Unit) {
-    val vm = paceViewModel { HomeViewModel(it.repository) }
+    val vm = paceViewModel { HomeViewModel(it.repository, it.mealPlan) }
     val s by vm.state.collectAsStateWithLifecycle()
     if (!s.loaded) return
 
@@ -273,6 +289,24 @@ fun HomeScreen(onLogToday: () -> Unit, onOpen: (String) -> Unit) {
                 Icon(Icons.Filled.LocalDrink, null)
                 Spacer(Modifier.size(8.dp))
                 Text("+1 glass of water")
+            }
+
+            if (s.menu.isNotEmpty()) {
+                SectionCard(
+                    "Today's menu · ${s.menuWeek}" + if (s.menuVeg) " · veg" else "",
+                    icon = Icons.Filled.Restaurant,
+                    trailing = { TextButton(onClick = { onOpen(Routes.PLAN) }) { Text("Open") } },
+                ) {
+                    s.menu.forEach { (slot, dish) ->
+                        Row {
+                            Text(slot, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.width(120.dp))
+                            Text(dish, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.weight(1f))
+                        }
+                    }
+                    Text("Plan total ${s.menuKcal.grouped()} kcal. Tap Open to log meals with one tap.",
+                        style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                }
             }
 
             if (s.wins.isNotEmpty()) {

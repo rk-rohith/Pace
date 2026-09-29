@@ -35,6 +35,8 @@ import com.pace.tracker.ui.home.HomeScreen
 import com.pace.tracker.ui.log.LogScreen
 import com.pace.tracker.ui.onboarding.OnboardingScreen
 import com.pace.tracker.ui.photos.PhotosScreen
+import com.pace.tracker.ui.plan.MealPlanScreen
+import com.pace.tracker.ui.plan.RecipeScreen
 import com.pace.tracker.ui.review.ReviewDetailScreen
 import com.pace.tracker.ui.review.ReviewListScreen
 import com.pace.tracker.ui.settings.EngineInfoScreen
@@ -58,9 +60,12 @@ object Routes {
     const val PROFILE = "profile"
     const val HEALTH = "health"
     const val ENGINE = "engine"
+    const val PLAN = "plan"
+    const val RECIPE = "recipe"
 
     fun log(day: Long) = "$LOG?day=$day"
     fun review(week: Int) = "$REVIEW/$week"
+    fun recipe(id: String) = "$RECIPE/$id"
 }
 
 private data class Tab(val route: String, val label: String, val icon: ImageVector)
@@ -143,6 +148,15 @@ fun PaceNavHost(hasProfile: Boolean, pendingRoute: String?, onRouteHandled: () -
                 composable(Routes.PROFILE) { ProfileScreen(onBack = { nav.popBackStack() }) }
                 composable(Routes.HEALTH) { HealthScreen(onBack = { nav.popBackStack() }) }
                 composable(Routes.ENGINE) { EngineInfoScreen(onBack = { nav.popBackStack() }) }
+                composable(Routes.PLAN) {
+                    MealPlanScreen(onBack = { nav.popBackStack() }, onOpenRecipe = { nav.navigate(Routes.recipe(it)) })
+                }
+                composable(
+                    "${Routes.RECIPE}/{id}",
+                    arguments = listOf(navArgument("id") { type = NavType.StringType }),
+                ) { entry ->
+                    RecipeScreen(recipeId = entry.arguments?.getString("id") ?: "", onBack = { nav.popBackStack() })
+                }
             }
         }
     }

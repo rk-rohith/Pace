@@ -1,0 +1,83 @@
+package com.pace.tracker.data
+
+import android.content.Context
+import com.pace.tracker.domain.CalorieAdjustment
+import com.pace.tracker.domain.GroceryItem
+import com.pace.tracker.domain.GrocerySection
+import com.pace.tracker.domain.MealPlan
+import com.pace.tracker.domain.MealType
+import com.pace.tracker.domain.PlanDay
+import com.pace.tracker.domain.PlanMeal
+import com.pace.tracker.domain.PlanRecipe
+import com.pace.tracker.domain.PlanWeek
+import org.json.JSONArray
+import org.json.JSONObject
+
+/** Reads the bundled meal plan from assets/meal_plan.json. */
+object MealPlanLoader {
+    const val ASSET = "meal_plan.json"
+
+    fun load(context: Context): MealPlan = try {
+        val text = context.assets.open(ASSET).bufferedReader().use { it.readText() }
+        parse(JSONObject(text))
+    } catch (e: Exception) {
+        MealPlan.EMPTY
+    }
+
+    private fun JSONArray.strings(): List<String> = (0 until length()).map { getString(it) }
+    private fun JSONArray.objects(): List<JSONObject> = (0 until length()).map { getJSONObject(it) }
+
+    fun parse(root: JSONObject): MealPlan {
+        val recipes = root.getJSONArray("recipes").objects().map { r ->
+            PlanRecipe(
+                id = r.getString("id"),
+                name = r.getString("name"),
+                category = r.getString("category"),
+                source = r.getString("source"),
+                veg = r.getBoolean("veg"),
+                kcal = r.getInt("kcal"),
+                protein = r.getInt("protein"),
+                carbs = r.getInt("carbs"),
+                fat = r.getInt("fat"),
+                ingredients = r.getJSONArray("ingredients").strings(),
+                steps = r.getJSONArray("steps").strings(),
+                tip = r.optString("tip", ""),
+                reels = r.optJSONArray("reels")?.strings() ?: emptyList(),
+            )
+        }.associateBy { it.id }
+        val weeks = root.getJSONArray("weeks").objects().map { w ->
+            PlanWeek(
+                id = w.getString("id"),
+                title = w.getString("title"),
+                subtitle = w.optString("subtitle", ""),
+                days = w.getJSONArray("days").objects().map { d ->
+                    PlanDay(
+                        day = d.getString("day"),
+                        kind = d.getString("kind"),
+                        veg = d.getBoolean("veg"),
+                        meals = d.getJSONArray("meals").objects().map { m ->
+                            PlanMeal(
+                                time = m.getString("time"),
+                                label = m.getString("label"),
+                                mealType = runCatching { MealType.valueOf(m.getString("mealType")) }.getOrDefault(MealType.SNACK),
+                                recipeIds = m.getJSONArray("recipes").strings(),
+                            )
+                        },
+                    )
+                },
+            )
+        }
+        val groceriesObj = root.getJSONObject("groceries")
+        val groceries = groceriesObj.keys().asSequence().associateWith { key ->
+            groceriesObj.getJSONArray(key).objects().map { s ->
+                GrocerySection(
+                    title = s.getString("section"),
+                    items = s.getJSONArray("items").objects().map { GroceryItem(it.getString("name"), it.getString("qty"), it.optString("note", "")) },
+                )
+            }
+        }
+        val prep = root.optJSONArray("prep")?.strings() ?: emptyList()
+        val adjustments = root.optJSONArray("adjustments")?.objects()?.map { CalorieAdjustment(it.getString("change"), it.getString("how")) } ?: emptyList()
+        return MealPlan(recipes, weeks, groceries, prep, adjustments)
+    }
+}

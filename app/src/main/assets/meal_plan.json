@@ -1,0 +1,2391 @@
+{
+ "version": 1,
+ "recipes": [
+  {
+   "id": "sambar",
+   "name": "Protein sambar (1 bowl)",
+   "category": "South Indian basics",
+   "source": "Added for your plan",
+   "veg": true,
+   "kcal": 195,
+   "protein": 9,
+   "carbs": 30,
+   "fat": 4,
+   "ingredients": [
+    "30 g toor dal",
+    "100 g sambar vegetables (drumstick, brinjal, pumpkin, okra)",
+    "20 g onion or 4 shallots",
+    "30 g tomato",
+    "5 g tamarind (small marble)",
+    "1 tsp sambar powder, pinch turmeric and hing",
+    "3 g oil, mustard seeds, curry leaves, 1 dried red chilli"
+   ],
+   "steps": [
+    "Pressure-cook the dal with turmeric for 3 whistles, then mash.",
+    "Simmer the vegetables, onion and tomato in tamarind water with sambar powder and salt for 8–10 min.",
+    "Add the dal and simmer 5 min.",
+    "Temper oil with mustard, hing, curry leaves and red chilli; pour over."
+   ],
+   "tip": "Make 3 bowls on Sunday (Mon, Wed, Thu). Keeps 3 days in the fridge; freeze Thursday's.",
+   "reels": []
+  },
+  {
+   "id": "idli",
+   "name": "Idli + protein sambar + boiled egg",
+   "category": "Breakfast",
+   "source": "Added for your plan",
+   "veg": false,
+   "kcal": 441,
+   "protein": 21,
+   "carbs": 66,
+   "fat": 9,
+   "ingredients": [
+    "150 g idli batter (3 idlis)",
+    "1 bowl protein sambar",
+    "1 egg"
+   ],
+   "steps": [
+    "Steam the idlis 10–12 min.",
+    "Boil the egg 9 min, cool and peel.",
+    "Serve with hot sambar."
+   ],
+   "tip": "Coconut chutney adds about 100 kcal per 2 tbsp; tomato or pudina chutney is almost free.",
+   "reels": []
+  },
+  {
+   "id": "pesarattu_p",
+   "name": "Paneer pesarattu + ginger-tomato chutney",
+   "category": "Breakfast",
+   "source": "Added for your plan",
+   "veg": true,
+   "kcal": 409,
+   "protein": 22,
+   "carbs": 42,
+   "fat": 17,
+   "ingredients": [
+    "60 g whole green moong, soaked 6–8 h",
+    "1 green chilli, 5 g ginger, ½ tsp cumin, salt",
+    "40 g paneer, grated, + a little chopped onion",
+    "8 g oil (dosa + chutney)",
+    "Chutney: 100 g tomato, 5 g ginger, 1 dried red chilli"
+   ],
+   "steps": [
+    "Grind the soaked moong with chilli, ginger, cumin and salt to a pourable batter.",
+    "Spread 2 thin dosas on a hot tawa with 5 g oil.",
+    "Sprinkle paneer and onion on top, fold and cook through.",
+    "Chutney: sauté tomato, ginger and chilli in 3 g oil, then blend with salt."
+   ],
+   "tip": "Soak the moong the night before.",
+   "reels": []
+  },
+  {
+   "id": "pesarattu_e",
+   "name": "Pesarattu + chutney + boiled egg",
+   "category": "Breakfast",
+   "source": "Added for your plan",
+   "veg": false,
+   "kcal": 375,
+   "protein": 22,
+   "carbs": 42,
+   "fat": 14,
+   "ingredients": [
+    "Same pesarattu batter and chutney as above, no paneer",
+    "1 egg"
+   ],
+   "steps": [
+    "Make 2 pesarattu as above.",
+    "Boil the egg, or crack it over the dosa while it cooks (egg pesarattu)."
+   ],
+   "tip": "",
+   "reels": []
+  },
+  {
+   "id": "bhurji",
+   "name": "Egg bhurji (2 eggs + 3 whites) + 1 chapati",
+   "category": "Breakfast",
+   "source": "Added for your plan",
+   "veg": false,
+   "kcal": 353,
+   "protein": 28,
+   "carbs": 29,
+   "fat": 14,
+   "ingredients": [
+    "2 whole eggs + 3 egg whites",
+    "50 g onion, 50 g tomato, 1 green chilli",
+    "Pinch turmeric, ½ tsp chilli powder, coriander leaves",
+    "3 g oil",
+    "1 chapati (30 g atta, no ghee)"
+   ],
+   "steps": [
+    "Sauté onion and chilli in oil until soft, add tomato and spices and cook 2 min.",
+    "Pour in the whisked eggs and scramble on low heat until just set.",
+    "Serve with a hot chapati."
+   ],
+   "tip": "Keep the yolks from the 3 whites for another day, or skip them.",
+   "reels": []
+  },
+  {
+   "id": "chilla",
+   "name": "Moong dal paneer chilla + curd",
+   "category": "Breakfast",
+   "source": "Handbook p.40 (+100 g curd)",
+   "veg": true,
+   "kcal": 381,
+   "protein": 27,
+   "carbs": 44,
+   "fat": 10,
+   "ingredients": [
+    "60 g yellow moong dal, soaked 2–3 h",
+    "50 g paneer, crumbled",
+    "¼ small onion, pinch cumin and chilli",
+    "5 g oil",
+    "100 g low-fat curd on the side"
+   ],
+   "steps": [
+    "Blend the moong with a little water and salt to a pancake batter.",
+    "Spread on a hot pan with oil, scatter paneer and onion.",
+    "Cook both sides until golden. Serve with curd."
+   ],
+   "tip": "Handbook p.40.",
+   "reels": []
+  },
+  {
+   "id": "oatsbowl",
+   "name": "Oats protein breakfast bowl",
+   "category": "Breakfast",
+   "source": "Handbook p.7",
+   "veg": false,
+   "kcal": 477,
+   "protein": 25,
+   "carbs": 66,
+   "fat": 13,
+   "ingredients": [
+    "65 g rolled oats",
+    "100 g Greek yogurt or hung curd",
+    "100 g pomegranate arils",
+    "1 egg"
+   ],
+   "steps": [
+    "Boil the egg 8–10 min.",
+    "Layer yogurt, oats and pomegranate in a bowl.",
+    "Serve with the halved egg."
+   ],
+   "tip": "Handbook p.7. For a warm version, microwave the oats with yogurt for 60–90 s.",
+   "reels": []
+  },
+  {
+   "id": "oatswhey",
+   "name": "Oats & whey power bowl (full scoop) + papaya",
+   "category": "Breakfast",
+   "source": "Handbook p.8, full scoop of your whey",
+   "veg": true,
+   "kcal": 500,
+   "protein": 39,
+   "carbs": 69,
+   "fat": 9,
+   "ingredients": [
+    "50 g rolled oats",
+    "200 ml double-toned milk",
+    "1 scoop of your whey (38.5 g)",
+    "150 g papaya, cinnamon"
+   ],
+   "steps": [
+    "Simmer oats in milk 4–5 min until thick.",
+    "Cool 1 min, then stir in the whey (too hot and it clumps).",
+    "Top with cinnamon; papaya on the side."
+   ],
+   "tip": "Handbook p.8, made with a full scoop. On Sunday this replaces the shake.",
+   "reels": []
+  },
+  {
+   "id": "chx_rice",
+   "name": "High-protein chicken rice bowl",
+   "category": "Lunch & dinner",
+   "source": "Handbook p.11",
+   "veg": false,
+   "kcal": 575,
+   "protein": 55,
+   "carbs": 60,
+   "fat": 12,
+   "ingredients": [
+    "150 g chicken breast",
+    "50 g raw rice (150 g cooked)",
+    "250 g mixed vegetables",
+    "5 g oil, ½ tsp cumin or paprika, salt, pepper"
+   ],
+   "steps": [
+    "Cook the rice.",
+    "Sear the seasoned chicken 5–6 min per side in oil; rest and slice.",
+    "Steam or sauté the vegetables 5 min.",
+    "Assemble over rice."
+   ],
+   "tip": "Handbook p.11.",
+   "reels": []
+  },
+  {
+   "id": "chx_chapati",
+   "name": "Chapati chicken bowl",
+   "category": "Lunch & dinner",
+   "source": "Handbook p.12",
+   "veg": false,
+   "kcal": 623,
+   "protein": 59,
+   "carbs": 64,
+   "fat": 14,
+   "ingredients": [
+    "150 g chicken breast",
+    "2 chapatis (60 g atta)",
+    "250 g mixed vegetables",
+    "5 g oil, spices"
+   ],
+   "steps": [
+    "Sear and slice the chicken as for the rice bowl.",
+    "Sauté the vegetables.",
+    "Serve with warm chapatis."
+   ],
+   "tip": "Handbook p.12.",
+   "reels": []
+  },
+  {
+   "id": "tandoori",
+   "name": "Tandoori-style grilled chicken + rice",
+   "category": "Lunch & dinner",
+   "source": "Handbook p.13",
+   "veg": false,
+   "kcal": 490,
+   "protein": 44,
+   "carbs": 46,
+   "fat": 11,
+   "ingredients": [
+    "150 g chicken breast or thigh",
+    "100 g low-fat curd, 1 tsp ginger-garlic paste",
+    "1 tsp tandoori masala, ½ tsp turmeric, juice of ½ lemon",
+    "5 g oil",
+    "50 g raw rice (150 g cooked)"
+   ],
+   "steps": [
+    "Marinate chicken in curd, paste, masala, turmeric, lemon and salt for 30 min or overnight.",
+    "Grill, broil or air-fry 6–8 min per side (oven: 220 °C, 20 min).",
+    "Rest 2 min; serve with rice and onion salad."
+   ],
+   "tip": "Handbook p.13. Your reel's version adds 1 tsp soy sauce and garlic powder to the marinade and scores the chicken deeply; pan-fry 6 min a side or air-fry at 195 °C, 8 min a side.",
+   "reels": [
+    "https://www.instagram.com/reel/Dakh0I3N1p2/"
+   ]
+  },
+  {
+   "id": "tikkamasala",
+   "name": "Chicken tikka masala + rice",
+   "category": "Lunch & dinner (swap)",
+   "source": "Handbook p.15",
+   "veg": false,
+   "kcal": 477,
+   "protein": 41,
+   "carbs": 43,
+   "fat": 15,
+   "ingredients": [
+    "150 g chicken breast",
+    "1 small onion, 150 g tomato purée",
+    "30 g low-fat curd, 10 g cashews (soaked, blended)",
+    "1 tsp ginger-garlic paste, garam masala, chilli, kasuri methi",
+    "5 g oil",
+    "35 g raw rice (100 g cooked)"
+   ],
+   "steps": [
+    "Sear the chicken cubes 4–5 min; set aside.",
+    "Sauté onion and paste, add tomato and spices, cook 8 min.",
+    "Stir in curd and cashew paste, add chicken, simmer 8–10 min."
+   ],
+   "tip": "Handbook p.15. Swap in for any chicken meal.",
+   "reels": []
+  },
+  {
+   "id": "keema",
+   "name": "Chicken keema + rice",
+   "category": "Lunch & dinner",
+   "source": "Handbook p.16",
+   "veg": false,
+   "kcal": 433,
+   "protein": 39,
+   "carbs": 44,
+   "fat": 11,
+   "ingredients": [
+    "150 g lean chicken mince",
+    "1 small onion, 1 tomato, 50 g green peas",
+    "1 tsp ginger-garlic paste, turmeric, chilli, garam masala",
+    "5 g oil",
+    "35 g raw rice (100 g cooked)"
+   ],
+   "steps": [
+    "Sauté onion golden, add paste, then tomato and spices until thick.",
+    "Add mince, break it up, cook 5 min.",
+    "Add peas and a splash of water, cover 6–8 min."
+   ],
+   "tip": "Handbook p.16. Ask the butcher to mince 150 g of the breast.",
+   "reels": []
+  },
+  {
+   "id": "fishtikka",
+   "name": "Air fryer fish tikka + rice",
+   "category": "Lunch & dinner",
+   "source": "Handbook p.19",
+   "veg": false,
+   "kcal": 445,
+   "protein": 45,
+   "carbs": 42,
+   "fat": 9,
+   "ingredients": [
+    "150 g firm fish (seer/vanjaram, basa)",
+    "100 g low-fat curd, 1 tsp ginger-garlic paste, 1 tsp tikka masala",
+    "150 g capsicum and onion chunks",
+    "5 g oil",
+    "35 g raw rice (100 g cooked)"
+   ],
+   "steps": [
+    "Marinate fish and vegetables gently for 15–20 min.",
+    "Air-fry at 200 °C for 7–8 min, turning once.",
+    "Serve with rice and lemon."
+   ],
+   "tip": "Handbook p.19. Check at 6 min; fish dries fast.",
+   "reels": []
+  },
+  {
+   "id": "fishbowl",
+   "name": "Grilled fish bowl (100 g rice)",
+   "category": "Lunch & dinner",
+   "source": "Handbook p.18 (100 g rice)",
+   "veg": false,
+   "kcal": 430,
+   "protein": 43,
+   "carbs": 46,
+   "fat": 9,
+   "ingredients": [
+    "150 g white fish fillet",
+    "35 g raw rice (100 g cooked)",
+    "250 g mixed vegetables",
+    "5 g oil, lemon, pepper"
+   ],
+   "steps": [
+    "Pat fish dry, season with salt, pepper and lemon.",
+    "Pan-sear 3–4 min per side.",
+    "Serve over rice with the vegetables."
+   ],
+   "tip": "Handbook p.18, rice cut to 100 g for the rest day.",
+   "reels": []
+  },
+  {
+   "id": "palak",
+   "name": "Palak paneer + rice",
+   "category": "Lunch & dinner · veg",
+   "source": "Handbook p.26",
+   "veg": true,
+   "kcal": 481,
+   "protein": 47,
+   "carbs": 53,
+   "fat": 10,
+   "ingredients": [
+    "200 g low-fat paneer",
+    "200 g spinach, 1 small onion, 1 tomato",
+    "1 tsp ginger-garlic paste, cumin, garam masala, chilli",
+    "5 g oil",
+    "35 g raw rice (100 g cooked)"
+   ],
+   "steps": [
+    "Blanch spinach 2 min, cool, blend smooth.",
+    "Sauté cumin, onion, paste, tomato and spices until soft.",
+    "Add the spinach purée, simmer 3 min, add paneer 2 min."
+   ],
+   "tip": "Handbook p.26. Regular paneer adds about 200 kcal.",
+   "reels": []
+  },
+  {
+   "id": "kadai",
+   "name": "Kadai paneer + rice",
+   "category": "Lunch & dinner · veg",
+   "source": "Handbook p.29",
+   "veg": true,
+   "kcal": 449,
+   "protein": 42,
+   "carbs": 51,
+   "fat": 10,
+   "ingredients": [
+    "200 g low-fat paneer",
+    "150 g capsicum, 1 small onion, 1 tomato (puréed)",
+    "1 tsp ginger-garlic paste, 1 tsp kadai masala (coarsely crushed coriander, chilli, cumin)",
+    "5 g oil",
+    "35 g raw rice (100 g cooked)"
+   ],
+   "steps": [
+    "Toss capsicum and onion on high heat 2–3 min; set aside.",
+    "Cook paste, tomato and kadai masala until thick.",
+    "Add paneer and vegetables, toss 2 min."
+   ],
+   "tip": "Handbook p.29.",
+   "reels": []
+  },
+  {
+   "id": "soyacurry",
+   "name": "Soya chunks curry + rice",
+   "category": "Lunch & dinner · veg",
+   "source": "Handbook p.33",
+   "veg": true,
+   "kcal": 541,
+   "protein": 42,
+   "carbs": 77,
+   "fat": 6,
+   "ingredients": [
+    "70 g dry soya chunks",
+    "1 small onion, 1 tomato",
+    "1 tsp ginger-garlic paste, turmeric, chilli, garam masala, coriander powder",
+    "5 g oil",
+    "50 g raw rice (150 g cooked)"
+   ],
+   "steps": [
+    "Boil soya chunks 5 min, rinse in cold water, squeeze hard.",
+    "Cook onion, paste, tomato and spices into a masala.",
+    "Add soya and ½ cup water, simmer 8–10 min."
+   ],
+   "tip": "Handbook p.33.",
+   "reels": []
+  },
+  {
+   "id": "soyakeema",
+   "name": "Soya keema + rice",
+   "category": "Lunch & dinner · veg",
+   "source": "Handbook p.35",
+   "veg": true,
+   "kcal": 460,
+   "protein": 38,
+   "carbs": 63,
+   "fat": 6,
+   "ingredients": [
+    "60 g soya granules (or chopped chunks)",
+    "1 small onion, 1 tomato, 50 g green peas",
+    "1 tsp ginger-garlic paste, turmeric, chilli, garam masala",
+    "5 g oil",
+    "35 g raw rice (100 g cooked)"
+   ],
+   "steps": [
+    "Soak granules in hot water 5 min; squeeze dry.",
+    "Cook the onion-tomato masala, add granules and peas.",
+    "Cover and cook 6–8 min until dry."
+   ],
+   "tip": "Handbook p.35.",
+   "reels": []
+  },
+  {
+   "id": "eggbites",
+   "name": "Air fryer egg muffin bites",
+   "category": "Snack (swap)",
+   "source": "Handbook p.41",
+   "veg": false,
+   "kcal": 371,
+   "protein": 34,
+   "carbs": 4,
+   "fat": 25,
+   "ingredients": [
+    "4 eggs",
+    "50 g spinach, chopped",
+    "30 g low-fat cheese"
+   ],
+   "steps": [
+    "Whisk everything with salt and pepper.",
+    "Pour into silicone moulds.",
+    "Air-fry at 160 °C for 10–12 min."
+   ],
+   "tip": "Handbook p.41. Half a batch makes a 190 kcal snack.",
+   "reels": []
+  },
+  {
+   "id": "pepperfry",
+   "name": "Chicken pepper fry (Chettinad-style) + rice + salad",
+   "category": "Lunch & dinner",
+   "source": "Added for your plan",
+   "veg": false,
+   "kcal": 467,
+   "protein": 39,
+   "carbs": 51,
+   "fat": 10,
+   "ingredients": [
+    "150 g chicken breast, cubed",
+    "70 g onion, 50 g tomato, curry leaves",
+    "1 tsp crushed black pepper, ½ tsp fennel, 1 tsp coriander powder, ½ tsp chilli, ½ tsp ginger-garlic paste",
+    "5 g oil",
+    "50 g raw rice (150 g cooked)",
+    "100 g cucumber salad"
+   ],
+   "steps": [
+    "Marinate chicken with turmeric, salt and ginger-garlic for 15 min.",
+    "Splutter fennel and curry leaves in oil, sauté onion golden, add tomato and powders.",
+    "Add chicken, cook covered 8 min, then uncovered until dry, finishing with the pepper."
+   ],
+   "tip": "Served with protein sambar on Wednesday.",
+   "reels": []
+  },
+  {
+   "id": "pulusu",
+   "name": "Andhra fish pulusu + rice",
+   "category": "Lunch & dinner",
+   "source": "Added for your plan",
+   "veg": false,
+   "kcal": 447,
+   "protein": 34,
+   "carbs": 54,
+   "fat": 9,
+   "ingredients": [
+    "150 g fish (rohu, seer, pomfret)",
+    "10 g tamarind soaked in 200 ml water",
+    "50 g onion, 2 green chillies, 100 g tomato",
+    "Turmeric, 1 tsp chilli, 1 tsp coriander powder, pinch fenugreek, curry leaves",
+    "5 g oil",
+    "50 g raw rice (150 g cooked)"
+   ],
+   "steps": [
+    "Temper mustard, fenugreek and curry leaves in oil; sauté onion and chillies.",
+    "Add tomato and powders, then the tamarind water; simmer 8 min.",
+    "Slide in the fish and simmer 8–10 min without stirring."
+   ],
+   "tip": "Tastes better the next day.",
+   "reels": []
+  },
+  {
+   "id": "prawn",
+   "name": "Prawn masala (Kerala-style roast) + 1½ chapati",
+   "category": "Lunch & dinner",
+   "source": "Added for your plan",
+   "veg": false,
+   "kcal": 382,
+   "protein": 37,
+   "carbs": 43,
+   "fat": 7,
+   "ingredients": [
+    "150 g cleaned prawns",
+    "70 g onion, 100 g tomato, curry leaves",
+    "1 tsp ginger-garlic paste, ½ tsp pepper, ½ tsp garam masala, turmeric, chilli",
+    "5 g coconut oil",
+    "1½ chapatis (45 g atta)"
+   ],
+   "steps": [
+    "Rub prawns with turmeric, chilli and salt for 10 min.",
+    "Sauté curry leaves and onion in oil, add paste, tomato and spices until thick.",
+    "Add prawns and roast 4–5 min until just curled."
+   ],
+   "tip": "Overcooked prawns go rubbery; stop at 5 min.",
+   "reels": []
+  },
+  {
+   "id": "biryani",
+   "name": "Lean chicken biryani + cucumber raita",
+   "category": "Lunch & dinner",
+   "source": "Added for your plan",
+   "veg": false,
+   "kcal": 585,
+   "protein": 44,
+   "carbs": 60,
+   "fat": 16,
+   "ingredients": [
+    "150 g chicken breast",
+    "60 g raw basmati, soaked 20 min",
+    "50 g curd + ginger-garlic + 1 tsp biryani masala + mint (marinade)",
+    "50 g onion, sliced; whole spices",
+    "7 g ghee",
+    "Raita: 100 g curd, 50 g cucumber, roasted cumin"
+   ],
+   "steps": [
+    "Marinate the chicken 30 min.",
+    "Fry onion golden in ghee with whole spices, add chicken and cook 10 min.",
+    "Add rice and 120 ml water, cover on the lowest heat 15 min; rest 5 min."
+   ],
+   "tip": "Sunday treat that still fits the numbers.",
+   "reels": []
+  },
+  {
+   "id": "sprouts",
+   "name": "Moong sprouts chaat",
+   "category": "Snack",
+   "source": "Added for your plan",
+   "veg": true,
+   "kcal": 152,
+   "protein": 10,
+   "carbs": 28,
+   "fat": 1,
+   "ingredients": [
+    "40 g whole green moong (sprouted, about 1 cup)",
+    "20 g onion, 30 g tomato, lemon, chaat masala, coriander"
+   ],
+   "steps": [
+    "Steam the sprouts 3 min, or eat raw.",
+    "Toss with everything else."
+   ],
+   "tip": "Soak Saturday night; sprouts are ready by Monday.",
+   "reels": []
+  },
+  {
+   "id": "chana_bm",
+   "name": "Roasted chana + buttermilk",
+   "category": "Snack",
+   "source": "Added for your plan",
+   "veg": true,
+   "kcal": 156,
+   "protein": 8,
+   "carbs": 20,
+   "fat": 4,
+   "ingredients": [
+    "30 g roasted chana",
+    "Buttermilk: 75 g curd, 200 ml water, salt, roasted cumin"
+   ],
+   "steps": [
+    "Whisk the buttermilk.",
+    "Eat the chana with it."
+   ],
+   "tip": "",
+   "reels": []
+  },
+  {
+   "id": "fruitcurd",
+   "name": "Apple + Greek yogurt / hung curd",
+   "category": "Snack",
+   "source": "Added for your plan",
+   "veg": true,
+   "kcal": 168,
+   "protein": 10,
+   "carbs": 29,
+   "fat": 2,
+   "ingredients": [
+    "1 apple",
+    "100 g Greek yogurt or hung curd"
+   ],
+   "steps": [
+    "Slice the apple and eat with the yogurt, cinnamon optional."
+   ],
+   "tip": "Hang 400 g curd overnight to get about 200 g.",
+   "reels": []
+  },
+  {
+   "id": "kalachana",
+   "name": "Kala chana chaat",
+   "category": "Snack",
+   "source": "Added for your plan",
+   "veg": true,
+   "kcal": 157,
+   "protein": 7,
+   "carbs": 27,
+   "fat": 2,
+   "ingredients": [
+    "40 g kala chana, soaked overnight and boiled",
+    "20 g onion, 30 g tomato, lemon, chaat masala"
+   ],
+   "steps": [
+    "Toss everything together."
+   ],
+   "tip": "",
+   "reels": []
+  },
+  {
+   "id": "eggs2",
+   "name": "2 boiled eggs + cucumber",
+   "category": "Snack",
+   "source": "Added for your plan",
+   "veg": false,
+   "kcal": 159,
+   "protein": 13,
+   "carbs": 4,
+   "fat": 10,
+   "ingredients": [
+    "2 eggs",
+    "100 g cucumber, pepper, salt"
+   ],
+   "steps": [
+    "Boil 9 min, peel and season."
+   ],
+   "tip": "",
+   "reels": []
+  },
+  {
+   "id": "makhana",
+   "name": "Roasted makhana + buttermilk",
+   "category": "Snack",
+   "source": "Added for your plan",
+   "veg": true,
+   "kcal": 150,
+   "protein": 5,
+   "carbs": 23,
+   "fat": 4,
+   "ingredients": [
+    "25 g makhana",
+    "2 g ghee or oil, salt, pepper",
+    "Glass of buttermilk"
+   ],
+   "steps": [
+    "Roast makhana in the ghee on low heat 5–6 min until crisp.",
+    "Season; serve with buttermilk."
+   ],
+   "tip": "",
+   "reels": []
+  },
+  {
+   "id": "okra",
+   "name": "Crispy okra fries + buttermilk",
+   "category": "Snack",
+   "source": "From your reel",
+   "veg": true,
+   "kcal": 154,
+   "protein": 5,
+   "carbs": 24,
+   "fat": 5,
+   "ingredients": [
+    "150 g okra (bhindi), ends trimmed, left whole",
+    "10 g cornflour",
+    "Pinch of salt, ½ tsp garam masala, chaat masala",
+    "2 g oil spray",
+    "Glass of buttermilk"
+   ],
+   "steps": [
+    "Boil the okra in salted water for 2 min and drain well.",
+    "Toss while warm with cornflour and garam masala.",
+    "Air-fry at 200 °C for 10 min, then toss 1–2 min in a pan with the oil spray.",
+    "Dust with chaat masala."
+   ],
+   "tip": "Low in protein, so it rides with buttermilk as a snack or sits beside dal as a side.",
+   "reels": [
+    "https://www.instagram.com/reel/DcqWx_tA5Xs/"
+   ]
+  },
+  {
+   "id": "dumplings",
+   "name": "Cabbage chicken dumplings (5 rolls)",
+   "category": "Lunch & dinner",
+   "source": "From your reel",
+   "veg": false,
+   "kcal": 506,
+   "protein": 61,
+   "carbs": 17,
+   "fat": 20,
+   "ingredients": [
+    "200 g chicken breast",
+    "2 eggs",
+    "5–6 cabbage leaves (about 150 g), from a boiled cabbage",
+    "50 g onion, 2 garlic cloves, 1 green chilli, all finely chopped",
+    "5 g oil, salt, schezwan or green chutney to dip"
+   ],
+   "steps": [
+    "Boil the whole cabbage 10–15 min and peel off whole leaves.",
+    "Blend chicken, eggs and salt to a paste; mix in onion, garlic and chilli.",
+    "Spoon filling onto each leaf and roll into a sealed parcel.",
+    "Sear in the oiled pan on all sides, then cover and cook 8–10 min until the filling is firm."
+   ],
+   "tip": "The reel's single serving. No rice: 61 g protein for 506 kcal. Keep the dip to 1 tbsp.",
+   "reels": [
+    "https://www.instagram.com/reel/DdEZlGMNdP2/"
+   ]
+  },
+  {
+   "id": "malai",
+   "name": "Malai chicken + rice + salad",
+   "category": "Lunch & dinner",
+   "source": "From your reel",
+   "veg": false,
+   "kcal": 385,
+   "protein": 41,
+   "carbs": 34,
+   "fat": 8,
+   "ingredients": [
+    "150 g boneless chicken (half the reel's 300 g batch)",
+    "15 g curd, 5 g ginger-garlic paste, salt, pepper",
+    "15 g mozzarella, chopped coriander",
+    "35 g raw rice (100 g cooked) + 100 g cucumber salad"
+   ],
+   "steps": [
+    "Mix chicken with everything except rice and salad; rest 5 min in the fridge.",
+    "Air-fry at 195 °C for 15 min, pouring leftover marinade on top.",
+    "Serve with rice and salad."
+   ],
+   "tip": "Make the full 300 g batch and eat the second half on Sunday.",
+   "reels": [
+    "https://www.instagram.com/reel/DZxgQMDTxro/"
+   ]
+  },
+  {
+   "id": "tikkabowl",
+   "name": "Paneer tikka rice bowl",
+   "category": "Lunch & dinner · veg",
+   "source": "From your reel",
+   "veg": true,
+   "kcal": 557,
+   "protein": 43,
+   "carbs": 62,
+   "fat": 13,
+   "ingredients": [
+    "200 g low-fat paneer, cubed",
+    "1 capsicum and 1 onion, cut into squares",
+    "50 g curd, 1 tsp coriander-cumin, 1 tsp chilli, garam masala, chaat masala, salt",
+    "5 g oil",
+    "50 g raw rice (150 g cooked)"
+   ],
+   "steps": [
+    "Coat paneer and vegetables in curd and spices.",
+    "Cook in the oiled pan, covered, 4–5 min.",
+    "Add the rice and toss until hot."
+   ],
+   "tip": "The reel says 70 g protein. That needs about 350 g paneer; this 200 g portion gives 43 g.",
+   "reels": [
+    "https://www.instagram.com/reel/DTXtM9NEXCa/"
+   ]
+  },
+  {
+   "id": "cgfr",
+   "name": "Chilli garlic paneer fried rice",
+   "category": "Lunch & dinner · veg",
+   "source": "From your reel",
+   "veg": true,
+   "kcal": 484,
+   "protein": 35,
+   "carbs": 61,
+   "fat": 10,
+   "ingredients": [
+    "150 g low-fat paneer, cubed",
+    "Paste: 5 garlic cloves, 1½ tsp chilli, 1 tsp cumin, 1 tsp garam masala, 1 tsp salt",
+    "5 g oil (the reel uses 10 g butter)",
+    "50 g onion, 150 g mixed veg (beans, carrot, corn, peas, capsicum)",
+    "50 g raw basmati (150 g cooked), coriander"
+   ],
+   "steps": [
+    "Pound the paste ingredients with a splash of water.",
+    "Fry paste and onion in oil 2 min, add paneer, then the vegetables.",
+    "Add rice and coriander; toss until coated."
+   ],
+   "tip": "The reel's version is 530 kcal / 33 g protein. Less fat and rice brings it to 484 kcal.",
+   "reels": [
+    "https://www.instagram.com/reel/DXGAJqODMht/"
+   ]
+  },
+  {
+   "id": "kabab",
+   "name": "Air-fryer chicken kabab + 2 chapatis + salad",
+   "category": "Lunch & dinner",
+   "source": "From your reel",
+   "veg": false,
+   "kcal": 437,
+   "protein": 44,
+   "carbs": 50,
+   "fat": 6,
+   "ingredients": [
+    "150 g skinless chicken breast or thigh (the reel uses skin-on)",
+    "A little beaten egg (1 egg covers 500 g chicken)",
+    "1 tsp cornflour, 1–2 tsp chicken kabab masala",
+    "2 chapatis + 100 g cucumber-onion salad"
+   ],
+   "steps": [
+    "Mix chicken with egg, cornflour and masala; rest 15 min.",
+    "Air-fry at 180 °C for 18–20 min, shaking once.",
+    "Serve with chapatis and salad."
+   ],
+   "tip": "Skinless chicken saves about 150 kcal over the reel's skin-on pieces.",
+   "reels": [
+    "https://www.instagram.com/reel/Dak2VitzaFc/"
+   ]
+  },
+  {
+   "id": "greensoya",
+   "name": "Green soya rice (hariyali / nati style) + curd",
+   "category": "Lunch & dinner · veg",
+   "source": "From your reel",
+   "veg": true,
+   "kcal": 563,
+   "protein": 36,
+   "carbs": 78,
+   "fat": 11,
+   "ingredients": [
+    "50 g soya chunks, soaked and squeezed",
+    "60 g raw rice",
+    "Green paste: 1 cup coriander, ½ cup mint, 3 green chillies, 5 garlic, ginger, 2 cloves, small cinnamon, ½ tsp cumin, ½ tsp fennel",
+    "50 g onion, 7 g oil, garam masala, salt",
+    "100 g curd on the side"
+   ],
+   "steps": [
+    "Blend the paste with a little water.",
+    "Fry onion and soya in oil until golden (about 8 min).",
+    "Add paste and cook 3 min; add garam masala, salt, rice and 150 ml water.",
+    "Bring to a boil, cover and cook on low 15–20 min (or stir the masala into 180 g cooked rice, nati style)."
+   ],
+   "tip": "Combines both soya rice reels (hariyali and nati). The reels use 2–3 tbsp oil; 7 g keeps it at 563 kcal.",
+   "reels": [
+    "https://www.instagram.com/reel/Dc7uZfKTk1s/",
+    "https://www.instagram.com/reel/DcqoMeGvrF8/"
+   ]
+  },
+  {
+   "id": "koreansoya",
+   "name": "Korean-style crispy soya + stir-fried veg",
+   "category": "Lunch & dinner · veg",
+   "source": "From your reel",
+   "veg": true,
+   "kcal": 455,
+   "protein": 38,
+   "carbs": 60,
+   "fat": 8,
+   "ingredients": [
+    "60 g soya chunks, boiled with salt and ginger-garlic, drained",
+    "10 g rice flour, 10 g cornflour, ½ tsp chilli, 2 tsp soy sauce",
+    "Sauce: 5 g oil, 40 g onion, 2 garlic cloves, 1 tbsp gochujang (or schezwan sauce), 1 tsp ketchup, chilli, splash of water",
+    "Sesame seeds, spring onion",
+    "150 g mixed vegetables, stir-fried"
+   ],
+   "steps": [
+    "Coat the drained soya in flours, chilli and soy sauce; air-fry until crisp.",
+    "Fry onion and garlic in oil, add gochujang, ketchup, chilli and water; simmer 1 min.",
+    "Toss the soya in the sauce 2–3 min; top with sesame and spring onion.",
+    "Serve with the stir-fried vegetables."
+   ],
+   "tip": "Gochujang is in most supermarkets and online; schezwan sauce is a fine swap.",
+   "reels": [
+    "https://www.instagram.com/reel/Dba2XvsCgD2/"
+   ]
+  },
+  {
+   "id": "eggroast",
+   "name": "Egg ghee roast (light) + 1 chapati",
+   "category": "Lunch & dinner",
+   "source": "From your reel",
+   "veg": false,
+   "kcal": 467,
+   "protein": 31,
+   "carbs": 31,
+   "fat": 22,
+   "ingredients": [
+    "3 eggs + 2 egg whites, softly scrambled",
+    "Masala: 6–8 soaked byadagi chillies, 5 garlic, 5 g cashews, 1 tbsp tamarind water",
+    "Roast and grind: 1 tbsp coriander seeds, 1 tsp cumin, ½ tsp pepper, pinch methi, cinnamon, 2 cloves, curry leaves",
+    "5 g ghee (the reel uses 3–4 tbsp)",
+    "1 chapati (or 2 small neer dosas)"
+   ],
+   "steps": [
+    "Scramble the eggs and whites softly; set aside.",
+    "Dry-roast the whole spices and grind; add chillies, garlic, cashews and tamarind and grind to a paste.",
+    "Cook the paste in ghee with curry leaves until it thickens, adding water as needed.",
+    "Fold in the eggs, cover 1 min."
+   ],
+   "tip": "Cutting the ghee from 4 tbsp to 1 tsp saves about 450 kcal. Grind a double batch of masala and freeze half.",
+   "reels": [
+    "https://www.instagram.com/reel/DcIfLPAyCv4/"
+   ]
+  },
+  {
+   "id": "pasta",
+   "name": "High-protein paneer pasta",
+   "category": "Lunch & dinner · veg",
+   "source": "From your reel",
+   "veg": true,
+   "kcal": 540,
+   "protein": 49,
+   "carbs": 65,
+   "fat": 9,
+   "ingredients": [
+    "60 g dry macaroni",
+    "Sauce: 200 g low-fat paneer, 3 garlic cloves, 2 dried red chillies, 100 ml double-toned milk, salt",
+    "50 g onion, 100 g tomato",
+    "Oregano, peri-peri masala"
+   ],
+   "steps": [
+    "Cook pasta with onion, tomato, salt and just enough water until the water is absorbed.",
+    "Blend paneer, garlic, chillies, milk and salt smooth.",
+    "Stir the sauce into the pasta, cover on low 5 min.",
+    "Season with oregano and peri-peri."
+   ],
+   "tip": "The reel's 62 g protein covers 1–2 servings; one serving here is 49 g.",
+   "reels": [
+    "https://www.instagram.com/reel/DcD-L6Tz3bz/"
+   ]
+  },
+  {
+   "id": "corichicken",
+   "name": "Coriander butter garlic chicken + 1 chapati",
+   "category": "Lunch & dinner",
+   "source": "From your reel",
+   "veg": false,
+   "kcal": 485,
+   "protein": 55,
+   "carbs": 35,
+   "fat": 13,
+   "ingredients": [
+    "180 g chicken breast/thigh cubes",
+    "1 tsp cornflour, pinch baking soda, salt, pepper, dash of soy sauce",
+    "Purée: 50 g low-fat paneer (soaked 15 min), big handful coriander, 1 green chilli",
+    "5 g butter + 2 g oil, 40 g onion, lots of garlic, ½ tsp garam masala, pinch sugar",
+    "Lemon, chilli flakes; 1 chapati"
+   ],
+   "steps": [
+    "Marinate chicken 10–15 min.",
+    "Sear on high heat 3–4 min per side; set aside.",
+    "Melt butter, fry garlic and onion, add the purée and seasonings.",
+    "Return the chicken, toss, finish with lemon and chilli flakes."
+   ],
+   "tip": "Reel stated 480 kcal / 58 g protein. The stock cube is optional; it is very salty.",
+   "reels": [
+    "https://www.instagram.com/reel/DbyCyIizCEp/"
+   ]
+  },
+  {
+   "id": "banana",
+   "name": "Pre-workout: banana + black coffee",
+   "category": "Basics",
+   "source": "Basic",
+   "veg": true,
+   "kcal": 105,
+   "protein": 1,
+   "carbs": 27,
+   "fat": 0,
+   "ingredients": [
+    "1 medium banana",
+    "Black coffee (no sugar)"
+   ],
+   "steps": [
+    "Eat 30–45 min before training."
+   ],
+   "tip": "Skip it on rest days, or if you train fasted.",
+   "reels": []
+  },
+  {
+   "id": "shake",
+   "name": "Post-workout whey shake (1 scoop in 250 ml water)",
+   "category": "Basics",
+   "source": "Basic",
+   "veg": true,
+   "kcal": 153,
+   "protein": 25,
+   "carbs": 9,
+   "fat": 2,
+   "ingredients": [
+    "1 scoop of your whey (38.5 g)",
+    "250 ml water"
+   ],
+   "steps": [
+    "Shake and drink within an hour after training."
+   ],
+   "tip": "Milk instead of water adds about 90 kcal per 200 ml.",
+   "reels": []
+  },
+  {
+   "id": "buttermilk",
+   "name": "Glass of buttermilk (masala majjiga/chaas)",
+   "category": "Basics",
+   "source": "Basic",
+   "veg": true,
+   "kcal": 45,
+   "protein": 2,
+   "carbs": 3,
+   "fat": 2,
+   "ingredients": [
+    "75 g low-fat curd",
+    "200 ml water",
+    "Salt, roasted cumin, curry leaves"
+   ],
+   "steps": [
+    "Whisk everything together."
+   ],
+   "tip": "",
+   "reels": []
+  }
+ ],
+ "weeks": [
+  {
+   "id": "A",
+   "title": "Week A",
+   "subtitle": "Handbook",
+   "days": [
+    {
+     "day": "Monday",
+     "kind": "Training",
+     "veg": false,
+     "meals": [
+      {
+       "time": "6:00",
+       "label": "Pre-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "banana"
+       ]
+      },
+      {
+       "time": "7:30",
+       "label": "Post-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "shake"
+       ]
+      },
+      {
+       "time": "8:30",
+       "label": "Breakfast",
+       "mealType": "BREAKFAST",
+       "recipes": [
+        "idli"
+       ]
+      },
+      {
+       "time": "13:30",
+       "label": "Lunch",
+       "mealType": "LUNCH",
+       "recipes": [
+        "chx_rice"
+       ]
+      },
+      {
+       "time": "17:00",
+       "label": "Snack",
+       "mealType": "SNACK",
+       "recipes": [
+        "sprouts"
+       ]
+      },
+      {
+       "time": "20:30",
+       "label": "Dinner",
+       "mealType": "DINNER",
+       "recipes": [
+        "fishtikka"
+       ]
+      }
+     ]
+    },
+    {
+     "day": "Tuesday",
+     "kind": "Training · Veg day",
+     "veg": true,
+     "meals": [
+      {
+       "time": "6:00",
+       "label": "Pre-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "banana"
+       ]
+      },
+      {
+       "time": "7:30",
+       "label": "Post-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "shake"
+       ]
+      },
+      {
+       "time": "8:30",
+       "label": "Breakfast",
+       "mealType": "BREAKFAST",
+       "recipes": [
+        "pesarattu_p"
+       ]
+      },
+      {
+       "time": "13:30",
+       "label": "Lunch",
+       "mealType": "LUNCH",
+       "recipes": [
+        "soyacurry"
+       ]
+      },
+      {
+       "time": "17:00",
+       "label": "Snack",
+       "mealType": "SNACK",
+       "recipes": [
+        "chana_bm"
+       ]
+      },
+      {
+       "time": "20:30",
+       "label": "Dinner",
+       "mealType": "DINNER",
+       "recipes": [
+        "palak"
+       ]
+      }
+     ]
+    },
+    {
+     "day": "Wednesday",
+     "kind": "Training",
+     "veg": false,
+     "meals": [
+      {
+       "time": "6:00",
+       "label": "Pre-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "banana"
+       ]
+      },
+      {
+       "time": "7:30",
+       "label": "Post-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "shake"
+       ]
+      },
+      {
+       "time": "8:30",
+       "label": "Breakfast",
+       "mealType": "BREAKFAST",
+       "recipes": [
+        "bhurji"
+       ]
+      },
+      {
+       "time": "13:30",
+       "label": "Lunch",
+       "mealType": "LUNCH",
+       "recipes": [
+        "pepperfry",
+        "sambar"
+       ]
+      },
+      {
+       "time": "17:00",
+       "label": "Snack",
+       "mealType": "SNACK",
+       "recipes": [
+        "fruitcurd"
+       ]
+      },
+      {
+       "time": "20:30",
+       "label": "Dinner",
+       "mealType": "DINNER",
+       "recipes": [
+        "keema"
+       ]
+      }
+     ]
+    },
+    {
+     "day": "Thursday",
+     "kind": "Training · Veg day",
+     "veg": true,
+     "meals": [
+      {
+       "time": "6:00",
+       "label": "Pre-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "banana"
+       ]
+      },
+      {
+       "time": "7:30",
+       "label": "Post-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "shake"
+       ]
+      },
+      {
+       "time": "8:30",
+       "label": "Breakfast",
+       "mealType": "BREAKFAST",
+       "recipes": [
+        "chilla"
+       ]
+      },
+      {
+       "time": "13:30",
+       "label": "Lunch",
+       "mealType": "LUNCH",
+       "recipes": [
+        "kadai",
+        "sambar"
+       ]
+      },
+      {
+       "time": "17:00",
+       "label": "Snack",
+       "mealType": "SNACK",
+       "recipes": [
+        "kalachana"
+       ]
+      },
+      {
+       "time": "20:30",
+       "label": "Dinner",
+       "mealType": "DINNER",
+       "recipes": [
+        "soyakeema"
+       ]
+      }
+     ]
+    },
+    {
+     "day": "Friday",
+     "kind": "Training",
+     "veg": false,
+     "meals": [
+      {
+       "time": "6:00",
+       "label": "Pre-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "banana"
+       ]
+      },
+      {
+       "time": "7:30",
+       "label": "Post-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "shake"
+       ]
+      },
+      {
+       "time": "8:30",
+       "label": "Breakfast",
+       "mealType": "BREAKFAST",
+       "recipes": [
+        "oatsbowl"
+       ]
+      },
+      {
+       "time": "13:30",
+       "label": "Lunch",
+       "mealType": "LUNCH",
+       "recipes": [
+        "pulusu",
+        "buttermilk"
+       ]
+      },
+      {
+       "time": "17:00",
+       "label": "Snack",
+       "mealType": "SNACK",
+       "recipes": [
+        "eggs2"
+       ]
+      },
+      {
+       "time": "20:30",
+       "label": "Dinner",
+       "mealType": "DINNER",
+       "recipes": [
+        "tandoori"
+       ]
+      }
+     ]
+    },
+    {
+     "day": "Saturday",
+     "kind": "Training (optional)",
+     "veg": false,
+     "meals": [
+      {
+       "time": "6:00",
+       "label": "Pre-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "banana"
+       ]
+      },
+      {
+       "time": "7:30",
+       "label": "Post-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "shake"
+       ]
+      },
+      {
+       "time": "8:30",
+       "label": "Breakfast",
+       "mealType": "BREAKFAST",
+       "recipes": [
+        "pesarattu_e"
+       ]
+      },
+      {
+       "time": "13:30",
+       "label": "Lunch",
+       "mealType": "LUNCH",
+       "recipes": [
+        "chx_chapati"
+       ]
+      },
+      {
+       "time": "17:00",
+       "label": "Snack",
+       "mealType": "SNACK",
+       "recipes": [
+        "makhana"
+       ]
+      },
+      {
+       "time": "20:30",
+       "label": "Dinner",
+       "mealType": "DINNER",
+       "recipes": [
+        "prawn"
+       ]
+      }
+     ]
+    },
+    {
+     "day": "Sunday",
+     "kind": "Rest day",
+     "veg": false,
+     "meals": [
+      {
+       "time": "8:30",
+       "label": "Breakfast",
+       "mealType": "BREAKFAST",
+       "recipes": [
+        "oatswhey"
+       ]
+      },
+      {
+       "time": "13:30",
+       "label": "Lunch",
+       "mealType": "LUNCH",
+       "recipes": [
+        "biryani"
+       ]
+      },
+      {
+       "time": "17:00",
+       "label": "Snack",
+       "mealType": "SNACK",
+       "recipes": [
+        "eggs2"
+       ]
+      },
+      {
+       "time": "20:30",
+       "label": "Dinner",
+       "mealType": "DINNER",
+       "recipes": [
+        "fishbowl"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "title": "Week B",
+   "subtitle": "Your reels",
+   "days": [
+    {
+     "day": "Monday",
+     "kind": "Training",
+     "veg": false,
+     "meals": [
+      {
+       "time": "6:00",
+       "label": "Pre-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "banana"
+       ]
+      },
+      {
+       "time": "7:30",
+       "label": "Post-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "shake"
+       ]
+      },
+      {
+       "time": "8:30",
+       "label": "Breakfast",
+       "mealType": "BREAKFAST",
+       "recipes": [
+        "bhurji"
+       ]
+      },
+      {
+       "time": "13:30",
+       "label": "Lunch",
+       "mealType": "LUNCH",
+       "recipes": [
+        "malai",
+        "sambar"
+       ]
+      },
+      {
+       "time": "17:00",
+       "label": "Snack",
+       "mealType": "SNACK",
+       "recipes": [
+        "okra"
+       ]
+      },
+      {
+       "time": "20:30",
+       "label": "Dinner",
+       "mealType": "DINNER",
+       "recipes": [
+        "dumplings"
+       ]
+      }
+     ]
+    },
+    {
+     "day": "Tuesday",
+     "kind": "Training · Veg day",
+     "veg": true,
+     "meals": [
+      {
+       "time": "6:00",
+       "label": "Pre-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "banana"
+       ]
+      },
+      {
+       "time": "7:30",
+       "label": "Post-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "shake"
+       ]
+      },
+      {
+       "time": "8:30",
+       "label": "Breakfast",
+       "mealType": "BREAKFAST",
+       "recipes": [
+        "chilla"
+       ]
+      },
+      {
+       "time": "13:30",
+       "label": "Lunch",
+       "mealType": "LUNCH",
+       "recipes": [
+        "pasta",
+        "buttermilk"
+       ]
+      },
+      {
+       "time": "17:00",
+       "label": "Snack",
+       "mealType": "SNACK",
+       "recipes": [
+        "sprouts"
+       ]
+      },
+      {
+       "time": "20:30",
+       "label": "Dinner",
+       "mealType": "DINNER",
+       "recipes": [
+        "koreansoya"
+       ]
+      }
+     ]
+    },
+    {
+     "day": "Wednesday",
+     "kind": "Training",
+     "veg": false,
+     "meals": [
+      {
+       "time": "6:00",
+       "label": "Pre-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "banana"
+       ]
+      },
+      {
+       "time": "7:30",
+       "label": "Post-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "shake"
+       ]
+      },
+      {
+       "time": "8:30",
+       "label": "Breakfast",
+       "mealType": "BREAKFAST",
+       "recipes": [
+        "idli"
+       ]
+      },
+      {
+       "time": "13:30",
+       "label": "Lunch",
+       "mealType": "LUNCH",
+       "recipes": [
+        "corichicken"
+       ]
+      },
+      {
+       "time": "17:00",
+       "label": "Snack",
+       "mealType": "SNACK",
+       "recipes": [
+        "fruitcurd"
+       ]
+      },
+      {
+       "time": "20:30",
+       "label": "Dinner",
+       "mealType": "DINNER",
+       "recipes": [
+        "eggroast"
+       ]
+      }
+     ]
+    },
+    {
+     "day": "Thursday",
+     "kind": "Training · Veg day",
+     "veg": true,
+     "meals": [
+      {
+       "time": "6:00",
+       "label": "Pre-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "banana"
+       ]
+      },
+      {
+       "time": "7:30",
+       "label": "Post-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "shake"
+       ]
+      },
+      {
+       "time": "8:30",
+       "label": "Breakfast",
+       "mealType": "BREAKFAST",
+       "recipes": [
+        "pesarattu_p"
+       ]
+      },
+      {
+       "time": "13:30",
+       "label": "Lunch",
+       "mealType": "LUNCH",
+       "recipes": [
+        "greensoya"
+       ]
+      },
+      {
+       "time": "17:00",
+       "label": "Snack",
+       "mealType": "SNACK",
+       "recipes": [
+        "fruitcurd"
+       ]
+      },
+      {
+       "time": "20:30",
+       "label": "Dinner",
+       "mealType": "DINNER",
+       "recipes": [
+        "palak"
+       ]
+      }
+     ]
+    },
+    {
+     "day": "Friday",
+     "kind": "Training",
+     "veg": false,
+     "meals": [
+      {
+       "time": "6:00",
+       "label": "Pre-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "banana"
+       ]
+      },
+      {
+       "time": "7:30",
+       "label": "Post-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "shake"
+       ]
+      },
+      {
+       "time": "8:30",
+       "label": "Breakfast",
+       "mealType": "BREAKFAST",
+       "recipes": [
+        "oatsbowl"
+       ]
+      },
+      {
+       "time": "13:30",
+       "label": "Lunch",
+       "mealType": "LUNCH",
+       "recipes": [
+        "tandoori"
+       ]
+      },
+      {
+       "time": "17:00",
+       "label": "Snack",
+       "mealType": "SNACK",
+       "recipes": [
+        "eggs2"
+       ]
+      },
+      {
+       "time": "20:30",
+       "label": "Dinner",
+       "mealType": "DINNER",
+       "recipes": [
+        "cgfr"
+       ]
+      }
+     ]
+    },
+    {
+     "day": "Saturday",
+     "kind": "Training (optional)",
+     "veg": false,
+     "meals": [
+      {
+       "time": "6:00",
+       "label": "Pre-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "banana"
+       ]
+      },
+      {
+       "time": "7:30",
+       "label": "Post-workout",
+       "mealType": "SNACK",
+       "recipes": [
+        "shake"
+       ]
+      },
+      {
+       "time": "8:30",
+       "label": "Breakfast",
+       "mealType": "BREAKFAST",
+       "recipes": [
+        "pesarattu_e"
+       ]
+      },
+      {
+       "time": "13:30",
+       "label": "Lunch",
+       "mealType": "LUNCH",
+       "recipes": [
+        "tikkabowl"
+       ]
+      },
+      {
+       "time": "17:00",
+       "label": "Snack",
+       "mealType": "SNACK",
+       "recipes": [
+        "sprouts"
+       ]
+      },
+      {
+       "time": "20:30",
+       "label": "Dinner",
+       "mealType": "DINNER",
+       "recipes": [
+        "kabab"
+       ]
+      }
+     ]
+    },
+    {
+     "day": "Sunday",
+     "kind": "Rest day",
+     "veg": false,
+     "meals": [
+      {
+       "time": "8:30",
+       "label": "Breakfast",
+       "mealType": "BREAKFAST",
+       "recipes": [
+        "oatswhey"
+       ]
+      },
+      {
+       "time": "13:30",
+       "label": "Lunch",
+       "mealType": "LUNCH",
+       "recipes": [
+        "malai",
+        "sambar"
+       ]
+      },
+      {
+       "time": "17:00",
+       "label": "Snack",
+       "mealType": "SNACK",
+       "recipes": [
+        "eggs2"
+       ]
+      },
+      {
+       "time": "20:30",
+       "label": "Dinner",
+       "mealType": "DINNER",
+       "recipes": [
+        "koreansoya"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "groceries": {
+  "A": [
+   {
+    "section": "Meat, fish & eggs",
+    "items": [
+     {
+      "name": "Chicken breast, boneless",
+      "qty": "1 kg",
+      "note": "6 × 150 g; mince one portion for keema"
+     },
+     {
+      "name": "Fish fillets (seer, basa, rohu)",
+      "qty": "450 g",
+      "note": "3 × 150 g"
+     },
+     {
+      "name": "Prawns, cleaned",
+      "qty": "150 g",
+      "note": "about 300 g with shells"
+     },
+     {
+      "name": "Eggs",
+      "qty": "15",
+      "note": "12 used, 3 spare"
+     }
+    ]
+   },
+   {
+    "section": "Dairy",
+    "items": [
+     {
+      "name": "Low-fat / high-protein paneer",
+      "qty": "500 g",
+      "note": "400 g for curries, rest for pesarattu & chilla"
+     },
+     {
+      "name": "Curd (dahi)",
+      "qty": "1.5 kg",
+      "note": "includes 400 g to hang for Greek-style curd"
+     },
+     {
+      "name": "Double-toned milk",
+      "qty": "500 ml",
+      "note": "200 ml used"
+     },
+     {
+      "name": "Whey protein",
+      "qty": "7 scoops",
+      "note": "your 52-scoop tub lasts about 7 weeks"
+     }
+    ]
+   },
+   {
+    "section": "Vegetables",
+    "items": [
+     {
+      "name": "Onion",
+      "qty": "1 kg",
+      "note": ""
+     },
+     {
+      "name": "Tomato",
+      "qty": "1.25 kg",
+      "note": ""
+     },
+     {
+      "name": "Mixed vegetables (beans, carrot, broccoli, cabbage)",
+      "qty": "750 g",
+      "note": "3 × 250 g"
+     },
+     {
+      "name": "Sambar vegetables (drumstick, brinjal, pumpkin, okra)",
+      "qty": "300 g",
+      "note": ""
+     },
+     {
+      "name": "Spinach",
+      "qty": "1 bunch (≈250 g)",
+      "note": ""
+     },
+     {
+      "name": "Capsicum",
+      "qty": "2 medium",
+      "note": ""
+     },
+     {
+      "name": "Cucumber",
+      "qty": "3",
+      "note": ""
+     },
+     {
+      "name": "Green peas (frozen ok)",
+      "qty": "100 g",
+      "note": ""
+     },
+     {
+      "name": "Ginger",
+      "qty": "100 g",
+      "note": ""
+     },
+     {
+      "name": "Garlic",
+      "qty": "1 bulb",
+      "note": ""
+     },
+     {
+      "name": "Green chillies",
+      "qty": "50 g",
+      "note": ""
+     },
+     {
+      "name": "Curry leaves, coriander, mint",
+      "qty": "1 bunch each",
+      "note": ""
+     },
+     {
+      "name": "Lemons",
+      "qty": "4",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "section": "Fruit",
+    "items": [
+     {
+      "name": "Bananas",
+      "qty": "6",
+      "note": "one per training day"
+     },
+     {
+      "name": "Apple",
+      "qty": "1",
+      "note": ""
+     },
+     {
+      "name": "Papaya",
+      "qty": "1 small",
+      "note": "150 g used; eat the rest"
+     },
+     {
+      "name": "Pomegranate",
+      "qty": "1 small",
+      "note": "100 g arils"
+     }
+    ]
+   },
+   {
+    "section": "Grains, dals & snacks",
+    "items": [
+     {
+      "name": "Rice (sona masoori or any)",
+      "qty": "500 g",
+      "note": ""
+     },
+     {
+      "name": "Basmati rice",
+      "qty": "100 g",
+      "note": ""
+     },
+     {
+      "name": "Whole wheat atta",
+      "qty": "150 g",
+      "note": ""
+     },
+     {
+      "name": "Rolled oats",
+      "qty": "120 g",
+      "note": ""
+     },
+     {
+      "name": "Idli batter",
+      "qty": "250 g",
+      "note": "or grind at home"
+     },
+     {
+      "name": "Toor dal",
+      "qty": "100 g",
+      "note": ""
+     },
+     {
+      "name": "Whole green moong",
+      "qty": "200 g",
+      "note": "pesarattu + sprouts"
+     },
+     {
+      "name": "Yellow moong dal",
+      "qty": "60 g",
+      "note": ""
+     },
+     {
+      "name": "Soya chunks / granules",
+      "qty": "150 g",
+      "note": ""
+     },
+     {
+      "name": "Kala chana",
+      "qty": "50 g",
+      "note": ""
+     },
+     {
+      "name": "Roasted chana",
+      "qty": "50 g",
+      "note": ""
+     },
+     {
+      "name": "Makhana",
+      "qty": "30 g",
+      "note": ""
+     },
+     {
+      "name": "Cashews",
+      "qty": "10 g",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "section": "Pantry (check stock)",
+    "items": [
+     {
+      "name": "Cooking oil",
+      "qty": "100 ml",
+      "note": "about 5 g per meal"
+     },
+     {
+      "name": "Coconut oil, ghee",
+      "qty": "small",
+      "note": ""
+     },
+     {
+      "name": "Tamarind",
+      "qty": "30 g",
+      "note": ""
+     },
+     {
+      "name": "Spices",
+      "qty": "",
+      "note": "turmeric, chilli, Kashmiri chilli, coriander & cumin powder, cumin & mustard seeds, garam masala, sambar powder, tandoori/tikka masala, black pepper, fennel, fenugreek, hing, kasuri methi, chaat masala"
+     }
+    ]
+   }
+  ],
+  "B": [
+   {
+    "section": "Meat & eggs",
+    "items": [
+     {
+      "name": "Chicken breast, boneless",
+      "qty": "1 kg",
+      "note": "malai ×2, dumplings 200 g, coriander chicken 180 g, kabab, tandoori"
+     },
+     {
+      "name": "Eggs",
+      "qty": "20",
+      "note": "14 whole + whites of 5 more"
+     }
+    ]
+   },
+   {
+    "section": "Dairy",
+    "items": [
+     {
+      "name": "Low-fat / high-protein paneer",
+      "qty": "900 g",
+      "note": "pasta 200, tikka bowl 200, palak 200, fried rice 150, plus extras"
+     },
+     {
+      "name": "Curd (dahi)",
+      "qty": "1.3 kg",
+      "note": "includes 600 g to hang for Greek-style curd"
+     },
+     {
+      "name": "Double-toned milk",
+      "qty": "500 ml",
+      "note": "300 ml used"
+     },
+     {
+      "name": "Mozzarella",
+      "qty": "30 g",
+      "note": ""
+     },
+     {
+      "name": "Butter",
+      "qty": "small",
+      "note": "5 g"
+     },
+     {
+      "name": "Whey protein",
+      "qty": "7 scoops",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "section": "Vegetables",
+    "items": [
+     {
+      "name": "Onion",
+      "qty": "750 g",
+      "note": ""
+     },
+     {
+      "name": "Tomato",
+      "qty": "750 g",
+      "note": ""
+     },
+     {
+      "name": "Okra",
+      "qty": "150 g",
+      "note": ""
+     },
+     {
+      "name": "Cabbage",
+      "qty": "1 small head",
+      "note": "for dumpling leaves; use the rest in stir-fries"
+     },
+     {
+      "name": "Capsicum",
+      "qty": "1 large",
+      "note": ""
+     },
+     {
+      "name": "Mixed vegetables (beans, carrot, corn, peas)",
+      "qty": "450 g",
+      "note": ""
+     },
+     {
+      "name": "Sambar vegetables",
+      "qty": "300 g",
+      "note": ""
+     },
+     {
+      "name": "Spinach",
+      "qty": "1 bunch (≈250 g)",
+      "note": ""
+     },
+     {
+      "name": "Cucumber",
+      "qty": "5",
+      "note": ""
+     },
+     {
+      "name": "Garlic",
+      "qty": "2 bulbs",
+      "note": "reels use a lot of garlic"
+     },
+     {
+      "name": "Coriander",
+      "qty": "3 bunches",
+      "note": "green soya rice + coriander chicken"
+     },
+     {
+      "name": "Mint",
+      "qty": "1 bunch",
+      "note": ""
+     },
+     {
+      "name": "Ginger",
+      "qty": "100 g",
+      "note": ""
+     },
+     {
+      "name": "Green chillies",
+      "qty": "50 g",
+      "note": ""
+     },
+     {
+      "name": "Spring onion",
+      "qty": "1 bunch",
+      "note": ""
+     },
+     {
+      "name": "Lemons",
+      "qty": "3",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "section": "Fruit",
+    "items": [
+     {
+      "name": "Bananas",
+      "qty": "6",
+      "note": ""
+     },
+     {
+      "name": "Apples",
+      "qty": "2",
+      "note": ""
+     },
+     {
+      "name": "Papaya",
+      "qty": "1 small",
+      "note": ""
+     },
+     {
+      "name": "Pomegranate",
+      "qty": "1 small",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "section": "Grains, dals & snacks",
+    "items": [
+     {
+      "name": "Rice",
+      "qty": "350 g",
+      "note": ""
+     },
+     {
+      "name": "Whole wheat atta",
+      "qty": "150 g",
+      "note": ""
+     },
+     {
+      "name": "Rolled oats",
+      "qty": "120 g",
+      "note": ""
+     },
+     {
+      "name": "Macaroni",
+      "qty": "250 g pack",
+      "note": "60 g used"
+     },
+     {
+      "name": "Idli batter",
+      "qty": "250 g",
+      "note": ""
+     },
+     {
+      "name": "Toor dal",
+      "qty": "100 g",
+      "note": ""
+     },
+     {
+      "name": "Whole green moong",
+      "qty": "200 g",
+      "note": ""
+     },
+     {
+      "name": "Yellow moong dal",
+      "qty": "60 g",
+      "note": ""
+     },
+     {
+      "name": "Soya chunks",
+      "qty": "200 g",
+      "note": ""
+     },
+     {
+      "name": "Rice flour, cornflour",
+      "qty": "50 g each",
+      "note": ""
+     },
+     {
+      "name": "Sesame seeds",
+      "qty": "10 g",
+      "note": ""
+     },
+     {
+      "name": "Cashews",
+      "qty": "5 g",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "section": "Sauces & pantry",
+    "items": [
+     {
+      "name": "Gochujang (or schezwan sauce)",
+      "qty": "1 small tub",
+      "note": "30 g used"
+     },
+     {
+      "name": "Soy sauce",
+      "qty": "small bottle",
+      "note": ""
+     },
+     {
+      "name": "Chicken kabab masala",
+      "qty": "1 packet",
+      "note": ""
+     },
+     {
+      "name": "Byadagi dried chillies",
+      "qty": "small pack",
+      "note": "egg ghee roast"
+     },
+     {
+      "name": "Cooking oil, ghee",
+      "qty": "check stock",
+      "note": ""
+     },
+     {
+      "name": "Tamarind",
+      "qty": "20 g",
+      "note": ""
+     },
+     {
+      "name": "Spices",
+      "qty": "",
+      "note": "turmeric, chilli, Kashmiri chilli, coriander & cumin powder, cumin & mustard seeds, garam masala, sambar powder, tandoori/tikka masala, black pepper, fennel, fenugreek, hing, kasuri methi, chaat masala"
+     }
+    ]
+   }
+  ]
+ },
+ "prep": [
+  "Portion the chicken into 150 g bags (ask for one portion minced in Week A). Fridge Mon–Wed, freeze the rest.",
+  "Week A: portion the fish into 3 × 150 g; freeze Friday and Sunday bags.",
+  "Pressure-cook 90 g toor dal and make 3 bowls of protein sambar.",
+  "Make an onion-tomato masala base for the week's curries. Keeps 5 days.",
+  "Grind ginger-garlic paste.",
+  "Wash and chop the mixed vegetables into 250 g bags.",
+  "Hang 400–600 g curd overnight in a cloth for Greek-style curd.",
+  "Soak green moong on Saturday night for Monday's sprouts; soak more the night before each pesarattu day.",
+  "Week B: grind the egg ghee roast masala and freeze half.",
+  "Marinate tandoori chicken the night before Friday."
+ ],
+ "adjustments": [
+  {
+   "change": "+150 kcal",
+   "how": "Add 1 chapati to dinner (120) or 100 g cooked rice (130)."
+  },
+  {
+   "change": "+75 kcal",
+   "how": "Add a glass of buttermilk and 15 g roasted chana."
+  },
+  {
+   "change": "−75 kcal",
+   "how": "Skip the pre-workout banana, or halve the snack."
+  },
+  {
+   "change": "−150 kcal",
+   "how": "Swap dinner rice for extra vegetables (−130) and use 3 g oil instead of 5 g."
+  }
+ ]
+}

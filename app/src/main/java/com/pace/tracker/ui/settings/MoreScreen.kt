@@ -22,6 +22,7 @@ import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Restaurant
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -39,6 +40,7 @@ import com.pace.tracker.ui.nav.Routes
 private data class MoreItem(val title: String, val subtitle: String, val icon: ImageVector, val route: String)
 
 private val items = listOf(
+    MoreItem("Meal plan", "Today's menu, recipes and grocery list", Icons.Filled.Restaurant, Routes.PLAN),
     MoreItem("Weekly review", "Summaries, recalibrations & reflections", Icons.Filled.CalendarMonth, Routes.REVIEW),
     MoreItem("Target history", "How your calorie target evolved", Icons.Filled.History, Routes.HISTORY),
     MoreItem("Streaks & badges", "Logging, steps, calories, workouts", Icons.Filled.EmojiEvents, Routes.STREAKS),

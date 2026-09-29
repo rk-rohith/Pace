@@ -15,6 +15,7 @@ vico = "1.15.0"
 coil = "2.6.0"
 coroutines = "1.8.1"
 junit = "4.13.2"
+orgJson = "20240303"
 guava = "33.3.1-android"
 
 [libraries]
@@ -44,6 +45,7 @@ vico-compose-m3 = { group = "com.patrykandpatrick.vico", name = "compose-m3", ve
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 guava = { group = "com.google.guava", name = "guava", version.ref = "guava" }
+org-json = { group = "org.json", name = "json", version.ref = "orgJson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 
 [plugins]

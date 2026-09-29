@@ -79,4 +79,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
 
     testImplementation(libs.junit)
+    // Real org.json for unit tests (android.jar's copy is stubbed out on the JVM).
+    testImplementation(libs.org.json)
 }
