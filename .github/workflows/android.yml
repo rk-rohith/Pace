@@ -17,8 +17,7 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - uses: android-actions/setup-android@v3
-
+      # ubuntu-latest ships the Android SDK (ANDROID_HOME is preset); AGP fetches any missing platform.
       - uses: gradle/actions/setup-gradle@v3
 
       - name: Unit tests
