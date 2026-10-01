@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Upsert
+import com.pace.tracker.domain.MealType
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -21,7 +22,10 @@ interface ProfileDao {
 }
 
 /** Row type for per-day calorie totals. */
-data class DayCalories(val epochDay: Long, val total: Int)
+data class DayCalories(val epochDay: Long, val total: Int, val protein: Double?)
+
+/** A previously logged food, for the quick-add "Recent" list. */
+data class RecentFood(val description: String, val type: MealType, val calories: Int, val protein: Double?, val uses: Int, val lastUsed: Long)
 
 /** Row type for per-day workout aggregates. */
 data class DayWorkouts(val epochDay: Long, val count: Int, val kcal: Int, val minutes: Int)
@@ -53,11 +57,26 @@ interface DailyDao {
     @Query("SELECT * FROM meal WHERE epochDay BETWEEN :from AND :to")
     suspend fun mealsBetween(from: Long, to: Long): List<MealEntity>
 
-    @Query("SELECT epochDay, SUM(calories) AS total FROM meal GROUP BY epochDay ORDER BY epochDay")
+    @Query("SELECT epochDay, SUM(calories) AS total, SUM(protein) AS protein FROM meal GROUP BY epochDay ORDER BY epochDay")
     fun observeDailyCalories(): Flow<List<DayCalories>>
 
-    @Query("SELECT epochDay, SUM(calories) AS total FROM meal GROUP BY epochDay ORDER BY epochDay")
+    @Query("SELECT epochDay, SUM(calories) AS total, SUM(protein) AS protein FROM meal GROUP BY epochDay ORDER BY epochDay")
     suspend fun dailyCalories(): List<DayCalories>
+
+    @Query(
+        "SELECT description, type, calories, protein, COUNT(*) AS uses, MAX(createdAt) AS lastUsed FROM meal " +
+            "WHERE description != '' GROUP BY description, calories ORDER BY lastUsed DESC LIMIT 60",
+    )
+    fun observeRecentFoods(): Flow<List<RecentFood>>
+
+    @Query("SELECT * FROM food_item ORDER BY name COLLATE NOCASE")
+    fun observeFoodItems(): Flow<List<FoodItemEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertFoodItem(item: FoodItemEntity): Long
+
+    @Delete
+    suspend fun deleteFoodItem(item: FoodItemEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertMeal(meal: MealEntity): Long
@@ -164,4 +183,44 @@ interface SettingsDao {
 
     @Upsert
     suspend fun upsertSetting(s: SettingEntity)
+}
+
+/** Whole-database read/replace used by backup and restore. */
+@Dao
+interface BackupDao {
+    @Query("SELECT * FROM profile") suspend fun profiles(): List<ProfileEntity>
+    @Query("SELECT * FROM daily_log") suspend fun logs(): List<DailyLogEntity>
+    @Query("SELECT * FROM meal") suspend fun meals(): List<MealEntity>
+    @Query("SELECT * FROM workout") suspend fun workouts(): List<WorkoutEntity>
+    @Query("SELECT * FROM progress_photo") suspend fun photos(): List<ProgressPhotoEntity>
+    @Query("SELECT * FROM measurement") suspend fun measurements(): List<MeasurementEntity>
+    @Query("SELECT * FROM recalibration") suspend fun recals(): List<RecalibrationEntity>
+    @Query("SELECT * FROM weekly_reflection") suspend fun reflections(): List<WeeklyReflectionEntity>
+    @Query("SELECT * FROM reminder") suspend fun reminders(): List<ReminderEntity>
+    @Query("SELECT * FROM app_setting") suspend fun settings(): List<SettingEntity>
+    @Query("SELECT * FROM food_item") suspend fun foods(): List<FoodItemEntity>
+
+    @Query("DELETE FROM profile") suspend fun clearProfiles()
+    @Query("DELETE FROM daily_log") suspend fun clearLogs()
+    @Query("DELETE FROM meal") suspend fun clearMeals()
+    @Query("DELETE FROM workout") suspend fun clearWorkouts()
+    @Query("DELETE FROM progress_photo") suspend fun clearPhotos()
+    @Query("DELETE FROM measurement") suspend fun clearMeasurements()
+    @Query("DELETE FROM recalibration") suspend fun clearRecals()
+    @Query("DELETE FROM weekly_reflection") suspend fun clearReflections()
+    @Query("DELETE FROM reminder") suspend fun clearReminders()
+    @Query("DELETE FROM app_setting") suspend fun clearSettings()
+    @Query("DELETE FROM food_item") suspend fun clearFoods()
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE) suspend fun insertProfiles(items: List<ProfileEntity>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE) suspend fun insertLogs(items: List<DailyLogEntity>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE) suspend fun insertMeals(items: List<MealEntity>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE) suspend fun insertWorkouts(items: List<WorkoutEntity>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE) suspend fun insertPhotos(items: List<ProgressPhotoEntity>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE) suspend fun insertMeasurements(items: List<MeasurementEntity>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE) suspend fun insertRecals(items: List<RecalibrationEntity>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE) suspend fun insertReflections(items: List<WeeklyReflectionEntity>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE) suspend fun insertReminders(items: List<ReminderEntity>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE) suspend fun insertSettings(items: List<SettingEntity>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE) suspend fun insertFoods(items: List<FoodItemEntity>)
 }

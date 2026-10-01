@@ -74,6 +74,10 @@ object BodyMath {
     fun stepKcal(steps: Int, weightKg: Double): Double =
         steps * AdaptiveConfig.KCAL_PER_STEP_70KG * (weightKg / 70.0)
 
+    /** Daily protein target in grams, rounded to 5 g. */
+    fun proteinTarget(goalWeightKg: Double): Int =
+        (Math.round(goalWeightKg * AdaptiveConfig.PROTEIN_G_PER_KG_GOAL / 5.0) * 5).toInt()
+
     /** Days needed to lose [kg] at [ratePerWeek], rounded up to whole weeks. */
     fun daysNeeded(kg: Double, ratePerWeek: Double): Int {
         if (kg <= 0 || ratePerWeek <= 0) return 0

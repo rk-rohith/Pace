@@ -16,7 +16,8 @@ import kotlin.math.max
  */
 class PhotoStorage(private val context: Context) {
 
-    private val dir: File get() = File(context.filesDir, "photos").apply { mkdirs() }
+    /** App-private photo folder; everything in it is included in backups. */
+    val dir: File get() = File(context.filesDir, "photos").apply { mkdirs() }
 
     /** Temporary file for CameraX to write the full-size capture into. */
     fun newCaptureFile(): File = File(context.cacheDir, "capture_${UUID.randomUUID()}.jpg")

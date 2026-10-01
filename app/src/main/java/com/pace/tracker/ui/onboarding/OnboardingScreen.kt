@@ -36,7 +36,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
+import android.net.Uri
+import androidx.compose.ui.platform.LocalContext
+import com.pace.tracker.AppContainer
+import com.pace.tracker.PaceApp
 import com.pace.tracker.data.PaceRepository
+import com.pace.tracker.data.backup.restoreBackup
 import com.pace.tracker.domain.ActivityLevel
 import com.pace.tracker.domain.AdaptiveConfig
 import com.pace.tracker.domain.InitialPlan
@@ -65,6 +70,22 @@ class OnboardingViewModel(
 ) : ViewModel() {
     var saving by mutableStateOf(false)
         private set
+    var restoreMessage by mutableStateOf<String?>(null)
+
+    /** Reinstalled? Restoring a backup brings the whole programme back and skips setup. */
+    fun restore(container: AppContainer, uri: Uri) {
+        if (saving) return
+        saving = true
+        restoreMessage = "Restoring…"
+        appScope.launch {
+            try {
+                container.restoreBackup(uri)
+            } catch (e: Exception) {
+                restoreMessage = e.message ?: "Couldn't restore that file."
+                saving = false
+            }
+        }
+    }
 
     fun finish(inputs: ProfileInputs, stepGoal: Int, waterGoal: Int) {
         if (saving) return
@@ -99,6 +120,10 @@ fun OnboardingScreen() {
         startV != null && startV in 35.0..300.0
     val goalValid = startV != null && targetV != null && targetV in 35.0..(startV - 0.5)
 
+    val container = (LocalContext.current.applicationContext as PaceApp).container
+    val restoreLauncher = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        if (uri != null) vm.restore(container, uri)
+    }
     val notificationLauncher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) {
         // Reminders degrade gracefully if denied; they can be enabled later from Settings.
     }
@@ -111,6 +136,20 @@ fun OnboardingScreen() {
         Text("Pace", style = MaterialTheme.typography.displaySmall, color = MaterialTheme.colorScheme.primary)
         Text("80-day adaptive fat-loss tracker", style = MaterialTheme.typography.titleMedium)
         LinearProgressIndicator(progress = { (step + 1) / 4f }, modifier = Modifier.fillMaxWidth())
+        if (step == 0) {
+            SectionCard("Already used Pace?") {
+                Text(
+                    "Restore a backup to get your whole programme back: logs, photos, history and settings.",
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+                OutlinedButton(
+                    onClick = { restoreLauncher.launch(arrayOf("application/zip", "application/octet-stream", "*/*")) },
+                    enabled = !vm.saving,
+                    modifier = Modifier.fillMaxWidth().height(52.dp),
+                ) { Text("Restore from backup") }
+                vm.restoreMessage?.let { Text(it, style = MaterialTheme.typography.bodySmall) }
+            }
+        }
 
         when (step) {
             0 -> SectionCard("About you") {

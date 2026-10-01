@@ -19,6 +19,7 @@ import com.pace.tracker.data.stepsFor
 import com.pace.tracker.data.streaks
 import com.pace.tracker.data.targetForDay
 import com.pace.tracker.data.today
+import com.pace.tracker.domain.BodyMath
 import com.pace.tracker.domain.PaceIndicator
 import com.pace.tracker.reminders.Notifications
 import kotlinx.coroutines.CoroutineScope
@@ -40,6 +41,8 @@ data class WidgetSnapshot(
     val pace: PaceIndicator = PaceIndicator.NO_DATA,
     val eaten: Int = 0,
     val target: Int = 0,
+    val protein: Int = 0,
+    val proteinGoal: Int = 0,
     val steps: Int = 0,
     val stepGoal: Int = 0,
     val water: Int = 0,
@@ -60,6 +63,8 @@ fun ProgramData.widgetSnapshot(day: Long = today()): WidgetSnapshot {
         pace = paceIndicator(day),
         eaten = calories[day] ?: 0,
         target = targetForDay(day),
+        protein = (protein[day] ?: 0.0).toInt(),
+        proteinGoal = BodyMath.proteinTarget(p.targetWeightKg),
         steps = stepsFor(day) ?: 0,
         stepGoal = p.stepGoal,
         water = logs[day]?.waterGlasses ?: 0,
@@ -107,8 +112,8 @@ object PaceWidget {
             views.setTextViewText(R.id.w_title, "Pace")
             views.setTextViewText(R.id.w_subtitle, "Open Pace to set up your plan")
             views.setTextViewText(R.id.w_pace, "")
-            listOf(R.id.w_kcal, R.id.w_steps, R.id.w_water).forEach { views.setTextViewText(it, "—") }
-            listOf(R.id.w_kcal_bar, R.id.w_steps_bar, R.id.w_water_bar).forEach { views.setProgressBar(it, 100, 0, false) }
+            listOf(R.id.w_kcal, R.id.w_protein, R.id.w_steps, R.id.w_water).forEach { views.setTextViewText(it, "—") }
+            listOf(R.id.w_kcal_bar, R.id.w_protein_bar, R.id.w_steps_bar, R.id.w_water_bar).forEach { views.setProgressBar(it, 100, 0, false) }
             views.setTextViewText(R.id.w_footer, "")
             return views
         }
@@ -128,6 +133,9 @@ object PaceWidget {
         )
         views.setTextColor(R.id.w_kcal, if (over > 0) Color.parseColor("#FFFF6B6B") else Color.parseColor("#FFE6EBEF"))
         bar(views, R.id.w_kcal_bar, s.eaten, s.target)
+
+        views.setTextViewText(R.id.w_protein, "${s.protein} / ${s.proteinGoal} g")
+        bar(views, R.id.w_protein_bar, s.protein, s.proteinGoal)
 
         views.setTextViewText(R.id.w_steps, "${fmt(s.steps)} / ${fmt(s.stepGoal)}")
         bar(views, R.id.w_steps_bar, s.steps, s.stepGoal)

@@ -69,6 +69,19 @@ data class MealEntity(
     val calories: Int,
     val photoPath: String? = null,
     val createdAt: Long = System.currentTimeMillis(),
+    /** Grams of protein; null for meals logged before protein tracking (DB v2). */
+    val protein: Double? = null,
+)
+
+/** A food the user saved for quick-add ("My foods"). Values are per serving. */
+@Entity(tableName = "food_item")
+data class FoodItemEntity(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val name: String,
+    val serving: String,
+    val kcal: Int,
+    val protein: Double,
+    val createdAt: Long = System.currentTimeMillis(),
 )
 
 @Entity(tableName = "workout", indices = [Index("epochDay")])

@@ -91,6 +91,9 @@ object AdaptiveConfig {
     /** Rough energy cost per step for a 70 kg person (scaled by body weight). */
     const val KCAL_PER_STEP_70KG = 0.04
 
+    /** Daily protein target = this × goal weight (g/kg); 1.8 is in the 1.6–2.2 range that protects muscle on a cut. */
+    const val PROTEIN_G_PER_KG_GOAL = 1.8
+
     /** Default daily step goal. */
     const val DEFAULT_STEP_GOAL = 8000
 

@@ -3,6 +3,12 @@
 package com.pace.tracker.ui.log
 
 import androidx.compose.foundation.clickable
+import com.pace.tracker.domain.BodyMath
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.Checkbox
+import androidx.compose.material.icons.filled.History
+import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -93,6 +99,10 @@ fun LogScreen(initialDay: Long) {
     }
 
     var mealDialog by remember { mutableStateOf<MealEntity?>(null) }
+    var pickerType by remember { mutableStateOf<MealType?>(null) }
+    val yesterday by vm.yesterdayMeals.collectAsStateWithLifecycle()
+    val recent by vm.recentFoods.collectAsStateWithLifecycle()
+    val myFoods by vm.myFoods.collectAsStateWithLifecycle()
     var workoutDialog by remember { mutableStateOf<WorkoutEntity?>(null) }
 
     ScreenScaffold(title = if (day == today()) "Today" else day.dayLabel(), snackbarHost = { SnackbarHost(snackbar) }, actions = {
@@ -140,21 +150,52 @@ fun LogScreen(initialDay: Long) {
                     color = if (total <= target) MaterialTheme.colorScheme.primary else PaceColors.Error,
                     fontWeight = FontWeight.SemiBold)
             }) {
+                val proteinTotal = meals.sumOf { it.protein ?: 0.0 }
+                val proteinGoal = profile?.let { BodyMath.proteinTarget(it.targetWeightKg) } ?: 0
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text("Protein", modifier = Modifier.weight(1f), color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text("${proteinTotal.roundToInt()} / $proteinGoal g", fontWeight = FontWeight.SemiBold,
+                        color = if (proteinTotal >= proteinGoal && proteinGoal > 0) PaceColors.Ahead else MaterialTheme.colorScheme.onSurface)
+                }
+                LinearProgressIndicator(
+                    progress = { if (proteinGoal > 0) (proteinTotal / proteinGoal).toFloat().coerceIn(0f, 1f) else 0f },
+                    modifier = Modifier.fillMaxWidth().height(8.dp),
+                    color = PaceColors.Purple,
+                )
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    FilledTonalButton(onClick = { pickerType = defaultMealType() }, modifier = Modifier.weight(1f).height(48.dp)) {
+                        Icon(Icons.Filled.Bolt, null)
+                        Text(" Quick add")
+                    }
+                    if (meals.isEmpty() && yesterday.isNotEmpty()) {
+                        OutlinedButton(onClick = { vm.repeatYesterday(null) }, modifier = Modifier.weight(1f).height(48.dp)) {
+                            Text("Copy yesterday")
+                        }
+                    }
+                }
                 MealType.entries.forEach { type ->
                     val items = meals.filter { it.type == type }
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(type.label, style = MaterialTheme.typography.titleSmall, modifier = Modifier.weight(1f))
                         if (items.isNotEmpty()) Text("${items.sumOf { it.calories }.grouped()} kcal",
                             color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        if (items.isEmpty() && yesterday.any { it.type == type }) {
+                            IconButton(onClick = { vm.repeatYesterday(type) }, modifier = Modifier.size(48.dp)) {
+                                Icon(Icons.Filled.History, "Repeat yesterday's ${type.label.lowercase()}")
+                            }
+                        }
+                        IconButton(onClick = { pickerType = type }, modifier = Modifier.size(48.dp)) {
+                            Icon(Icons.Filled.Bolt, "Quick add ${type.label.lowercase()}")
+                        }
                         IconButton(
                             onClick = { mealDialog = MealEntity(epochDay = day, type = type, description = "", calories = 0) },
                             modifier = Modifier.size(48.dp),
-                        ) { Icon(Icons.Filled.Add, "Add ${type.label}") }
+                        ) { Icon(Icons.Filled.Add, "Custom ${type.label.lowercase()}") }
                     }
                     items.forEach { meal ->
                         EntryRow(
                             title = meal.description.ifBlank { type.label },
-                            subtitle = "${meal.calories.grouped()} kcal",
+                            subtitle = "${meal.calories.grouped()} kcal" + (meal.protein?.let { " · ${it.roundToInt()} g protein" } ?: ""),
                             photo = meal.photoPath,
                             onClick = { mealDialog = meal },
                         )
@@ -257,8 +298,23 @@ fun LogScreen(initialDay: Long) {
         MealDialog(
             initial = meal,
             onSave = { vm.saveMeal(it); mealDialog = null },
+            onSaveFood = { name, kcal, protein -> vm.saveFood(name, kcal, protein) },
             onDelete = if (meal.id != 0L) ({ vm.deleteMeal(meal); mealDialog = null }) else null,
             onDismiss = { mealDialog = null },
+        )
+    }
+    pickerType?.let { t ->
+        FoodPicker(
+            initialType = t,
+            recent = recent,
+            myFoods = myFoods,
+            onAdd = { type, desc, kcal, protein -> vm.quickAdd(type, desc, kcal, protein) },
+            onDeleteFood = { vm.deleteFood(it) },
+            onCustom = { type ->
+                pickerType = null
+                mealDialog = MealEntity(epochDay = day, type = type, description = "", calories = 0)
+            },
+            onDismiss = { pickerType = null },
         )
     }
     workoutDialog?.let { w ->
@@ -269,6 +325,17 @@ fun LogScreen(initialDay: Long) {
             onDelete = if (w.id != 0L) ({ vm.deleteWorkout(w); workoutDialog = null }) else null,
             onDismiss = { workoutDialog = null },
         )
+    }
+}
+
+/** Breakfast before 11:00, lunch before 16:00, snack before 19:00, then dinner. */
+private fun defaultMealType(): MealType {
+    val h = java.time.LocalTime.now().hour
+    return when {
+        h < 11 -> MealType.BREAKFAST
+        h < 16 -> MealType.LUNCH
+        h < 19 -> MealType.SNACK
+        else -> MealType.DINNER
     }
 }
 
@@ -338,7 +405,15 @@ private fun PhotoPreview(path: String?, onRemove: () -> Unit) {
 }
 
 @Composable
-private fun MealDialog(initial: MealEntity, onSave: (MealEntity) -> Unit, onDelete: (() -> Unit)?, onDismiss: () -> Unit) {
+private fun MealDialog(
+    initial: MealEntity,
+    onSave: (MealEntity) -> Unit,
+    onSaveFood: (name: String, kcal: Int, protein: Double) -> Unit,
+    onDelete: (() -> Unit)?,
+    onDismiss: () -> Unit,
+) {
+    var protein by remember { mutableStateOf(initial.protein?.let { String.format(java.util.Locale.US, "%.0f", it) } ?: "") }
+    var saveFood by remember { mutableStateOf(false) }
     var type by remember { mutableStateOf(initial.type) }
     var description by remember { mutableStateOf(initial.description) }
     var calories by remember { mutableStateOf(if (initial.calories > 0) initial.calories.toString() else "") }
@@ -356,13 +431,25 @@ private fun MealDialog(initial: MealEntity, onSave: (MealEntity) -> Unit, onDele
                 }
                 OutlinedTextField(description, { description = it }, label = { Text("What did you eat?") }, modifier = Modifier.fillMaxWidth())
                 NumberField(calories, { calories = it }, "Calories", Modifier.fillMaxWidth(), suffix = "kcal", decimal = false)
+                NumberField(protein, { protein = it }, "Protein (optional)", Modifier.fillMaxWidth(), suffix = "g")
+                Row(
+                    Modifier.fillMaxWidth().clickable { saveFood = !saveFood },
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Checkbox(checked = saveFood, onCheckedChange = { saveFood = it })
+                    Text("Save to My foods for quick add")
+                }
                 PhotoPreview(photo) { photo = null }
                 PhotoInputButtons(onPhoto = { photo = it })
             }
         },
         confirmButton = {
             TextButton(
-                onClick = { onSave(initial.copy(type = type, description = description.trim(), calories = kcal ?: 0, photoPath = photo)) },
+                onClick = {
+                    val p = protein.replace(',', '.').toDoubleOrNull()
+                    if (saveFood && description.isNotBlank()) onSaveFood(description.trim(), kcal ?: 0, p ?: 0.0)
+                    onSave(initial.copy(type = type, description = description.trim(), calories = kcal ?: 0, protein = p, photoPath = photo))
+                },
                 enabled = kcal != null,
             ) { Text("Save") }
         },

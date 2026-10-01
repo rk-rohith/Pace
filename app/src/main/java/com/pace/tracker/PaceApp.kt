@@ -3,6 +3,7 @@ package com.pace.tracker
 import android.app.Application
 import com.pace.tracker.data.MealPlanLoader
 import com.pace.tracker.data.PaceRepository
+import com.pace.tracker.data.backup.BackupManager
 import com.pace.tracker.data.db.PaceDatabase
 import com.pace.tracker.domain.MealPlan
 import com.pace.tracker.health.HealthConnectManager
@@ -18,6 +19,7 @@ import kotlinx.coroutines.launch
 
 /** Manual dependency container – the app is small enough not to need a DI framework. */
 class AppContainer(app: Application) {
+    val appContext: Application = app
     val appScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
     val database: PaceDatabase = PaceDatabase.build(app)
     val photoStorage = PhotoStorage(app)
@@ -26,6 +28,7 @@ class AppContainer(app: Application) {
     val reminderScheduler = ReminderScheduler(app, repository)
     val stepTracker = StepSensorTracker(app, repository, appScope)
     val mealPlan: MealPlan by lazy { MealPlanLoader.load(app) }
+    val backupManager = BackupManager(app, database, photoStorage)
 }
 
 class PaceApp : Application() {

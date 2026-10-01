@@ -16,6 +16,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.material.icons.filled.CloudUpload
 import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material.icons.filled.HealthAndSafety
 import androidx.compose.material.icons.filled.History
@@ -46,6 +47,7 @@ private val items = listOf(
     MoreItem("Streaks & badges", "Logging, steps, calories, workouts", Icons.Filled.EmojiEvents, Routes.STREAKS),
     MoreItem("Reminders", "Weigh-in, meals, water, workouts, photos", Icons.Filled.Notifications, Routes.REMINDERS),
     MoreItem("Profile & goal", "Body stats, pace, targets", Icons.Filled.Person, Routes.PROFILE),
+    MoreItem("Backup & restore", "Daily automatic backup, save or restore everything", Icons.Filled.CloudUpload, Routes.BACKUP),
     MoreItem("Health & steps", "Health Connect and step counter", Icons.Filled.HealthAndSafety, Routes.HEALTH),
     MoreItem("How the adaptive engine works", "Formula and tunable constants", Icons.Filled.Info, Routes.ENGINE),
 )

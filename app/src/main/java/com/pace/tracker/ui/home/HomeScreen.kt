@@ -18,6 +18,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Celebration
 import androidx.compose.material.icons.automirrored.filled.DirectionsWalk
 import androidx.compose.material.icons.filled.EditNote
+import androidx.compose.material.icons.filled.FitnessCenter
 import androidx.compose.material.icons.filled.LocalDrink
 import androidx.compose.material.icons.filled.LocalFireDepartment
 import androidx.compose.material.icons.filled.Restaurant
@@ -55,6 +56,7 @@ import com.pace.tracker.data.today
 import com.pace.tracker.data.unseenRecal
 import com.pace.tracker.data.weeklyRecals
 import com.pace.tracker.data.weights
+import com.pace.tracker.domain.BodyMath
 import com.pace.tracker.domain.MealPlan
 import com.pace.tracker.domain.MealPlanSchedule
 import com.pace.tracker.domain.PaceIndicator
@@ -92,6 +94,8 @@ data class HomeState(
     val pace: PaceIndicator = PaceIndicator.NO_DATA,
     val targetKcal: Int = 0,
     val eatenKcal: Int = 0,
+    val protein: Int = 0,
+    val proteinGoal: Int = 0,
     val steps: Int = 0,
     val stepGoal: Int = 8000,
     val water: Int = 0,
@@ -136,6 +140,8 @@ class HomeViewModel(private val repository: PaceRepository, private val mealPlan
             pace = paceIndicator(t),
             targetKcal = targetForDay(t),
             eatenKcal = calories[t] ?: 0,
+            protein = (protein[t] ?: 0.0).toInt(),
+            proteinGoal = BodyMath.proteinTarget(p.targetWeightKg),
             steps = stepsFor(t) ?: 0,
             stepGoal = p.stepGoal,
             water = logs[t]?.waterGlasses ?: 0,
@@ -280,6 +286,13 @@ fun HomeScreen(onLogToday: () -> Unit, onOpen: (String) -> Unit) {
                     "Streak", "${s.streak} days", Modifier.weight(1f),
                     sub = "best ${s.bestStreak}", icon = Icons.Filled.LocalFireDepartment, accent = PaceColors.Pink,
                 )
+                StatTile(
+                    "Protein", "${s.protein} g", Modifier.weight(1f),
+                    sub = "of ${s.proteinGoal} g", icon = Icons.Filled.FitnessCenter,
+                    accent = if (s.protein >= s.proteinGoal && s.proteinGoal > 0) PaceColors.Ahead else PaceColors.Purple,
+                )
+            }
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 StatTile(
                     "Water", "${s.water}/${s.waterGoal}", Modifier.weight(1f),
                     sub = "tap + below", icon = Icons.Filled.LocalDrink, accent = PaceColors.Tertiary,

@@ -39,6 +39,7 @@ import com.pace.tracker.ui.plan.MealPlanScreen
 import com.pace.tracker.ui.plan.RecipeScreen
 import com.pace.tracker.ui.review.ReviewDetailScreen
 import com.pace.tracker.ui.review.ReviewListScreen
+import com.pace.tracker.ui.settings.BackupScreen
 import com.pace.tracker.ui.settings.EngineInfoScreen
 import com.pace.tracker.ui.settings.HealthScreen
 import com.pace.tracker.ui.settings.MoreScreen
@@ -61,6 +62,7 @@ object Routes {
     const val HEALTH = "health"
     const val ENGINE = "engine"
     const val PLAN = "plan"
+    const val BACKUP = "backup"
     const val RECIPE = "recipe"
 
     fun log(day: Long) = "$LOG?day=$day"
@@ -148,6 +150,7 @@ fun PaceNavHost(hasProfile: Boolean, pendingRoute: String?, onRouteHandled: () -
                 composable(Routes.PROFILE) { ProfileScreen(onBack = { nav.popBackStack() }) }
                 composable(Routes.HEALTH) { HealthScreen(onBack = { nav.popBackStack() }) }
                 composable(Routes.ENGINE) { EngineInfoScreen(onBack = { nav.popBackStack() }) }
+                composable(Routes.BACKUP) { BackupScreen(onBack = { nav.popBackStack() }) }
                 composable(Routes.PLAN) {
                     MealPlanScreen(onBack = { nav.popBackStack() }, onOpenRecipe = { nav.navigate(Routes.recipe(it)) })
                 }

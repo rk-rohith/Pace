@@ -1,6 +1,7 @@
 package com.pace.tracker.data
 
 import com.pace.tracker.data.db.DailyLogEntity
+import com.pace.tracker.data.db.FoodItemEntity
 import com.pace.tracker.data.db.MealEntity
 import com.pace.tracker.data.db.MeasurementEntity
 import com.pace.tracker.data.db.PaceDatabase
@@ -17,6 +18,7 @@ import com.pace.tracker.domain.AdaptiveEngine
 import com.pace.tracker.domain.BodyMath
 import com.pace.tracker.domain.EngineState
 import com.pace.tracker.domain.InitialPlanner
+import com.pace.tracker.domain.MealType
 import com.pace.tracker.domain.PhotoPose
 import com.pace.tracker.domain.PriorWeek
 import com.pace.tracker.domain.ProfileInputs
@@ -61,6 +63,7 @@ class PaceRepository(
                 profile = p,
                 logs = logs.associateBy { it.epochDay },
                 calories = cals.associate { it.epochDay to it.total },
+                protein = cals.associate { it.epochDay to (it.protein ?: 0.0) },
                 workouts = wk.associateBy { it.epochDay },
             )
         }
@@ -172,6 +175,20 @@ class PaceRepository(
 
     suspend fun saveMeal(meal: MealEntity) {
         dailyDao.upsertMeal(meal)
+    }
+
+    val recentFoods = dailyDao.observeRecentFoods()
+    val foodItems = dailyDao.observeFoodItems()
+    suspend fun saveFoodItem(item: FoodItemEntity) = dailyDao.upsertFoodItem(item)
+    suspend fun deleteFoodItem(item: FoodItemEntity) = dailyDao.deleteFoodItem(item)
+
+    /** Copies meals (optionally one meal type) from one day to another; photos stay with the originals. */
+    suspend fun copyMeals(fromDay: Long, toDay: Long, type: MealType? = null): Int {
+        val source = dailyDao.mealsBetween(fromDay, fromDay).filter { type == null || it.type == type }
+        source.forEach {
+            dailyDao.upsertMeal(it.copy(id = 0, epochDay = toDay, photoPath = null, createdAt = System.currentTimeMillis()))
+        }
+        return source.size
     }
 
     suspend fun deleteMeal(meal: MealEntity) {

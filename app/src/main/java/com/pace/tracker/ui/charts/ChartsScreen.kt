@@ -194,6 +194,21 @@ private fun CaloriesTab(data: ProgramData) {
         )
     }
 
+    val proteinPts = data.protein.filter { it.key in p.startEpochDay..t && (data.calories[it.key] ?: 0) > 0 }
+        .map { data.x(it.key) to it.value.toFloat() }
+    val proteinGoal = BodyMath.proteinTarget(p.targetWeightKg)
+    SectionCard("Protein (daily)") {
+        if (proteinPts.none { it.second > 0f }) NotEnough("protein with your meals") else PaceColumnChart(
+            series = listOf(ChartSeries("Protein", PaceColors.Purple, proteinPts)),
+            xLabel = { (p.startEpochDay + it.toLong()).shortDate() },
+            threshold = proteinGoal.toFloat() to "Goal $proteinGoal g",
+        )
+        Text(
+            "Goal = ${AdaptiveConfig.PROTEIN_G_PER_KG_GOAL} g per kg of goal weight. Meals logged before protein tracking count as 0.",
+            style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+
     val weeks = data.currentWeekIndex(t)
     val ep = p.toEngine()
     val weeklyIn = mutableListOf<Pair<Float, Float>>()

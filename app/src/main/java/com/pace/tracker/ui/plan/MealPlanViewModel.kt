@@ -53,12 +53,13 @@ class MealPlanViewModel(private val container: AppContainer) : ViewModel() {
                 type = meal.mealType,
                 description = plan.title(meal),
                 calories = plan.kcal(meal),
+                protein = plan.protein(meal).toDouble(),
             ),
         )
     }
 
     fun logRecipe(recipe: PlanRecipe, type: MealType) = viewModelScope.launch {
-        repository.saveMeal(MealEntity(epochDay = today(), type = type, description = recipe.name, calories = recipe.kcal))
+        repository.saveMeal(MealEntity(epochDay = today(), type = type, description = recipe.name, calories = recipe.kcal, protein = recipe.protein.toDouble()))
     }
 
     fun toggleGrocery(weekId: String, itemKey: String, checked: Boolean) = viewModelScope.launch {

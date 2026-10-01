@@ -41,7 +41,8 @@ the **Actions** tab and download the **`pace-debug-apk`** artifact.
 
 ### Database migrations
 
-Room exports its schema to `app/schemas/` on every build — commit that folder. When you change an entity,
+Room exports its schema to `app/schemas/` on every build — commit that folder. `DatabaseMigrationTest`
+checks each hand-written migration against the exported schema so an upgrade can't crash on launch. When you change an entity,
 bump `version` in `PaceDatabase` and add a `Migration` to `PaceDatabase.MIGRATIONS`. The app never uses
 destructive migration, so logged data survives upgrades.
 
@@ -115,6 +116,14 @@ All reminders live in **More → Reminders**; each one is individually toggleabl
 - **Weekly review** — automatic summary (weight change, average calories, total steps, workouts, photos,
   streak status), that week's recalibration explanation, editable reflection, comparison table across weeks.
 - **Target history** — every calorie-target change with its explanation and a chart of the target over time.
+- **Protein tracking** — every meal can carry grams of protein; daily goal = 1.8 g × goal weight
+  (`PROTEIN_G_PER_KG_GOAL`). Shown on Home, the log, the widget, the weekly review and a daily chart.
+- **Quick add** — ~80 common Indian foods built in, recent foods, your saved "My foods", servings stepper,
+  and "repeat yesterday" per meal or for the whole day.
+- **Backup & restore** (*More → Backup & restore*) — one .zip holds every table and every photo.
+  Pick a folder (e.g. Downloads/Pace or a Google Drive folder) for an automatic daily backup that keeps the
+  last 7 and survives uninstalling. After a reinstall, tap **Restore from backup** on the first setup
+  screen to get the whole programme back.
 - **Home-screen widget** — long-press the home screen → Widgets → Pace. Shows day X of N, pace, calories,
   steps and water against today's goals, latest weight and streak, with **+1 water** and **Log** buttons.
   Updates live while the app runs and every 30 minutes otherwise.

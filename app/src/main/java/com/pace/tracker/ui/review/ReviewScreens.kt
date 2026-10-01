@@ -138,6 +138,7 @@ fun ReviewDetailScreen(week: Int, onBack: () -> Unit) {
                     if (w.firstWeight != null && w.lastWeight != null) "${w.firstWeight.oneDecimal()} → ${w.lastWeight.oneDecimal()} kg" else "—")
                 LabeledValue("Weigh-ins", "${w.weighIns}")
                 LabeledValue("Avg calories", w.avgCalories?.let { "${it.toInt().grouped()} kcal (target ${w.avgTargetKcal.grouped()})" } ?: "—")
+                LabeledValue("Avg protein", w.avgProtein?.let { "${it.toInt()} g" } ?: "—")
                 LabeledValue("Days with food logged", "${w.daysFoodLogged}/7")
                 LabeledValue("Total steps", w.totalSteps.grouped() + (w.avgSteps?.let { " (avg ${it.grouped()})" } ?: ""))
                 LabeledValue("Workouts", "${w.workouts} · ${w.workoutMinutes} min")
@@ -187,8 +188,8 @@ fun ReviewDetailScreen(week: Int, onBack: () -> Unit) {
 
 @Composable
 private fun CompareTable(weeks: List<WeekSummary>, highlight: Int) {
-    val headers = listOf("Week", "Avg kg", "Change", "kcal", "Steps", "Wkts", "Target")
-    val widths = listOf(52, 64, 64, 60, 64, 44, 60)
+    val headers = listOf("Week", "Avg kg", "Change", "kcal", "Prot g", "Steps", "Wkts", "Target")
+    val widths = listOf(52, 64, 64, 60, 56, 64, 44, 60)
     Column(Modifier.horizontalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(6.dp)) {
         Row {
             headers.forEachIndexed { i, h ->
@@ -202,6 +203,7 @@ private fun CompareTable(weeks: List<WeekSummary>, highlight: Int) {
                 w.avgWeight?.oneDecimal() ?: "—",
                 w.weightChange?.let { String.format(java.util.Locale.US, "%+.1f", it) } ?: "—",
                 w.avgCalories?.toInt()?.grouped() ?: "—",
+                w.avgProtein?.toInt()?.toString() ?: "—",
                 w.avgSteps?.grouped() ?: "—",
                 "${w.workouts}",
                 w.recal?.newTargetKcal?.grouped() ?: "—",

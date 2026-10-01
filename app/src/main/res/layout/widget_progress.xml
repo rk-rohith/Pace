@@ -80,6 +80,39 @@
         android:progressDrawable="@drawable/widget_progress"
         android:progressTint="#FFFFB84D" />
 
+    <!-- Protein -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Protein"
+            android:textColor="#FFB4BEC7"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/w_protein"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="—"
+            android:textColor="#FFE6EBEF"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/w_protein_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="7dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/widget_progress"
+        android:progressTint="#FFC792EA" />
+
     <!-- Steps -->
     <LinearLayout
         android:layout_width="match_parent"

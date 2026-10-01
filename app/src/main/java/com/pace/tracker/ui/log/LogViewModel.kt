@@ -7,7 +7,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pace.tracker.AppContainer
 import com.pace.tracker.data.db.DailyLogEntity
+import com.pace.tracker.data.db.FoodItemEntity
 import com.pace.tracker.data.db.MealEntity
+import com.pace.tracker.data.db.RecentFood
+import com.pace.tracker.domain.MealType
 import com.pace.tracker.data.db.ProfileEntity
 import com.pace.tracker.data.db.WorkoutEntity
 import com.pace.tracker.data.targetForDay
@@ -49,6 +52,12 @@ class LogViewModel(private val container: AppContainer, initialDay: Long) : View
         .stateIn(viewModelScope, SharingStarted.Eagerly, null)
     val meals: StateFlow<List<MealEntity>> = _day.flatMapLatest { repository.observeMeals(it) }
         .stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
+    val yesterdayMeals: StateFlow<List<MealEntity>> = _day.flatMapLatest { repository.observeMeals(it - 1) }
+        .stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
+    val recentFoods: StateFlow<List<RecentFood>> = repository.recentFoods
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+    val myFoods: StateFlow<List<FoodItemEntity>> = repository.foodItems
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
     val workouts: StateFlow<List<WorkoutEntity>> = _day.flatMapLatest { repository.observeWorkouts(it) }
         .stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
     val profile: StateFlow<ProfileEntity?> = repository.profile
@@ -143,6 +152,22 @@ class LogViewModel(private val container: AppContainer, initialDay: Long) : View
 
     fun saveMeal(meal: MealEntity) = viewModelScope.launch { repository.saveMeal(meal.copy(epochDay = _day.value)) }
     fun deleteMeal(meal: MealEntity) = viewModelScope.launch { repository.deleteMeal(meal) }
+
+    fun quickAdd(type: MealType, description: String, kcal: Int, protein: Double) = viewModelScope.launch {
+        repository.saveMeal(MealEntity(epochDay = _day.value, type = type, description = description, calories = kcal, protein = protein))
+    }
+
+    fun repeatYesterday(type: MealType?) = viewModelScope.launch {
+        val n = repository.copyMeals(_day.value - 1, _day.value, type)
+        message = if (n == 0) "Nothing logged yesterday" + (type?.let { " for ${it.label.lowercase()}" } ?: "") + "."
+        else "Copied $n item(s) from yesterday."
+    }
+
+    fun saveFood(name: String, kcal: Int, protein: Double) = viewModelScope.launch {
+        repository.saveFoodItem(FoodItemEntity(name = name, serving = "1 serving", kcal = kcal, protein = protein))
+    }
+
+    fun deleteFood(item: FoodItemEntity) = viewModelScope.launch { repository.deleteFoodItem(item) }
     fun saveWorkout(w: WorkoutEntity) = viewModelScope.launch { repository.saveWorkout(w.copy(epochDay = _day.value)) }
     fun deleteWorkout(w: WorkoutEntity) = viewModelScope.launch { repository.deleteWorkout(w) }
 
