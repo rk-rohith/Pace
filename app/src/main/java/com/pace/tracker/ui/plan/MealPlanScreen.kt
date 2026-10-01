@@ -19,6 +19,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material3.Checkbox
 import androidx.compose.runtime.remember
@@ -62,7 +63,7 @@ import java.time.LocalDate
 private val tabs = listOf("Today", "Week", "Recipes", "Groceries")
 
 @Composable
-fun MealPlanScreen(onBack: () -> Unit, onOpenRecipe: (String) -> Unit) {
+fun MealPlanScreen(onBack: () -> Unit, onOpenRecipe: (String) -> Unit, onNewRecipe: () -> Unit) {
     val vm = paceViewModel { MealPlanViewModel(it) }
     val currentWeek by vm.currentWeekId.collectAsStateWithLifecycle()
     val logged by vm.loggedToday.collectAsStateWithLifecycle()
@@ -87,7 +88,7 @@ fun MealPlanScreen(onBack: () -> Unit, onOpenRecipe: (String) -> Unit) {
             when (tab) {
                 0 -> TodayTab(plan, currentWeek, logged, vm::logMeal, onOpenRecipe, onSwap)
                 1 -> WeekTab(plan, weekId, currentWeek, vm, onOpenRecipe, onSwap)
-                2 -> RecipesTab(plan, onOpenRecipe)
+                2 -> RecipesTab(plan, onOpenRecipe, onNewRecipe)
                 else -> GroceriesTab(plan, weekId, currentWeek, vm, ticks[weekId] ?: emptySet())
             }
         }
@@ -125,7 +126,8 @@ private fun SwapDialog(
 ) {
     val current = plan.recipes[meal.recipeIds.first()]
     val original = plan.recipes[meal.swappedFrom ?: meal.recipeIds.first()]
-    val options = plan.swapCandidates(day, meal)
+    var showAll by rememberSaveable { mutableStateOf(false) }
+    val options = plan.swapCandidates(day, meal, anyCalories = showAll)
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text("Swap ${meal.label.lowercase()}") },
@@ -133,11 +135,15 @@ private fun SwapDialog(
             LazyColumn(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                 item {
                     Text(
-                        "Now: ${current?.name} (${current?.kcal?.grouped()} kcal). Options within about ${MealPlanSchedule.SWAP_KCAL} kcal" +
+                        "Now: ${current?.name} (${current?.kcal?.grouped()} kcal). " +
+                            (if (showAll) "All dishes of this kind, closest calories first" else "Options within about ${MealPlanSchedule.SWAP_KCAL} kcal") +
                             (if (day.veg) ", veg only" else "") + ". Sides stay as planned; the grocery list updates.",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
+                }
+                item {
+                    FilterChip(selected = showAll, onClick = { showAll = !showAll }, label = { Text("Show all, including your recipes") })
                 }
                 if (options.isEmpty()) item { Text("No similar dishes found.") }
                 items(options, key = { it.id }) { r ->
@@ -150,7 +156,7 @@ private fun SwapDialog(
                             Text(r.name, style = MaterialTheme.typography.bodyLarge)
                             Text(
                                 "${r.kcal.grouped()} kcal (" + (if (diff >= 0) "+" else "") + "$diff) · ${r.protein} g protein" +
-                                    if (r.reels.isNotEmpty()) " · reel" else "",
+                                    (if (r.reels.isNotEmpty()) " · reel" else "") + if (r.custom) " · yours" else "",
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )
@@ -325,20 +331,28 @@ private fun WeekTab(
 }
 
 @Composable
-private fun RecipesTab(plan: MealPlan, onOpenRecipe: (String) -> Unit) {
+private fun RecipesTab(plan: MealPlan, onOpenRecipe: (String) -> Unit, onNewRecipe: () -> Unit) {
     var query by rememberSaveable { mutableStateOf("") }
     var vegOnly by rememberSaveable { mutableStateOf(false) }
     var reelsOnly by rememberSaveable { mutableStateOf(false) }
+    var mineOnly by rememberSaveable { mutableStateOf(false) }
     val list = plan.recipes.values
         .filter { query.isBlank() || it.name.contains(query, ignoreCase = true) || it.ingredients.any { i -> i.contains(query, true) } }
         .filter { !vegOnly || it.veg }
         .filter { !reelsOnly || it.reels.isNotEmpty() }
+        .filter { !mineOnly || it.custom || it.edited }
         .sortedWith(compareBy<PlanRecipe> { it.category }.thenBy { it.name })
     LazyColumn(
         Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
+        item {
+            FilledTonalButton(onClick = onNewRecipe, modifier = Modifier.fillMaxWidth().height(52.dp)) {
+                Icon(Icons.Filled.Add, null)
+                Text("  New recipe")
+            }
+        }
         item {
             OutlinedTextField(
                 value = query, onValueChange = { query = it },
@@ -350,6 +364,7 @@ private fun RecipesTab(plan: MealPlan, onOpenRecipe: (String) -> Unit) {
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 FilterChip(selected = vegOnly, onClick = { vegOnly = !vegOnly }, label = { Text("Veg") })
                 FilterChip(selected = reelsOnly, onClick = { reelsOnly = !reelsOnly }, label = { Text("From reels") })
+                FilterChip(selected = mineOnly, onClick = { mineOnly = !mineOnly }, label = { Text("Mine") })
             }
         }
         if (list.isEmpty()) item { EmptyState("No recipes match", "Try a different word, or clear the filters.") }
@@ -367,7 +382,7 @@ private fun RecipesTab(plan: MealPlan, onOpenRecipe: (String) -> Unit) {
                         Column(Modifier.weight(1f)) {
                             Text(r.name, style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.SemiBold)
                             Text(
-                                "${r.kcal.grouped()} kcal · ${r.protein} g protein · ${r.source}",
+                                "${r.kcal.grouped()} kcal · ${r.protein} g protein · ${r.source}" + if (r.edited) " (edited)" else "",
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )

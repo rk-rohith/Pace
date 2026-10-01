@@ -115,7 +115,7 @@ data class HomeState(
 
 class HomeViewModel(private val repository: PaceRepository, private val mealPlan: MealPlan) : ViewModel() {
     val state: StateFlow<HomeState> = combine(repository.programData, repository.settings) { data, settings ->
-        data.toHome(mealPlan.withSwaps(MealPlanViewModel.swapsFrom(settings)))
+        data.toHome(MealPlanViewModel.effective(mealPlan, settings))
     }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), HomeState())
 

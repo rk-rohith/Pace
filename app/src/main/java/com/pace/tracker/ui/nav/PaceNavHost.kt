@@ -36,6 +36,7 @@ import com.pace.tracker.ui.log.LogScreen
 import com.pace.tracker.ui.onboarding.OnboardingScreen
 import com.pace.tracker.ui.photos.PhotosScreen
 import com.pace.tracker.ui.plan.MealPlanScreen
+import com.pace.tracker.ui.plan.RecipeEditorScreen
 import com.pace.tracker.ui.plan.RecipeScreen
 import com.pace.tracker.ui.review.ReviewDetailScreen
 import com.pace.tracker.ui.review.ReviewListScreen
@@ -64,10 +65,13 @@ object Routes {
     const val PLAN = "plan"
     const val BACKUP = "backup"
     const val RECIPE = "recipe"
+    const val RECIPE_EDIT = "recipe_edit"
 
     fun log(day: Long) = "$LOG?day=$day"
     fun review(week: Int) = "$REVIEW/$week"
     fun recipe(id: String) = "$RECIPE/$id"
+    fun recipeEdit(id: String?) = "$RECIPE_EDIT/${id ?: NEW}"
+    const val NEW = "new"
 }
 
 private data class Tab(val route: String, val label: String, val icon: ImageVector)
@@ -152,13 +156,39 @@ fun PaceNavHost(hasProfile: Boolean, pendingRoute: String?, onRouteHandled: () -
                 composable(Routes.ENGINE) { EngineInfoScreen(onBack = { nav.popBackStack() }) }
                 composable(Routes.BACKUP) { BackupScreen(onBack = { nav.popBackStack() }) }
                 composable(Routes.PLAN) {
-                    MealPlanScreen(onBack = { nav.popBackStack() }, onOpenRecipe = { nav.navigate(Routes.recipe(it)) })
+                    MealPlanScreen(
+                        onBack = { nav.popBackStack() },
+                        onOpenRecipe = { nav.navigate(Routes.recipe(it)) },
+                        onNewRecipe = { nav.navigate(Routes.recipeEdit(null)) },
+                    )
                 }
                 composable(
                     "${Routes.RECIPE}/{id}",
                     arguments = listOf(navArgument("id") { type = NavType.StringType }),
                 ) { entry ->
-                    RecipeScreen(recipeId = entry.arguments?.getString("id") ?: "", onBack = { nav.popBackStack() })
+                    RecipeScreen(
+                        recipeId = entry.arguments?.getString("id") ?: "",
+                        onBack = { nav.popBackStack() },
+                        onEdit = { nav.navigate(Routes.recipeEdit(it)) },
+                    )
+                }
+                composable(
+                    "${Routes.RECIPE_EDIT}/{id}",
+                    arguments = listOf(navArgument("id") { type = NavType.StringType }),
+                ) { entry ->
+                    val id = entry.arguments?.getString("id")?.takeIf { it != Routes.NEW }
+                    RecipeEditorScreen(
+                        recipeId = id,
+                        onBack = { nav.popBackStack() },
+                        onSaved = { saved ->
+                            if (id == null) {
+                                nav.navigate(Routes.recipe(saved)) { popUpTo("${Routes.RECIPE_EDIT}/{id}") { inclusive = true } }
+                            } else {
+                                nav.popBackStack()
+                            }
+                        },
+                        onRemoved = { nav.popBackStack(Routes.PLAN, inclusive = false) },
+                    )
                 }
             }
         }

@@ -7,10 +7,12 @@ import com.pace.tracker.domain.GrocerySection
 import com.pace.tracker.domain.MealPlan
 import com.pace.tracker.domain.MealType
 import com.pace.tracker.domain.PlanDay
+import com.pace.tracker.domain.PlanFood
 import com.pace.tracker.domain.PlanIngredient
 import com.pace.tracker.domain.PlanMeal
 import com.pace.tracker.domain.PlanRecipe
 import com.pace.tracker.domain.PlanWeek
+import com.pace.tracker.domain.RecipePart
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -40,11 +42,13 @@ object MealPlanLoader {
                 protein = r.getInt("protein"),
                 carbs = r.getInt("carbs"),
                 fat = r.getInt("fat"),
-                ingredients = r.getJSONArray("ingredients").strings(),
+                ingredients = r.optJSONArray("ingredients")?.strings() ?: emptyList(),
                 steps = r.getJSONArray("steps").strings(),
                 tip = r.optString("tip", ""),
                 reels = r.optJSONArray("reels")?.strings() ?: emptyList(),
                 items = r.optJSONObject("items")?.let { o -> o.keys().asSequence().associateWith { o.getDouble(it) } } ?: emptyMap(),
+                parts = r.optJSONArray("parts")?.let(::parts) ?: emptyList(),
+                extras = r.optJSONArray("extras")?.strings() ?: emptyList(),
             )
         }.associateBy { it.id }
         val weeks = root.getJSONArray("weeks").objects().map { w ->
@@ -87,6 +91,24 @@ object MealPlanLoader {
             }
         } ?: emptyMap()
         val staples = root.optJSONArray("staples")?.objects()?.map { GroceryItem(it.getString("name"), it.getString("qty"), it.optString("note", "")) } ?: emptyList()
-        return MealPlan(recipes, weeks, groceries, prep, adjustments, ingredients, staples)
+        val foods = root.optJSONObject("foods")?.let { o -> o.keys().asSequence().associateWith { k -> food(k, o.getJSONObject(k)) } } ?: emptyMap()
+        val plan = MealPlan(recipes, weeks, groceries, prep, adjustments, ingredients, staples, foods)
+        return plan.copy(recipes = recipes.mapValues { plan.calculated(it.value) })
     }
+
+    fun parts(a: JSONArray): List<RecipePart> =
+        a.objects().map { RecipePart(it.getString("food"), it.getDouble("qty"), it.optString("note", "")) }
+
+    fun food(key: String, f: JSONObject, custom: Boolean = false) = PlanFood(
+        key = key,
+        name = f.getString("name"),
+        unit = f.getString("unit"),
+        kcal = f.getDouble("kcal"),
+        protein = f.getDouble("protein"),
+        carbs = f.getDouble("carbs"),
+        fat = f.getDouble("fat"),
+        shop = if (f.isNull("shop")) null else f.optString("shop", f.getString("name")),
+        section = f.optString("section", "Pantry"),
+        custom = custom,
+    )
 }

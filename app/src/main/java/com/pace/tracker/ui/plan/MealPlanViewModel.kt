@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pace.tracker.AppContainer
 import com.pace.tracker.data.db.MealEntity
+import com.pace.tracker.data.UserRecipes
 import com.pace.tracker.data.toEngine
 import com.pace.tracker.data.today
 import com.pace.tracker.domain.MealPlan
@@ -25,10 +26,14 @@ class MealPlanViewModel(private val container: AppContainer) : ViewModel() {
     private val repository = container.repository
     private val basePlan: MealPlan = container.mealPlan
 
-    /** The plan with the user's swaps applied (swaps live in settings, so backups include them). */
-    val effectivePlan: StateFlow<MealPlan> = repository.settings.map { s -> basePlan.withSwaps(swapsFrom(s)) }
+    /** The plan with the user's recipes, edits and swaps applied (all in settings, so backups include them). */
+    val effectivePlan: StateFlow<MealPlan> = repository.settings.map { s -> effective(basePlan, s) }
         .stateIn(viewModelScope, SharingStarted.Eagerly, basePlan)
     val plan: MealPlan get() = effectivePlan.value
+
+    /** Same as [effectivePlan] but null until the settings have loaded, so user recipes never flash as missing. */
+    val loadedPlan: StateFlow<MealPlan?> = repository.settings.map<Map<String, String>, MealPlan?> { s -> effective(basePlan, s) }
+        .stateIn(viewModelScope, SharingStarted.Eagerly, null)
 
     /** Week scheduled for today: A in odd programme weeks, B in even ones. */
     val currentWeekId: StateFlow<String> = repository.profile.map { p ->
@@ -86,8 +91,16 @@ class MealPlanViewModel(private val container: AppContainer) : ViewModel() {
 
     private fun groceryKey(weekId: String) = "grocery_$weekId"
 
+    /** Clears a user recipe, or puts a bundled recipe back to the original. */
+    fun removeUserRecipe(id: String) = viewModelScope.launch {
+        repository.setSetting(UserRecipes.RECIPE_PREFIX + id, "")
+    }
+
     companion object {
         const val SWAP_PREFIX = "swap_"
+
+        fun effective(base: MealPlan, settings: Map<String, String>): MealPlan =
+            base.withUserContent(UserRecipes.foods(settings), UserRecipes.recipes(settings)).withSwaps(swapsFrom(settings))
 
         fun swapsFrom(settings: Map<String, String>): Map<String, String> = settings
             .filterKeys { it.startsWith(SWAP_PREFIX) }

@@ -131,10 +131,16 @@ All reminders live in **More → Reminders**; each one is individually toggleabl
   Updates live while the app runs and every 30 minutes otherwise.
 - **Meal plan** — two alternating weeks (Week A from the High-Protein Recipes handbook, Week B from
   Instagram reels) at 1,650–1,900 kcal and ~150 g protein a day: today's menu with one-tap logging,
-  44 recipes with macros and method, weekly grocery checklists and Sunday prep. **Swap dish** replaces
-  any breakfast, lunch, dinner or snack with a similar-calorie option (veg-only on veg days); the
-  grocery list is calculated from the planned meals, so it updates with every swap. Generated from
-  `tools/mealplan/` into `app/src/main/assets/meal_plan.json`.
+  45 recipes with method and per-ingredient macros, weekly grocery checklists and Sunday prep. **Swap dish**
+  replaces any breakfast, lunch, dinner or snack with a similar-calorie option (veg-only on veg days; "Show
+  all" lists every dish of that kind); the grocery list is calculated from the planned meals, so it updates
+  with every swap. Generated from `tools/mealplan/` into `app/src/main/assets/meal_plan.json`.
+- **Your own recipes** — Meal plan → Recipes → **New recipe**: add ingredients with amounts (raw weight per
+  serving) and the preparation steps; calories, protein, carbs and fat are calculated as you type from the
+  built-in nutrition table (54 ingredients). Missing an ingredient? **New ingredient** takes the values off
+  its label (per 100 g/ml or per piece). Every bundled recipe can be edited the same way (pencil on the
+  recipe page) and reset to the original. Your recipes can be swapped into the plan, feed the grocery
+  list, and are included in backups (stored as `recipe_*` / `food_*` settings).
 - **Streaks & badges** — daily logging, step goal, calorie adherence (days) and workouts (weeks);
   badges at 7 / 30 / 50 / 80 days; adaptive wins ("3 weeks on pace in a row", "new low weight", "5 kg down").
 

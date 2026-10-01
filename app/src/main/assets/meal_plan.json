@@ -1,5 +1,5 @@
 {
- "version": 2,
+ "version": 3,
  "recipes": [
   {
    "id": "sambar",
@@ -11,14 +11,55 @@
    "protein": 9,
    "carbs": 30,
    "fat": 4,
+   "parts": [
+    {
+     "food": "toor",
+     "qty": 30,
+     "note": ""
+    },
+    {
+     "food": "sambar_veg",
+     "qty": 100,
+     "note": "drumstick, brinjal, pumpkin, okra"
+    },
+    {
+     "food": "onion",
+     "qty": 20,
+     "note": "or 4 shallots"
+    },
+    {
+     "food": "tomato",
+     "qty": 30,
+     "note": ""
+    },
+    {
+     "food": "tamarind",
+     "qty": 5,
+     "note": "a small marble"
+    },
+    {
+     "food": "oil",
+     "qty": 3,
+     "note": ""
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "sambar powder, turmeric, hing"
+    }
+   ],
+   "extras": [
+    "Mustard seeds, curry leaves, 1 dried red chilli"
+   ],
    "ingredients": [
-    "30 g toor dal",
-    "100 g sambar vegetables (drumstick, brinjal, pumpkin, okra)",
-    "20 g onion or 4 shallots",
-    "30 g tomato",
-    "5 g tamarind (small marble)",
-    "1 tsp sambar powder, pinch turmeric and hing",
-    "3 g oil, mustard seeds, curry leaves, 1 dried red chilli"
+    "30 g Toor dal (dry)",
+    "100 g Sambar vegetables — drumstick, brinjal, pumpkin, okra",
+    "20 g Onion — or 4 shallots",
+    "30 g Tomato",
+    "5 g Tamarind — a small marble",
+    "3 ml Cooking oil",
+    "5 g Spices & masalas — sambar powder, turmeric, hing",
+    "Mustard seeds, curry leaves, 1 dried red chilli"
    ],
    "steps": [
     "Pressure-cook the dal with turmeric for 3 whistles, then mash.",
@@ -31,10 +72,10 @@
    "items": {
     "toor": 30,
     "sambar_veg": 100,
-    "tamarind": 5,
-    "oil": 3,
     "onion": 20,
-    "tomato": 30
+    "tomato": 30,
+    "tamarind": 5,
+    "oil": 3
    }
   },
   {
@@ -47,10 +88,67 @@
    "protein": 21,
    "carbs": 66,
    "fat": 9,
+   "parts": [
+    {
+     "food": "idli_batter",
+     "qty": 150,
+     "note": "3 idlis"
+    },
+    {
+     "food": "toor",
+     "qty": 30,
+     "note": "for the sambar"
+    },
+    {
+     "food": "sambar_veg",
+     "qty": 100,
+     "note": ""
+    },
+    {
+     "food": "onion",
+     "qty": 20,
+     "note": ""
+    },
+    {
+     "food": "tomato",
+     "qty": 30,
+     "note": ""
+    },
+    {
+     "food": "tamarind",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 3,
+     "note": ""
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "sambar powder, turmeric, hing"
+    },
+    {
+     "food": "egg_pc",
+     "qty": 1,
+     "note": "boiled"
+    }
+   ],
+   "extras": [
+    "Sambar as in the protein sambar recipe"
+   ],
    "ingredients": [
-    "150 g idli batter (3 idlis)",
-    "1 bowl protein sambar",
-    "1 egg"
+    "150 g Idli / dosa batter — 3 idlis",
+    "30 g Toor dal (dry) — for the sambar",
+    "100 g Sambar vegetables",
+    "20 g Onion",
+    "30 g Tomato",
+    "5 g Tamarind",
+    "3 ml Cooking oil",
+    "5 g Spices & masalas — sambar powder, turmeric, hing",
+    "1 × Egg — boiled",
+    "Sambar as in the protein sambar recipe"
    ],
    "steps": [
     "Steam the idlis 10–12 min.",
@@ -63,10 +161,10 @@
     "idli_batter": 150,
     "toor": 30,
     "sambar_veg": 100,
-    "tamarind": 5,
-    "oil": 3,
     "onion": 20,
     "tomato": 30,
+    "tamarind": 5,
+    "oil": 3,
     "egg_pc": 1
    }
   },
@@ -80,12 +178,45 @@
    "protein": 22,
    "carbs": 42,
    "fat": 17,
+   "parts": [
+    {
+     "food": "moong_whole",
+     "qty": 60,
+     "note": "soaked 6–8 h"
+    },
+    {
+     "food": "paneer",
+     "qty": 40,
+     "note": "grated"
+    },
+    {
+     "food": "tomato",
+     "qty": 100,
+     "note": "for the chutney"
+    },
+    {
+     "food": "oil",
+     "qty": 8,
+     "note": "dosa + chutney"
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "green chilli, ginger, cumin, dried red chilli"
+    }
+   ],
+   "extras": [
+    "A little chopped onion",
+    "Salt"
+   ],
    "ingredients": [
-    "60 g whole green moong, soaked 6–8 h",
-    "1 green chilli, 5 g ginger, ½ tsp cumin, salt",
-    "40 g paneer, grated, + a little chopped onion",
-    "8 g oil (dosa + chutney)",
-    "Chutney: 100 g tomato, 5 g ginger, 1 dried red chilli"
+    "60 g Whole green moong (dry) — soaked 6–8 h",
+    "40 g Paneer — grated",
+    "100 g Tomato — for the chutney",
+    "8 ml Cooking oil — dosa + chutney",
+    "5 g Spices & masalas — green chilli, ginger, cumin, dried red chilli",
+    "A little chopped onion",
+    "Salt"
    ],
    "steps": [
     "Grind the soaked moong with chilli, ginger, cumin and salt to a pourable batter.",
@@ -97,9 +228,9 @@
    "reels": [],
    "items": {
     "moong_whole": 60,
-    "oil": 8,
+    "paneer": 40,
     "tomato": 100,
-    "paneer": 40
+    "oil": 8
    }
   },
   {
@@ -112,9 +243,43 @@
    "protein": 22,
    "carbs": 42,
    "fat": 14,
+   "parts": [
+    {
+     "food": "moong_whole",
+     "qty": 60,
+     "note": "soaked 6–8 h"
+    },
+    {
+     "food": "tomato",
+     "qty": 100,
+     "note": "for the chutney"
+    },
+    {
+     "food": "oil",
+     "qty": 8,
+     "note": "dosa + chutney"
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "green chilli, ginger, cumin, dried red chilli"
+    },
+    {
+     "food": "egg_pc",
+     "qty": 1,
+     "note": "boiled, or cracked over the dosa"
+    }
+   ],
+   "extras": [
+    "Salt"
+   ],
    "ingredients": [
-    "Same pesarattu batter and chutney as above, no paneer",
-    "1 egg"
+    "60 g Whole green moong (dry) — soaked 6–8 h",
+    "100 g Tomato — for the chutney",
+    "8 ml Cooking oil — dosa + chutney",
+    "5 g Spices & masalas — green chilli, ginger, cumin, dried red chilli",
+    "1 × Egg — boiled, or cracked over the dosa",
+    "Salt"
    ],
    "steps": [
     "Make 2 pesarattu as above.",
@@ -124,8 +289,8 @@
    "reels": [],
    "items": {
     "moong_whole": 60,
-    "oil": 8,
     "tomato": 100,
+    "oil": 8,
     "egg_pc": 1
    }
   },
@@ -139,12 +304,49 @@
    "protein": 28,
    "carbs": 29,
    "fat": 14,
+   "parts": [
+    {
+     "food": "egg_pc",
+     "qty": 2,
+     "note": ""
+    },
+    {
+     "food": "eggwhite_pc",
+     "qty": 3,
+     "note": ""
+    },
+    {
+     "food": "onion",
+     "qty": 50,
+     "note": ""
+    },
+    {
+     "food": "tomato",
+     "qty": 50,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 3,
+     "note": ""
+    },
+    {
+     "food": "atta",
+     "qty": 30,
+     "note": "1 chapati, no ghee"
+    }
+   ],
+   "extras": [
+    "1 green chilli, pinch turmeric, ½ tsp chilli powder, coriander leaves"
+   ],
    "ingredients": [
-    "2 whole eggs + 3 egg whites",
-    "50 g onion, 50 g tomato, 1 green chilli",
-    "Pinch turmeric, ½ tsp chilli powder, coriander leaves",
-    "3 g oil",
-    "1 chapati (30 g atta, no ghee)"
+    "2 × Egg",
+    "3 × Egg white",
+    "50 g Onion",
+    "50 g Tomato",
+    "3 ml Cooking oil",
+    "30 g Whole wheat atta — 1 chapati, no ghee",
+    "1 green chilli, pinch turmeric, ½ tsp chilli powder, coriander leaves"
    ],
    "steps": [
     "Sauté onion and chilli in oil until soft, add tomato and spices and cook 2 min.",
@@ -168,16 +370,47 @@
    "category": "Breakfast",
    "source": "Handbook p.40 (+100 g curd)",
    "veg": true,
-   "kcal": 381,
+   "kcal": 376,
    "protein": 27,
-   "carbs": 44,
+   "carbs": 43,
    "fat": 10,
+   "parts": [
+    {
+     "food": "moong_yellow",
+     "qty": 60,
+     "note": "soaked 2–3 h"
+    },
+    {
+     "food": "paneer_lf",
+     "qty": 50,
+     "note": "crumbled"
+    },
+    {
+     "food": "onion",
+     "qty": 20,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "curd_lf",
+     "qty": 100,
+     "note": "on the side"
+    }
+   ],
+   "extras": [
+    "Pinch cumin and chilli, salt"
+   ],
    "ingredients": [
-    "60 g yellow moong dal, soaked 2–3 h",
-    "50 g paneer, crumbled",
-    "¼ small onion, pinch cumin and chilli",
-    "5 g oil",
-    "100 g low-fat curd on the side"
+    "60 g Yellow moong dal (dry) — soaked 2–3 h",
+    "50 g Low-fat paneer — crumbled",
+    "20 g Onion",
+    "5 ml Cooking oil",
+    "100 g Low-fat curd (dahi) — on the side",
+    "Pinch cumin and chilli, salt"
    ],
    "steps": [
     "Blend the moong with a little water and salt to a pancake batter.",
@@ -188,7 +421,7 @@
    "reels": [],
    "items": {
     "moong_yellow": 60,
-    "paneer": 50,
+    "paneer_lf": 50,
     "onion": 20,
     "oil": 5,
     "curd_lf": 100
@@ -200,15 +433,38 @@
    "category": "Breakfast",
    "source": "Handbook p.7",
    "veg": false,
-   "kcal": 477,
-   "protein": 25,
-   "carbs": 66,
-   "fat": 13,
+   "kcal": 491,
+   "protein": 24,
+   "carbs": 67,
+   "fat": 15,
+   "parts": [
+    {
+     "food": "oats",
+     "qty": 65,
+     "note": ""
+    },
+    {
+     "food": "greek",
+     "qty": 100,
+     "note": "or hung curd"
+    },
+    {
+     "food": "pomegranate",
+     "qty": 100,
+     "note": ""
+    },
+    {
+     "food": "egg_pc",
+     "qty": 1,
+     "note": "boiled"
+    }
+   ],
+   "extras": [],
    "ingredients": [
-    "65 g rolled oats",
-    "100 g Greek yogurt or hung curd",
-    "100 g pomegranate arils",
-    "1 egg"
+    "65 g Rolled oats",
+    "100 g Greek yogurt — or hung curd",
+    "100 g Pomegranate arils",
+    "1 × Egg — boiled"
    ],
    "steps": [
     "Boil the egg 8–10 min.",
@@ -234,11 +490,37 @@
    "protein": 39,
    "carbs": 69,
    "fat": 9,
+   "parts": [
+    {
+     "food": "oats",
+     "qty": 50,
+     "note": ""
+    },
+    {
+     "food": "milk_dt",
+     "qty": 200,
+     "note": ""
+    },
+    {
+     "food": "whey_scoop",
+     "qty": 1,
+     "note": "38.5 g"
+    },
+    {
+     "food": "papaya",
+     "qty": 150,
+     "note": "on the side"
+    }
+   ],
+   "extras": [
+    "Cinnamon"
+   ],
    "ingredients": [
-    "50 g rolled oats",
-    "200 ml double-toned milk",
-    "1 scoop of your whey (38.5 g)",
-    "150 g papaya, cinnamon"
+    "50 g Rolled oats",
+    "200 ml Double-toned milk",
+    "1 scoop Whey protein — 38.5 g",
+    "150 g Papaya — on the side",
+    "Cinnamon"
    ],
    "steps": [
     "Simmer oats in milk 4–5 min until thick.",
@@ -260,15 +542,41 @@
    "category": "Lunch & dinner",
    "source": "Handbook p.11",
    "veg": false,
-   "kcal": 575,
-   "protein": 55,
-   "carbs": 60,
-   "fat": 12,
+   "kcal": 480,
+   "protein": 42,
+   "carbs": 54,
+   "fat": 10,
+   "parts": [
+    {
+     "food": "chicken",
+     "qty": 150,
+     "note": ""
+    },
+    {
+     "food": "rice_raw",
+     "qty": 50,
+     "note": "150 g cooked"
+    },
+    {
+     "food": "veg_mix",
+     "qty": 250,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    }
+   ],
+   "extras": [
+    "½ tsp cumin or paprika, salt, pepper"
+   ],
    "ingredients": [
-    "150 g chicken breast",
-    "50 g raw rice (150 g cooked)",
-    "250 g mixed vegetables",
-    "5 g oil, ½ tsp cumin or paprika, salt, pepper"
+    "150 g Chicken breast, skinless (raw)",
+    "50 g Rice (raw) — 150 g cooked",
+    "250 g Mixed vegetables",
+    "5 ml Cooking oil",
+    "½ tsp cumin or paprika, salt, pepper"
    ],
    "steps": [
     "Cook the rice.",
@@ -291,15 +599,41 @@
    "category": "Lunch & dinner",
    "source": "Handbook p.12",
    "veg": false,
-   "kcal": 623,
-   "protein": 59,
-   "carbs": 64,
-   "fat": 14,
+   "kcal": 504,
+   "protein": 46,
+   "carbs": 58,
+   "fat": 10,
+   "parts": [
+    {
+     "food": "chicken",
+     "qty": 150,
+     "note": ""
+    },
+    {
+     "food": "atta",
+     "qty": 60,
+     "note": "2 chapatis"
+    },
+    {
+     "food": "veg_mix",
+     "qty": 250,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    }
+   ],
+   "extras": [
+    "Spices, salt"
+   ],
    "ingredients": [
-    "150 g chicken breast",
-    "2 chapatis (60 g atta)",
-    "250 g mixed vegetables",
-    "5 g oil, spices"
+    "150 g Chicken breast, skinless (raw)",
+    "60 g Whole wheat atta — 2 chapatis",
+    "250 g Mixed vegetables",
+    "5 ml Cooking oil",
+    "Spices, salt"
    ],
    "steps": [
     "Sear and slice the chicken as for the rice bowl.",
@@ -321,16 +655,47 @@
    "category": "Lunch & dinner",
    "source": "Handbook p.13",
    "veg": false,
-   "kcal": 490,
-   "protein": 44,
-   "carbs": 46,
-   "fat": 11,
+   "kcal": 470,
+   "protein": 40,
+   "carbs": 44,
+   "fat": 12,
+   "parts": [
+    {
+     "food": "chicken",
+     "qty": 150,
+     "note": "breast or thigh"
+    },
+    {
+     "food": "curd_lf",
+     "qty": 100,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "rice_raw",
+     "qty": 50,
+     "note": "150 g cooked"
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "tandoori masala, turmeric, ginger-garlic paste"
+    }
+   ],
+   "extras": [
+    "Juice of ½ lemon, salt"
+   ],
    "ingredients": [
-    "150 g chicken breast or thigh",
-    "100 g low-fat curd, 1 tsp ginger-garlic paste",
-    "1 tsp tandoori masala, ½ tsp turmeric, juice of ½ lemon",
-    "5 g oil",
-    "50 g raw rice (150 g cooked)"
+    "150 g Chicken breast, skinless (raw) — breast or thigh",
+    "100 g Low-fat curd (dahi)",
+    "5 ml Cooking oil",
+    "50 g Rice (raw) — 150 g cooked",
+    "5 g Spices & masalas — tandoori masala, turmeric, ginger-garlic paste",
+    "Juice of ½ lemon, salt"
    ],
    "steps": [
     "Marinate chicken in curd, paste, masala, turmeric, lemon and salt for 30 min or overnight.",
@@ -354,17 +719,65 @@
    "category": "Lunch & dinner (swap)",
    "source": "Handbook p.15",
    "veg": false,
-   "kcal": 477,
+   "kcal": 484,
    "protein": 41,
-   "carbs": 43,
+   "carbs": 44,
    "fat": 15,
+   "parts": [
+    {
+     "food": "chicken",
+     "qty": 150,
+     "note": ""
+    },
+    {
+     "food": "onion",
+     "qty": 70,
+     "note": "1 small"
+    },
+    {
+     "food": "tomato",
+     "qty": 150,
+     "note": "puréed"
+    },
+    {
+     "food": "curd_lf",
+     "qty": 30,
+     "note": ""
+    },
+    {
+     "food": "cashew",
+     "qty": 10,
+     "note": "soaked, blended"
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "rice_raw",
+     "qty": 35,
+     "note": "100 g cooked"
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "ginger-garlic paste, garam masala, chilli"
+    }
+   ],
+   "extras": [
+    "Kasuri methi, salt"
+   ],
    "ingredients": [
-    "150 g chicken breast",
-    "1 small onion, 150 g tomato purée",
-    "30 g low-fat curd, 10 g cashews (soaked, blended)",
-    "1 tsp ginger-garlic paste, garam masala, chilli, kasuri methi",
-    "5 g oil",
-    "35 g raw rice (100 g cooked)"
+    "150 g Chicken breast, skinless (raw)",
+    "70 g Onion — 1 small",
+    "150 g Tomato — puréed",
+    "30 g Low-fat curd (dahi)",
+    "10 g Cashews — soaked, blended",
+    "5 ml Cooking oil",
+    "35 g Rice (raw) — 100 g cooked",
+    "5 g Spices & masalas — ginger-garlic paste, garam masala, chilli",
+    "Kasuri methi, salt"
    ],
    "steps": [
     "Sear the chicken cubes 4–5 min; set aside.",
@@ -389,16 +802,59 @@
    "category": "Lunch & dinner",
    "source": "Handbook p.16",
    "veg": false,
-   "kcal": 433,
-   "protein": 39,
-   "carbs": 44,
-   "fat": 11,
+   "kcal": 442,
+   "protein": 41,
+   "carbs": 45,
+   "fat": 10,
+   "parts": [
+    {
+     "food": "chicken",
+     "qty": 150,
+     "note": "lean mince"
+    },
+    {
+     "food": "onion",
+     "qty": 70,
+     "note": "1 small"
+    },
+    {
+     "food": "tomato",
+     "qty": 100,
+     "note": "1 medium"
+    },
+    {
+     "food": "peas",
+     "qty": 50,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "rice_raw",
+     "qty": 35,
+     "note": "100 g cooked"
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "ginger-garlic paste, turmeric, chilli, garam masala"
+    }
+   ],
+   "extras": [
+    "Salt"
+   ],
    "ingredients": [
-    "150 g lean chicken mince",
-    "1 small onion, 1 tomato, 50 g green peas",
-    "1 tsp ginger-garlic paste, turmeric, chilli, garam masala",
-    "5 g oil",
-    "35 g raw rice (100 g cooked)"
+    "150 g Chicken breast, skinless (raw) — lean mince",
+    "70 g Onion — 1 small",
+    "100 g Tomato — 1 medium",
+    "50 g Green peas",
+    "5 ml Cooking oil",
+    "35 g Rice (raw) — 100 g cooked",
+    "5 g Spices & masalas — ginger-garlic paste, turmeric, chilli, garam masala",
+    "Salt"
    ],
    "steps": [
     "Sauté onion golden, add paste, then tomato and spices until thick.",
@@ -422,16 +878,59 @@
    "category": "Lunch & dinner",
    "source": "Handbook p.19",
    "veg": false,
-   "kcal": 445,
-   "protein": 45,
-   "carbs": 42,
-   "fat": 9,
+   "kcal": 438,
+   "protein": 36,
+   "carbs": 43,
+   "fat": 12,
+   "parts": [
+    {
+     "food": "fish",
+     "qty": 150,
+     "note": "seer / vanjaram or basa"
+    },
+    {
+     "food": "curd_lf",
+     "qty": 100,
+     "note": ""
+    },
+    {
+     "food": "capsicum",
+     "qty": 75,
+     "note": "chunks"
+    },
+    {
+     "food": "onion",
+     "qty": 75,
+     "note": "chunks"
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "rice_raw",
+     "qty": 35,
+     "note": "100 g cooked"
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "ginger-garlic paste, tikka masala"
+    }
+   ],
+   "extras": [
+    "Salt, lemon"
+   ],
    "ingredients": [
-    "150 g firm fish (seer/vanjaram, basa)",
-    "100 g low-fat curd, 1 tsp ginger-garlic paste, 1 tsp tikka masala",
-    "150 g capsicum and onion chunks",
-    "5 g oil",
-    "35 g raw rice (100 g cooked)"
+    "150 g White fish fillet (raw) — seer / vanjaram or basa",
+    "100 g Low-fat curd (dahi)",
+    "75 g Capsicum (bell pepper) — chunks",
+    "75 g Onion — chunks",
+    "5 ml Cooking oil",
+    "35 g Rice (raw) — 100 g cooked",
+    "5 g Spices & masalas — ginger-garlic paste, tikka masala",
+    "Salt, lemon"
    ],
    "steps": [
     "Marinate fish and vegetables gently for 15–20 min.",
@@ -455,15 +954,41 @@
    "category": "Lunch & dinner",
    "source": "Handbook p.18 (100 g rice)",
    "veg": false,
-   "kcal": 430,
-   "protein": 43,
-   "carbs": 46,
+   "kcal": 426,
+   "protein": 42,
+   "carbs": 43,
    "fat": 9,
+   "parts": [
+    {
+     "food": "fish",
+     "qty": 180,
+     "note": "raw, about 150 g cooked"
+    },
+    {
+     "food": "rice_raw",
+     "qty": 35,
+     "note": "100 g cooked"
+    },
+    {
+     "food": "veg_mix",
+     "qty": 250,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    }
+   ],
+   "extras": [
+    "Lemon, pepper, salt"
+   ],
    "ingredients": [
-    "150 g white fish fillet",
-    "35 g raw rice (100 g cooked)",
-    "250 g mixed vegetables",
-    "5 g oil, lemon, pepper"
+    "180 g White fish fillet (raw) — raw, about 150 g cooked",
+    "35 g Rice (raw) — 100 g cooked",
+    "250 g Mixed vegetables",
+    "5 ml Cooking oil",
+    "Lemon, pepper, salt"
    ],
    "steps": [
     "Pat fish dry, season with salt, pepper and lemon.",
@@ -473,7 +998,7 @@
    "tip": "Handbook p.18, rice cut to 100 g for the rest day.",
    "reels": [],
    "items": {
-    "fish": 150,
+    "fish": 180,
     "rice_raw": 35,
     "veg_mix": 250,
     "oil": 5
@@ -485,16 +1010,59 @@
    "category": "Lunch & dinner · veg",
    "source": "Handbook p.26",
    "veg": true,
-   "kcal": 481,
-   "protein": 47,
-   "carbs": 53,
-   "fat": 10,
+   "kcal": 484,
+   "protein": 46,
+   "carbs": 49,
+   "fat": 12,
+   "parts": [
+    {
+     "food": "paneer_lf",
+     "qty": 200,
+     "note": ""
+    },
+    {
+     "food": "spinach",
+     "qty": 200,
+     "note": ""
+    },
+    {
+     "food": "onion",
+     "qty": 70,
+     "note": "1 small"
+    },
+    {
+     "food": "tomato",
+     "qty": 100,
+     "note": "1 medium"
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "rice_raw",
+     "qty": 35,
+     "note": "100 g cooked"
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "ginger-garlic paste, cumin, garam masala, chilli"
+    }
+   ],
+   "extras": [
+    "Salt"
+   ],
    "ingredients": [
-    "200 g low-fat paneer",
-    "200 g spinach, 1 small onion, 1 tomato",
-    "1 tsp ginger-garlic paste, cumin, garam masala, chilli",
-    "5 g oil",
-    "35 g raw rice (100 g cooked)"
+    "200 g Low-fat paneer",
+    "200 g Spinach",
+    "70 g Onion — 1 small",
+    "100 g Tomato — 1 medium",
+    "5 ml Cooking oil",
+    "35 g Rice (raw) — 100 g cooked",
+    "5 g Spices & masalas — ginger-garlic paste, cumin, garam masala, chilli",
+    "Salt"
    ],
    "steps": [
     "Blanch spinach 2 min, cool, blend smooth.",
@@ -518,16 +1086,59 @@
    "category": "Lunch & dinner · veg",
    "source": "Handbook p.29",
    "veg": true,
-   "kcal": 449,
+   "kcal": 483,
    "protein": 42,
    "carbs": 51,
-   "fat": 10,
+   "fat": 12,
+   "parts": [
+    {
+     "food": "paneer_lf",
+     "qty": 200,
+     "note": ""
+    },
+    {
+     "food": "capsicum",
+     "qty": 150,
+     "note": ""
+    },
+    {
+     "food": "onion",
+     "qty": 70,
+     "note": "1 small"
+    },
+    {
+     "food": "tomato",
+     "qty": 100,
+     "note": "puréed"
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "rice_raw",
+     "qty": 35,
+     "note": "100 g cooked"
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "ginger-garlic paste, kadai masala"
+    }
+   ],
+   "extras": [
+    "Kadai masala: coarsely crushed coriander, chilli, cumin"
+   ],
    "ingredients": [
-    "200 g low-fat paneer",
-    "150 g capsicum, 1 small onion, 1 tomato (puréed)",
-    "1 tsp ginger-garlic paste, 1 tsp kadai masala (coarsely crushed coriander, chilli, cumin)",
-    "5 g oil",
-    "35 g raw rice (100 g cooked)"
+    "200 g Low-fat paneer",
+    "150 g Capsicum (bell pepper)",
+    "70 g Onion — 1 small",
+    "100 g Tomato — puréed",
+    "5 ml Cooking oil",
+    "35 g Rice (raw) — 100 g cooked",
+    "5 g Spices & masalas — ginger-garlic paste, kadai masala",
+    "Kadai masala: coarsely crushed coriander, chilli, cumin"
    ],
    "steps": [
     "Toss capsicum and onion on high heat 2–3 min; set aside.",
@@ -551,16 +1162,53 @@
    "category": "Lunch & dinner · veg",
    "source": "Handbook p.33",
    "veg": true,
-   "kcal": 541,
+   "kcal": 518,
    "protein": 42,
-   "carbs": 77,
+   "carbs": 73,
    "fat": 6,
+   "parts": [
+    {
+     "food": "soya",
+     "qty": 70,
+     "note": ""
+    },
+    {
+     "food": "onion",
+     "qty": 70,
+     "note": "1 small"
+    },
+    {
+     "food": "tomato",
+     "qty": 100,
+     "note": "1 medium"
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "rice_raw",
+     "qty": 50,
+     "note": "150 g cooked"
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "ginger-garlic paste, turmeric, chilli, garam masala, coriander"
+    }
+   ],
+   "extras": [
+    "Salt"
+   ],
    "ingredients": [
-    "70 g dry soya chunks",
-    "1 small onion, 1 tomato",
-    "1 tsp ginger-garlic paste, turmeric, chilli, garam masala, coriander powder",
-    "5 g oil",
-    "50 g raw rice (150 g cooked)"
+    "70 g Soya chunks (dry)",
+    "70 g Onion — 1 small",
+    "100 g Tomato — 1 medium",
+    "5 ml Cooking oil",
+    "50 g Rice (raw) — 150 g cooked",
+    "5 g Spices & masalas — ginger-garlic paste, turmeric, chilli, garam masala, coriander",
+    "Salt"
    ],
    "steps": [
     "Boil soya chunks 5 min, rinse in cold water, squeeze hard.",
@@ -583,16 +1231,59 @@
    "category": "Lunch & dinner · veg",
    "source": "Handbook p.35",
    "veg": true,
-   "kcal": 460,
+   "kcal": 470,
    "protein": 38,
-   "carbs": 63,
+   "carbs": 65,
    "fat": 6,
+   "parts": [
+    {
+     "food": "soya",
+     "qty": 60,
+     "note": "granules or chopped chunks"
+    },
+    {
+     "food": "onion",
+     "qty": 70,
+     "note": "1 small"
+    },
+    {
+     "food": "tomato",
+     "qty": 100,
+     "note": "1 medium"
+    },
+    {
+     "food": "peas",
+     "qty": 50,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "rice_raw",
+     "qty": 35,
+     "note": "100 g cooked"
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "ginger-garlic paste, turmeric, chilli, garam masala"
+    }
+   ],
+   "extras": [
+    "Salt"
+   ],
    "ingredients": [
-    "60 g soya granules (or chopped chunks)",
-    "1 small onion, 1 tomato, 50 g green peas",
-    "1 tsp ginger-garlic paste, turmeric, chilli, garam masala",
-    "5 g oil",
-    "35 g raw rice (100 g cooked)"
+    "60 g Soya chunks (dry) — granules or chopped chunks",
+    "70 g Onion — 1 small",
+    "100 g Tomato — 1 medium",
+    "50 g Green peas",
+    "5 ml Cooking oil",
+    "35 g Rice (raw) — 100 g cooked",
+    "5 g Spices & masalas — ginger-garlic paste, turmeric, chilli, garam masala",
+    "Salt"
    ],
    "steps": [
     "Soak granules in hot water 5 min; squeeze dry.",
@@ -616,14 +1307,35 @@
    "category": "Snack (swap)",
    "source": "Handbook p.41",
    "veg": false,
-   "kcal": 371,
-   "protein": 34,
+   "kcal": 390,
+   "protein": 33,
    "carbs": 4,
-   "fat": 25,
+   "fat": 26,
+   "parts": [
+    {
+     "food": "egg_pc",
+     "qty": 4,
+     "note": ""
+    },
+    {
+     "food": "spinach",
+     "qty": 50,
+     "note": "chopped"
+    },
+    {
+     "food": "mozzarella",
+     "qty": 30,
+     "note": "or low-fat cheese"
+    }
+   ],
+   "extras": [
+    "Salt, pepper"
+   ],
    "ingredients": [
-    "4 eggs",
-    "50 g spinach, chopped",
-    "30 g low-fat cheese"
+    "4 × Egg",
+    "50 g Spinach — chopped",
+    "30 g Mozzarella — or low-fat cheese",
+    "Salt, pepper"
    ],
    "steps": [
     "Whisk everything with salt and pepper.",
@@ -634,7 +1346,8 @@
    "reels": [],
    "items": {
     "egg_pc": 4,
-    "spinach": 50
+    "spinach": 50,
+    "mozzarella": 30
    }
   },
   {
@@ -647,13 +1360,55 @@
    "protein": 39,
    "carbs": 51,
    "fat": 10,
+   "parts": [
+    {
+     "food": "chicken",
+     "qty": 150,
+     "note": "cubed"
+    },
+    {
+     "food": "onion",
+     "qty": 70,
+     "note": ""
+    },
+    {
+     "food": "tomato",
+     "qty": 50,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "rice_raw",
+     "qty": 50,
+     "note": "150 g cooked"
+    },
+    {
+     "food": "cucumber",
+     "qty": 100,
+     "note": "salad"
+    },
+    {
+     "food": "spices",
+     "qty": 10,
+     "note": "black pepper, fennel, coriander, chilli, ginger-garlic"
+    }
+   ],
+   "extras": [
+    "Curry leaves, salt"
+   ],
    "ingredients": [
-    "150 g chicken breast, cubed",
-    "70 g onion, 50 g tomato, curry leaves",
-    "1 tsp crushed black pepper, ½ tsp fennel, 1 tsp coriander powder, ½ tsp chilli, ½ tsp ginger-garlic paste",
-    "5 g oil",
-    "50 g raw rice (150 g cooked)",
-    "100 g cucumber salad"
+    "150 g Chicken breast, skinless (raw) — cubed",
+    "70 g Onion",
+    "50 g Tomato",
+    "5 ml Cooking oil",
+    "50 g Rice (raw) — 150 g cooked",
+    "100 g Cucumber — salad",
+    "10 g Spices & masalas — black pepper, fennel, coriander, chilli, ginger-garlic",
+    "Curry leaves, salt"
    ],
    "steps": [
     "Marinate chicken with turmeric, salt and ginger-garlic for 15 min.",
@@ -681,13 +1436,55 @@
    "protein": 34,
    "carbs": 54,
    "fat": 9,
+   "parts": [
+    {
+     "food": "fish",
+     "qty": 150,
+     "note": "rohu, seer or pomfret"
+    },
+    {
+     "food": "tamarind",
+     "qty": 10,
+     "note": "soaked in 200 ml water"
+    },
+    {
+     "food": "onion",
+     "qty": 50,
+     "note": ""
+    },
+    {
+     "food": "tomato",
+     "qty": 100,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "rice_raw",
+     "qty": 50,
+     "note": "150 g cooked"
+    },
+    {
+     "food": "spices",
+     "qty": 10,
+     "note": "turmeric, chilli, coriander, fenugreek"
+    }
+   ],
+   "extras": [
+    "2 green chillies, curry leaves, salt"
+   ],
    "ingredients": [
-    "150 g fish (rohu, seer, pomfret)",
-    "10 g tamarind soaked in 200 ml water",
-    "50 g onion, 2 green chillies, 100 g tomato",
-    "Turmeric, 1 tsp chilli, 1 tsp coriander powder, pinch fenugreek, curry leaves",
-    "5 g oil",
-    "50 g raw rice (150 g cooked)"
+    "150 g White fish fillet (raw) — rohu, seer or pomfret",
+    "10 g Tamarind — soaked in 200 ml water",
+    "50 g Onion",
+    "100 g Tomato",
+    "5 ml Cooking oil",
+    "50 g Rice (raw) — 150 g cooked",
+    "10 g Spices & masalas — turmeric, chilli, coriander, fenugreek",
+    "2 green chillies, curry leaves, salt"
    ],
    "steps": [
     "Temper mustard, fenugreek and curry leaves in oil; sauté onion and chillies.",
@@ -715,12 +1512,49 @@
    "protein": 37,
    "carbs": 43,
    "fat": 7,
+   "parts": [
+    {
+     "food": "prawn",
+     "qty": 150,
+     "note": ""
+    },
+    {
+     "food": "onion",
+     "qty": 70,
+     "note": ""
+    },
+    {
+     "food": "tomato",
+     "qty": 100,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": "coconut oil"
+    },
+    {
+     "food": "atta",
+     "qty": 45,
+     "note": "1½ chapatis"
+    },
+    {
+     "food": "spices",
+     "qty": 10,
+     "note": "ginger-garlic paste, pepper, garam masala, turmeric, chilli"
+    }
+   ],
+   "extras": [
+    "Curry leaves, salt"
+   ],
    "ingredients": [
-    "150 g cleaned prawns",
-    "70 g onion, 100 g tomato, curry leaves",
-    "1 tsp ginger-garlic paste, ½ tsp pepper, ½ tsp garam masala, turmeric, chilli",
-    "5 g coconut oil",
-    "1½ chapatis (45 g atta)"
+    "150 g Prawns, cleaned (raw)",
+    "70 g Onion",
+    "100 g Tomato",
+    "5 ml Cooking oil — coconut oil",
+    "45 g Whole wheat atta — 1½ chapatis",
+    "10 g Spices & masalas — ginger-garlic paste, pepper, garam masala, turmeric, chilli",
+    "Curry leaves, salt"
    ],
    "steps": [
     "Rub prawns with turmeric, chilli and salt for 10 min.",
@@ -747,13 +1581,55 @@
    "protein": 44,
    "carbs": 60,
    "fat": 16,
+   "parts": [
+    {
+     "food": "chicken",
+     "qty": 150,
+     "note": ""
+    },
+    {
+     "food": "basmati_raw",
+     "qty": 60,
+     "note": "soaked 20 min"
+    },
+    {
+     "food": "curd_lf",
+     "qty": 150,
+     "note": "50 g marinade + 100 g raita"
+    },
+    {
+     "food": "onion",
+     "qty": 50,
+     "note": "sliced"
+    },
+    {
+     "food": "ghee",
+     "qty": 7,
+     "note": ""
+    },
+    {
+     "food": "cucumber",
+     "qty": 50,
+     "note": "for the raita"
+    },
+    {
+     "food": "spices",
+     "qty": 10,
+     "note": "ginger-garlic, biryani masala, whole spices"
+    }
+   ],
+   "extras": [
+    "Mint, roasted cumin, salt"
+   ],
    "ingredients": [
-    "150 g chicken breast",
-    "60 g raw basmati, soaked 20 min",
-    "50 g curd + ginger-garlic + 1 tsp biryani masala + mint (marinade)",
-    "50 g onion, sliced; whole spices",
-    "7 g ghee",
-    "Raita: 100 g curd, 50 g cucumber, roasted cumin"
+    "150 g Chicken breast, skinless (raw)",
+    "60 g Basmati rice (raw) — soaked 20 min",
+    "150 g Low-fat curd (dahi) — 50 g marinade + 100 g raita",
+    "50 g Onion — sliced",
+    "7 g Ghee",
+    "50 g Cucumber — for the raita",
+    "10 g Spices & masalas — ginger-garlic, biryani masala, whole spices",
+    "Mint, roasted cumin, salt"
    ],
    "steps": [
     "Marinate the chicken 30 min.",
@@ -781,9 +1657,31 @@
    "protein": 10,
    "carbs": 28,
    "fat": 1,
+   "parts": [
+    {
+     "food": "moong_whole",
+     "qty": 40,
+     "note": "sprouted, about 1 cup"
+    },
+    {
+     "food": "onion",
+     "qty": 20,
+     "note": ""
+    },
+    {
+     "food": "tomato",
+     "qty": 30,
+     "note": ""
+    }
+   ],
+   "extras": [
+    "Lemon, chaat masala, coriander"
+   ],
    "ingredients": [
-    "40 g whole green moong (sprouted, about 1 cup)",
-    "20 g onion, 30 g tomato, lemon, chaat masala, coriander"
+    "40 g Whole green moong (dry) — sprouted, about 1 cup",
+    "20 g Onion",
+    "30 g Tomato",
+    "Lemon, chaat masala, coriander"
    ],
    "steps": [
     "Steam the sprouts 3 min, or eat raw.",
@@ -807,9 +1705,25 @@
    "protein": 8,
    "carbs": 20,
    "fat": 4,
+   "parts": [
+    {
+     "food": "roasted_chana",
+     "qty": 30,
+     "note": ""
+    },
+    {
+     "food": "curd_lf",
+     "qty": 75,
+     "note": "buttermilk with 200 ml water"
+    }
+   ],
+   "extras": [
+    "Salt, roasted cumin"
+   ],
    "ingredients": [
-    "30 g roasted chana",
-    "Buttermilk: 75 g curd, 200 ml water, salt, roasted cumin"
+    "30 g Roasted chana",
+    "75 g Low-fat curd (dahi) — buttermilk with 200 ml water",
+    "Salt, roasted cumin"
    ],
    "steps": [
     "Whisk the buttermilk.",
@@ -828,13 +1742,26 @@
    "category": "Snack",
    "source": "Added for your plan",
    "veg": true,
-   "kcal": 168,
-   "protein": 10,
+   "kcal": 184,
+   "protein": 8,
    "carbs": 29,
-   "fat": 2,
+   "fat": 5,
+   "parts": [
+    {
+     "food": "apple_pc",
+     "qty": 1,
+     "note": ""
+    },
+    {
+     "food": "greek",
+     "qty": 100,
+     "note": "or hung curd"
+    }
+   ],
+   "extras": [],
    "ingredients": [
-    "1 apple",
-    "100 g Greek yogurt or hung curd"
+    "1 × Apple",
+    "100 g Greek yogurt — or hung curd"
    ],
    "steps": [
     "Slice the apple and eat with the yogurt, cinnamon optional."
@@ -856,9 +1783,31 @@
    "protein": 7,
    "carbs": 27,
    "fat": 2,
+   "parts": [
+    {
+     "food": "kala_chana",
+     "qty": 40,
+     "note": "soaked overnight and boiled"
+    },
+    {
+     "food": "onion",
+     "qty": 20,
+     "note": ""
+    },
+    {
+     "food": "tomato",
+     "qty": 30,
+     "note": ""
+    }
+   ],
+   "extras": [
+    "Lemon, chaat masala"
+   ],
    "ingredients": [
-    "40 g kala chana, soaked overnight and boiled",
-    "20 g onion, 30 g tomato, lemon, chaat masala"
+    "40 g Kala chana (dry) — soaked overnight and boiled",
+    "20 g Onion",
+    "30 g Tomato",
+    "Lemon, chaat masala"
    ],
    "steps": [
     "Toss everything together."
@@ -881,9 +1830,25 @@
    "protein": 13,
    "carbs": 4,
    "fat": 10,
+   "parts": [
+    {
+     "food": "egg_pc",
+     "qty": 2,
+     "note": "boiled"
+    },
+    {
+     "food": "cucumber",
+     "qty": 100,
+     "note": ""
+    }
+   ],
+   "extras": [
+    "Pepper, salt"
+   ],
    "ingredients": [
-    "2 eggs",
-    "100 g cucumber, pepper, salt"
+    "2 × Egg — boiled",
+    "100 g Cucumber",
+    "Pepper, salt"
    ],
    "steps": [
     "Boil 9 min, peel and season."
@@ -905,10 +1870,31 @@
    "protein": 5,
    "carbs": 23,
    "fat": 4,
+   "parts": [
+    {
+     "food": "makhana",
+     "qty": 25,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 2,
+     "note": "or ghee"
+    },
+    {
+     "food": "curd_lf",
+     "qty": 75,
+     "note": "glass of buttermilk"
+    }
+   ],
+   "extras": [
+    "Salt, pepper"
+   ],
    "ingredients": [
-    "25 g makhana",
-    "2 g ghee or oil, salt, pepper",
-    "Glass of buttermilk"
+    "25 g Makhana",
+    "2 ml Cooking oil — or ghee",
+    "75 g Low-fat curd (dahi) — glass of buttermilk",
+    "Salt, pepper"
    ],
    "steps": [
     "Roast makhana in the ghee on low heat 5–6 min until crisp.",
@@ -918,8 +1904,8 @@
    "reels": [],
    "items": {
     "makhana": 25,
-    "curd_lf": 75,
-    "oil": 2
+    "oil": 2,
+    "curd_lf": 75
    }
   },
   {
@@ -932,12 +1918,43 @@
    "protein": 5,
    "carbs": 24,
    "fat": 5,
+   "parts": [
+    {
+     "food": "okra",
+     "qty": 150,
+     "note": "ends trimmed, left whole"
+    },
+    {
+     "food": "cornflour",
+     "qty": 10,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 2,
+     "note": "spray"
+    },
+    {
+     "food": "spices",
+     "qty": 3,
+     "note": "garam masala, chaat masala"
+    },
+    {
+     "food": "curd_lf",
+     "qty": 75,
+     "note": "glass of buttermilk"
+    }
+   ],
+   "extras": [
+    "Pinch of salt"
+   ],
    "ingredients": [
-    "150 g okra (bhindi), ends trimmed, left whole",
-    "10 g cornflour",
-    "Pinch of salt, ½ tsp garam masala, chaat masala",
-    "2 g oil spray",
-    "Glass of buttermilk"
+    "150 g Okra — ends trimmed, left whole",
+    "10 g Cornflour",
+    "2 ml Cooking oil — spray",
+    "3 g Spices & masalas — garam masala, chaat masala",
+    "75 g Low-fat curd (dahi) — glass of buttermilk",
+    "Pinch of salt"
    ],
    "steps": [
     "Boil the okra in salted water for 2 min and drain well.",
@@ -966,12 +1983,55 @@
    "protein": 61,
    "carbs": 17,
    "fat": 20,
+   "parts": [
+    {
+     "food": "chicken",
+     "qty": 200,
+     "note": ""
+    },
+    {
+     "food": "egg_pc",
+     "qty": 2,
+     "note": ""
+    },
+    {
+     "food": "cabbage",
+     "qty": 150,
+     "note": "5–6 leaves from a boiled cabbage"
+    },
+    {
+     "food": "onion",
+     "qty": 50,
+     "note": "finely chopped"
+    },
+    {
+     "food": "garlic",
+     "qty": 10,
+     "note": "2 cloves"
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "green chilli, salt"
+    }
+   ],
+   "extras": [
+    "Schezwan or green chutney to dip (1 tbsp)"
+   ],
    "ingredients": [
-    "200 g chicken breast",
-    "2 eggs",
-    "5–6 cabbage leaves (about 150 g), from a boiled cabbage",
-    "50 g onion, 2 garlic cloves, 1 green chilli, all finely chopped",
-    "5 g oil, salt, schezwan or green chutney to dip"
+    "200 g Chicken breast, skinless (raw)",
+    "2 × Egg",
+    "150 g Cabbage — 5–6 leaves from a boiled cabbage",
+    "50 g Onion — finely chopped",
+    "10 g Garlic — 2 cloves",
+    "5 ml Cooking oil",
+    "5 g Spices & masalas — green chilli, salt",
+    "Schezwan or green chutney to dip (1 tbsp)"
    ],
    "steps": [
     "Boil the whole cabbage 10–15 min and peel off whole leaves.",
@@ -986,10 +2046,10 @@
    "items": {
     "chicken": 200,
     "egg_pc": 2,
-    "onion": 50,
     "cabbage": 150,
-    "oil": 5,
-    "garlic": 10
+    "onion": 50,
+    "garlic": 10,
+    "oil": 5
    }
   },
   {
@@ -1002,11 +2062,55 @@
    "protein": 41,
    "carbs": 34,
    "fat": 8,
+   "parts": [
+    {
+     "food": "chicken",
+     "qty": 150,
+     "note": "boneless, half the reel's 300 g batch"
+    },
+    {
+     "food": "curd_lf",
+     "qty": 15,
+     "note": ""
+    },
+    {
+     "food": "garlic",
+     "qty": 5,
+     "note": "ginger-garlic paste"
+    },
+    {
+     "food": "mozzarella",
+     "qty": 15,
+     "note": ""
+    },
+    {
+     "food": "herbs",
+     "qty": 10,
+     "note": "chopped coriander"
+    },
+    {
+     "food": "rice_raw",
+     "qty": 35,
+     "note": "100 g cooked"
+    },
+    {
+     "food": "cucumber",
+     "qty": 100,
+     "note": "salad"
+    }
+   ],
+   "extras": [
+    "Salt, pepper"
+   ],
    "ingredients": [
-    "150 g boneless chicken (half the reel's 300 g batch)",
-    "15 g curd, 5 g ginger-garlic paste, salt, pepper",
-    "15 g mozzarella, chopped coriander",
-    "35 g raw rice (100 g cooked) + 100 g cucumber salad"
+    "150 g Chicken breast, skinless (raw) — boneless, half the reel's 300 g batch",
+    "15 g Low-fat curd (dahi)",
+    "5 g Garlic — ginger-garlic paste",
+    "15 g Mozzarella",
+    "10 g Coriander & mint — chopped coriander",
+    "35 g Rice (raw) — 100 g cooked",
+    "100 g Cucumber — salad",
+    "Salt, pepper"
    ],
    "steps": [
     "Mix chicken with everything except rice and salad; rest 5 min in the fridge.",
@@ -1037,12 +2141,55 @@
    "protein": 43,
    "carbs": 62,
    "fat": 13,
+   "parts": [
+    {
+     "food": "paneer_lf",
+     "qty": 200,
+     "note": "cubed"
+    },
+    {
+     "food": "capsicum",
+     "qty": 120,
+     "note": "1, in squares"
+    },
+    {
+     "food": "onion",
+     "qty": 100,
+     "note": "1, in squares"
+    },
+    {
+     "food": "curd_lf",
+     "qty": 50,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "rice_raw",
+     "qty": 50,
+     "note": "150 g cooked"
+    },
+    {
+     "food": "spices",
+     "qty": 10,
+     "note": "coriander-cumin, chilli, garam masala, chaat masala"
+    }
+   ],
+   "extras": [
+    "Salt"
+   ],
    "ingredients": [
-    "200 g low-fat paneer, cubed",
-    "1 capsicum and 1 onion, cut into squares",
-    "50 g curd, 1 tsp coriander-cumin, 1 tsp chilli, garam masala, chaat masala, salt",
-    "5 g oil",
-    "50 g raw rice (150 g cooked)"
+    "200 g Low-fat paneer — cubed",
+    "120 g Capsicum (bell pepper) — 1, in squares",
+    "100 g Onion — 1, in squares",
+    "50 g Low-fat curd (dahi)",
+    "5 ml Cooking oil",
+    "50 g Rice (raw) — 150 g cooked",
+    "10 g Spices & masalas — coriander-cumin, chilli, garam masala, chaat masala",
+    "Salt"
    ],
    "steps": [
     "Coat paneer and vegetables in curd and spices.",
@@ -1072,12 +2219,55 @@
    "protein": 35,
    "carbs": 61,
    "fat": 10,
+   "parts": [
+    {
+     "food": "paneer_lf",
+     "qty": 150,
+     "note": "cubed"
+    },
+    {
+     "food": "garlic",
+     "qty": 15,
+     "note": "5 cloves"
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": "the reel uses 10 g butter"
+    },
+    {
+     "food": "onion",
+     "qty": 50,
+     "note": ""
+    },
+    {
+     "food": "veg_mix",
+     "qty": 150,
+     "note": "beans, carrot, corn, peas, capsicum"
+    },
+    {
+     "food": "rice_raw",
+     "qty": 50,
+     "note": "basmati, 150 g cooked"
+    },
+    {
+     "food": "spices",
+     "qty": 10,
+     "note": "chilli, cumin, garam masala"
+    }
+   ],
+   "extras": [
+    "1 tsp salt, coriander leaves"
+   ],
    "ingredients": [
-    "150 g low-fat paneer, cubed",
-    "Paste: 5 garlic cloves, 1½ tsp chilli, 1 tsp cumin, 1 tsp garam masala, 1 tsp salt",
-    "5 g oil (the reel uses 10 g butter)",
-    "50 g onion, 150 g mixed veg (beans, carrot, corn, peas, capsicum)",
-    "50 g raw basmati (150 g cooked), coriander"
+    "150 g Low-fat paneer — cubed",
+    "15 g Garlic — 5 cloves",
+    "5 ml Cooking oil — the reel uses 10 g butter",
+    "50 g Onion",
+    "150 g Mixed vegetables — beans, carrot, corn, peas, capsicum",
+    "50 g Rice (raw) — basmati, 150 g cooked",
+    "10 g Spices & masalas — chilli, cumin, garam masala",
+    "1 tsp salt, coriander leaves"
    ],
    "steps": [
     "Pound the paste ingredients with a splash of water.",
@@ -1090,8 +2280,8 @@
    ],
    "items": {
     "paneer_lf": 150,
-    "oil": 5,
     "garlic": 15,
+    "oil": 5,
     "onion": 50,
     "veg_mix": 150,
     "rice_raw": 50
@@ -1107,11 +2297,46 @@
    "protein": 44,
    "carbs": 50,
    "fat": 6,
+   "parts": [
+    {
+     "food": "chicken",
+     "qty": 150,
+     "note": "skinless breast or thigh"
+    },
+    {
+     "food": "egg_pc",
+     "qty": 0.3,
+     "note": "a little beaten egg"
+    },
+    {
+     "food": "cornflour",
+     "qty": 3,
+     "note": "1 tsp"
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "chicken kabab masala"
+    },
+    {
+     "food": "atta",
+     "qty": 60,
+     "note": "2 chapatis"
+    },
+    {
+     "food": "cucumber",
+     "qty": 100,
+     "note": "cucumber-onion salad"
+    }
+   ],
+   "extras": [],
    "ingredients": [
-    "150 g skinless chicken breast or thigh (the reel uses skin-on)",
-    "A little beaten egg (1 egg covers 500 g chicken)",
-    "1 tsp cornflour, 1–2 tsp chicken kabab masala",
-    "2 chapatis + 100 g cucumber-onion salad"
+    "150 g Chicken breast, skinless (raw) — skinless breast or thigh",
+    "0.3 × Egg — a little beaten egg",
+    "3 g Cornflour — 1 tsp",
+    "5 g Spices & masalas — chicken kabab masala",
+    "60 g Whole wheat atta — 2 chapatis",
+    "100 g Cucumber — cucumber-onion salad"
    ],
    "steps": [
     "Mix chicken with egg, cornflour and masala; rest 15 min.",
@@ -1140,12 +2365,61 @@
    "protein": 36,
    "carbs": 78,
    "fat": 11,
+   "parts": [
+    {
+     "food": "soya",
+     "qty": 50,
+     "note": "soaked and squeezed"
+    },
+    {
+     "food": "rice_raw",
+     "qty": 60,
+     "note": ""
+    },
+    {
+     "food": "onion",
+     "qty": 50,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 7,
+     "note": ""
+    },
+    {
+     "food": "herbs",
+     "qty": 40,
+     "note": "1 cup coriander, ½ cup mint"
+    },
+    {
+     "food": "garlic",
+     "qty": 10,
+     "note": "5 cloves"
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "green chillies, ginger, whole spices, cumin, fennel, garam masala"
+    },
+    {
+     "food": "curd_lf",
+     "qty": 100,
+     "note": "on the side"
+    }
+   ],
+   "extras": [
+    "Salt"
+   ],
    "ingredients": [
-    "50 g soya chunks, soaked and squeezed",
-    "60 g raw rice",
-    "Green paste: 1 cup coriander, ½ cup mint, 3 green chillies, 5 garlic, ginger, 2 cloves, small cinnamon, ½ tsp cumin, ½ tsp fennel",
-    "50 g onion, 7 g oil, garam masala, salt",
-    "100 g curd on the side"
+    "50 g Soya chunks (dry) — soaked and squeezed",
+    "60 g Rice (raw)",
+    "50 g Onion",
+    "7 ml Cooking oil",
+    "40 g Coriander & mint — 1 cup coriander, ½ cup mint",
+    "10 g Garlic — 5 cloves",
+    "5 g Spices & masalas — green chillies, ginger, whole spices, cumin, fennel, garam masala",
+    "100 g Low-fat curd (dahi) — on the side",
+    "Salt"
    ],
    "steps": [
     "Blend the paste with a little water.",
@@ -1161,8 +2435,8 @@
    "items": {
     "soya": 50,
     "rice_raw": 60,
-    "oil": 7,
     "onion": 50,
+    "oil": 7,
     "herbs": 40,
     "garlic": 10,
     "curd_lf": 100
@@ -1178,12 +2452,73 @@
    "protein": 38,
    "carbs": 60,
    "fat": 8,
+   "parts": [
+    {
+     "food": "soya",
+     "qty": 60,
+     "note": "boiled with salt and ginger-garlic"
+    },
+    {
+     "food": "ricefl",
+     "qty": 10,
+     "note": ""
+    },
+    {
+     "food": "cornflour",
+     "qty": 10,
+     "note": ""
+    },
+    {
+     "food": "soysauce",
+     "qty": 10,
+     "note": "2 tsp"
+    },
+    {
+     "food": "oil",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "onion",
+     "qty": 40,
+     "note": ""
+    },
+    {
+     "food": "garlic",
+     "qty": 10,
+     "note": "2 cloves"
+    },
+    {
+     "food": "gochujang",
+     "qty": 15,
+     "note": "1 tbsp, or schezwan sauce"
+    },
+    {
+     "food": "sesame",
+     "qty": 3,
+     "note": ""
+    },
+    {
+     "food": "veg_mix",
+     "qty": 150,
+     "note": "stir-fried"
+    }
+   ],
+   "extras": [
+    "½ tsp chilli, 1 tsp ketchup, spring onion, splash of water"
+   ],
    "ingredients": [
-    "60 g soya chunks, boiled with salt and ginger-garlic, drained",
-    "10 g rice flour, 10 g cornflour, ½ tsp chilli, 2 tsp soy sauce",
-    "Sauce: 5 g oil, 40 g onion, 2 garlic cloves, 1 tbsp gochujang (or schezwan sauce), 1 tsp ketchup, chilli, splash of water",
-    "Sesame seeds, spring onion",
-    "150 g mixed vegetables, stir-fried"
+    "60 g Soya chunks (dry) — boiled with salt and ginger-garlic",
+    "10 g Rice flour",
+    "10 g Cornflour",
+    "10 ml Soy sauce — 2 tsp",
+    "5 ml Cooking oil",
+    "40 g Onion",
+    "10 g Garlic — 2 cloves",
+    "15 g Gochujang — 1 tbsp, or schezwan sauce",
+    "3 g Sesame seeds",
+    "150 g Mixed vegetables — stir-fried",
+    "½ tsp chilli, 1 tsp ketchup, spring onion, splash of water"
    ],
    "steps": [
     "Coat the drained soya in flours, chilli and soy sauce; air-fry until crisp.",
@@ -1218,12 +2553,61 @@
    "protein": 31,
    "carbs": 31,
    "fat": 22,
+   "parts": [
+    {
+     "food": "egg_pc",
+     "qty": 3,
+     "note": "softly scrambled"
+    },
+    {
+     "food": "eggwhite_pc",
+     "qty": 2,
+     "note": ""
+    },
+    {
+     "food": "ghee",
+     "qty": 5,
+     "note": "the reel uses 3–4 tbsp"
+    },
+    {
+     "food": "cashew",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "garlic",
+     "qty": 10,
+     "note": "5 cloves"
+    },
+    {
+     "food": "tamarind",
+     "qty": 5,
+     "note": "1 tbsp tamarind water"
+    },
+    {
+     "food": "spices",
+     "qty": 15,
+     "note": "byadagi chillies, coriander seeds, cumin, pepper, methi, cinnamon, cloves"
+    },
+    {
+     "food": "atta",
+     "qty": 30,
+     "note": "1 chapati, or 2 small neer dosas"
+    }
+   ],
+   "extras": [
+    "Curry leaves"
+   ],
    "ingredients": [
-    "3 eggs + 2 egg whites, softly scrambled",
-    "Masala: 6–8 soaked byadagi chillies, 5 garlic, 5 g cashews, 1 tbsp tamarind water",
-    "Roast and grind: 1 tbsp coriander seeds, 1 tsp cumin, ½ tsp pepper, pinch methi, cinnamon, 2 cloves, curry leaves",
-    "5 g ghee (the reel uses 3–4 tbsp)",
-    "1 chapati (or 2 small neer dosas)"
+    "3 × Egg — softly scrambled",
+    "2 × Egg white",
+    "5 g Ghee — the reel uses 3–4 tbsp",
+    "5 g Cashews",
+    "10 g Garlic — 5 cloves",
+    "5 g Tamarind — 1 tbsp tamarind water",
+    "15 g Spices & masalas — byadagi chillies, coriander seeds, cumin, pepper, methi, cinnamon, cloves",
+    "30 g Whole wheat atta — 1 chapati, or 2 small neer dosas",
+    "Curry leaves"
    ],
    "steps": [
     "Scramble the eggs and whites softly; set aside.",
@@ -1240,8 +2624,8 @@
     "eggwhite_pc": 2,
     "ghee": 5,
     "cashew": 5,
-    "tamarind": 5,
     "garlic": 10,
+    "tamarind": 5,
     "atta": 30
    }
   },
@@ -1255,11 +2639,55 @@
    "protein": 49,
    "carbs": 65,
    "fat": 9,
+   "parts": [
+    {
+     "food": "pasta",
+     "qty": 60,
+     "note": ""
+    },
+    {
+     "food": "paneer_lf",
+     "qty": 200,
+     "note": "for the sauce"
+    },
+    {
+     "food": "milk_dt",
+     "qty": 100,
+     "note": ""
+    },
+    {
+     "food": "onion",
+     "qty": 50,
+     "note": ""
+    },
+    {
+     "food": "tomato",
+     "qty": 100,
+     "note": ""
+    },
+    {
+     "food": "garlic",
+     "qty": 15,
+     "note": "3 cloves"
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "dried red chillies, oregano, peri-peri"
+    }
+   ],
+   "extras": [
+    "Salt"
+   ],
    "ingredients": [
-    "60 g dry macaroni",
-    "Sauce: 200 g low-fat paneer, 3 garlic cloves, 2 dried red chillies, 100 ml double-toned milk, salt",
-    "50 g onion, 100 g tomato",
-    "Oregano, peri-peri masala"
+    "60 g Macaroni (dry)",
+    "200 g Low-fat paneer — for the sauce",
+    "100 ml Double-toned milk",
+    "50 g Onion",
+    "100 g Tomato",
+    "15 g Garlic — 3 cloves",
+    "5 g Spices & masalas — dried red chillies, oregano, peri-peri",
+    "Salt"
    ],
    "steps": [
     "Cook pasta with onion, tomato, salt and just enough water until the water is absorbed.",
@@ -1290,12 +2718,67 @@
    "protein": 55,
    "carbs": 35,
    "fat": 13,
+   "parts": [
+    {
+     "food": "chicken",
+     "qty": 180,
+     "note": "breast or thigh cubes"
+    },
+    {
+     "food": "paneer_lf",
+     "qty": 50,
+     "note": "soaked 15 min, for the purée"
+    },
+    {
+     "food": "cornflour",
+     "qty": 5,
+     "note": "1 tsp"
+    },
+    {
+     "food": "butter",
+     "qty": 5,
+     "note": ""
+    },
+    {
+     "food": "oil",
+     "qty": 2,
+     "note": ""
+    },
+    {
+     "food": "onion",
+     "qty": 40,
+     "note": ""
+    },
+    {
+     "food": "garlic",
+     "qty": 10,
+     "note": "lots"
+    },
+    {
+     "food": "herbs",
+     "qty": 30,
+     "note": "big handful coriander"
+    },
+    {
+     "food": "atta",
+     "qty": 30,
+     "note": "1 chapati"
+    }
+   ],
+   "extras": [
+    "1 green chilli, pinch baking soda, salt, pepper, dash of soy sauce, ½ tsp garam masala, pinch sugar, lemon, chilli flakes"
+   ],
    "ingredients": [
-    "180 g chicken breast/thigh cubes",
-    "1 tsp cornflour, pinch baking soda, salt, pepper, dash of soy sauce",
-    "Purée: 50 g low-fat paneer (soaked 15 min), big handful coriander, 1 green chilli",
-    "5 g butter + 2 g oil, 40 g onion, lots of garlic, ½ tsp garam masala, pinch sugar",
-    "Lemon, chilli flakes; 1 chapati"
+    "180 g Chicken breast, skinless (raw) — breast or thigh cubes",
+    "50 g Low-fat paneer — soaked 15 min, for the purée",
+    "5 g Cornflour — 1 tsp",
+    "5 g Butter",
+    "2 ml Cooking oil",
+    "40 g Onion",
+    "10 g Garlic — lots",
+    "30 g Coriander & mint — big handful coriander",
+    "30 g Whole wheat atta — 1 chapati",
+    "1 green chilli, pinch baking soda, salt, pepper, dash of soy sauce, ½ tsp garam masala, pinch sugar, lemon, chilli flakes"
    ],
    "steps": [
     "Marinate chicken 10–15 min.",
@@ -1329,9 +2812,19 @@
    "protein": 1,
    "carbs": 27,
    "fat": 0,
+   "parts": [
+    {
+     "food": "banana_pc",
+     "qty": 1,
+     "note": "medium"
+    }
+   ],
+   "extras": [
+    "Black coffee, no sugar"
+   ],
    "ingredients": [
-    "1 medium banana",
-    "Black coffee (no sugar)"
+    "1 × Banana — medium",
+    "Black coffee, no sugar"
    ],
    "steps": [
     "Eat 30–45 min before training."
@@ -1352,8 +2845,18 @@
    "protein": 25,
    "carbs": 9,
    "fat": 2,
+   "parts": [
+    {
+     "food": "whey_scoop",
+     "qty": 1,
+     "note": "38.5 g"
+    }
+   ],
+   "extras": [
+    "250 ml water"
+   ],
    "ingredients": [
-    "1 scoop of your whey (38.5 g)",
+    "1 scoop Whey protein — 38.5 g",
     "250 ml water"
    ],
    "steps": [
@@ -1375,9 +2878,18 @@
    "protein": 2,
    "carbs": 3,
    "fat": 2,
+   "parts": [
+    {
+     "food": "curd_lf",
+     "qty": 75,
+     "note": "whisked with 200 ml water"
+    }
+   ],
+   "extras": [
+    "Salt, roasted cumin, curry leaves"
+   ],
    "ingredients": [
-    "75 g low-fat curd",
-    "200 ml water",
+    "75 g Low-fat curd (dahi) — whisked with 200 ml water",
     "Salt, roasted cumin, curry leaves"
    ],
    "steps": [
@@ -1388,8 +2900,651 @@
    "items": {
     "curd_lf": 75
    }
+  },
+  {
+   "id": "grillbowl",
+   "name": "Grilled chicken & egg salad bowl",
+   "category": "Lunch & dinner",
+   "source": "Your recipe",
+   "veg": false,
+   "kcal": 608,
+   "protein": 68,
+   "carbs": 18,
+   "fat": 28,
+   "parts": [
+    {
+     "food": "chicken",
+     "qty": 200,
+     "note": "cut or lightly scored"
+    },
+    {
+     "food": "greek",
+     "qty": 100,
+     "note": "for the marinade"
+    },
+    {
+     "food": "butter",
+     "qty": 10,
+     "note": "for grilling"
+    },
+    {
+     "food": "capsicum",
+     "qty": 50,
+     "note": ""
+    },
+    {
+     "food": "cucumber",
+     "qty": 100,
+     "note": "chopped"
+    },
+    {
+     "food": "onion",
+     "qty": 20,
+     "note": "sliced"
+    },
+    {
+     "food": "egg_pc",
+     "qty": 2,
+     "note": "boiled"
+    },
+    {
+     "food": "garlic",
+     "qty": 12,
+     "note": "4 cloves, for the paste"
+    },
+    {
+     "food": "chilli_red",
+     "qty": 6,
+     "note": "2, for the paste"
+    },
+    {
+     "food": "spices",
+     "qty": 5,
+     "note": "chilli, turmeric, black pepper, cumin, coriander, garam masala"
+    }
+   ],
+   "extras": [
+    "Salt",
+    "Optional: lemon juice, chilli flakes, fresh coriander"
+   ],
+   "ingredients": [
+    "200 g Chicken breast, skinless (raw) — cut or lightly scored",
+    "100 g Greek yogurt — for the marinade",
+    "10 g Butter — for grilling",
+    "50 g Capsicum (bell pepper)",
+    "100 g Cucumber — chopped",
+    "20 g Onion — sliced",
+    "2 × Egg — boiled",
+    "12 g Garlic — 4 cloves, for the paste",
+    "6 g Red chillies, fresh — 2, for the paste",
+    "5 g Spices & masalas — chilli, turmeric, black pepper, cumin, coriander, garam masala",
+    "Salt",
+    "Optional: lemon juice, chilli flakes, fresh coriander"
+   ],
+   "steps": [
+    "Cut or lightly score the chicken. Mix the Greek yogurt with chilli powder, turmeric, black pepper, cumin, coriander powder, garam masala and salt; coat the chicken well and marinate at least 30 min (2–4 h in the fridge is better).",
+    "Heat a grill pan or regular pan over medium-high heat, add the butter and cook the chicken 5–7 min per side until cooked through (74 °C / 165 °F inside). Rest 5 min, then slice.",
+    "Boil the eggs, peel and cut into halves or quarters.",
+    "Crush or blend the garlic, red chillies and a pinch of salt with a little water or lemon juice into a fairly thick paste, so it coats the salad instead of making it watery.",
+    "Put the cucumber, bell pepper and onion in a bowl and mix in the paste. Top with the chicken and eggs; finish with lemon, black pepper, chilli flakes or coriander if you like."
+   ],
+   "tip": "Your recipe. Stated ~615 kcal / 68–69 g protein; the app calculates it from the ingredients.",
+   "reels": [],
+   "items": {
+    "chicken": 200,
+    "greek": 100,
+    "butter": 10,
+    "capsicum": 50,
+    "cucumber": 100,
+    "onion": 20,
+    "egg_pc": 2,
+    "garlic": 12,
+    "chilli_red": 6
+   }
   }
  ],
+ "foods": {
+  "chicken": {
+   "name": "Chicken breast, skinless (raw)",
+   "shop": "Chicken breast, boneless",
+   "section": "Meat, fish & eggs",
+   "unit": "g",
+   "kcal": 1.2,
+   "protein": 0.225,
+   "carbs": 0,
+   "fat": 0.026
+  },
+  "fish": {
+   "name": "White fish fillet (raw)",
+   "shop": "Fish fillets (seer, basa, rohu)",
+   "section": "Meat, fish & eggs",
+   "unit": "g",
+   "kcal": 1.0,
+   "protein": 0.19,
+   "carbs": 0,
+   "fat": 0.02
+  },
+  "prawn": {
+   "name": "Prawns, cleaned (raw)",
+   "shop": "Prawns, cleaned",
+   "section": "Meat, fish & eggs",
+   "unit": "g",
+   "kcal": 0.85,
+   "protein": 0.2,
+   "carbs": 0,
+   "fat": 0.005
+  },
+  "egg_pc": {
+   "name": "Egg",
+   "shop": "Eggs",
+   "section": "Meat, fish & eggs",
+   "unit": "pc",
+   "kcal": 72,
+   "protein": 6.3,
+   "carbs": 0.4,
+   "fat": 4.8
+  },
+  "eggwhite_pc": {
+   "name": "Egg white",
+   "shop": "Eggs",
+   "section": "Meat, fish & eggs",
+   "unit": "pc",
+   "kcal": 17,
+   "protein": 3.6,
+   "carbs": 0.2,
+   "fat": 0.1
+  },
+  "paneer_lf": {
+   "name": "Low-fat paneer",
+   "shop": "Low-fat paneer",
+   "section": "Dairy",
+   "unit": "g",
+   "kcal": 1.08,
+   "protein": 0.18,
+   "carbs": 0.02,
+   "fat": 0.03
+  },
+  "paneer": {
+   "name": "Paneer",
+   "shop": "Paneer",
+   "section": "Dairy",
+   "unit": "g",
+   "kcal": 2.65,
+   "protein": 0.18,
+   "carbs": 0.012,
+   "fat": 0.2
+  },
+  "curd_lf": {
+   "name": "Low-fat curd (dahi)",
+   "shop": "Curd (dahi)",
+   "section": "Dairy",
+   "unit": "g",
+   "kcal": 0.6,
+   "protein": 0.031,
+   "carbs": 0.044,
+   "fat": 0.03
+  },
+  "greek": {
+   "name": "Greek yogurt",
+   "shop": "Greek yogurt (or hang double the curd)",
+   "section": "Dairy",
+   "unit": "g",
+   "kcal": 0.89,
+   "protein": 0.08,
+   "carbs": 0.04,
+   "fat": 0.046
+  },
+  "milk_dt": {
+   "name": "Double-toned milk",
+   "shop": "Double-toned milk",
+   "section": "Dairy",
+   "unit": "ml",
+   "kcal": 0.46,
+   "protein": 0.033,
+   "carbs": 0.048,
+   "fat": 0.015
+  },
+  "mozzarella": {
+   "name": "Mozzarella",
+   "shop": "Mozzarella",
+   "section": "Dairy",
+   "unit": "g",
+   "kcal": 3.0,
+   "protein": 0.22,
+   "carbs": 0.024,
+   "fat": 0.22
+  },
+  "butter": {
+   "name": "Butter",
+   "shop": "Butter",
+   "section": "Dairy",
+   "unit": "g",
+   "kcal": 7.17,
+   "protein": 0.009,
+   "carbs": 0.001,
+   "fat": 0.81
+  },
+  "whey_scoop": {
+   "name": "Whey protein",
+   "shop": "Whey protein",
+   "section": "Dairy",
+   "unit": "scoop",
+   "kcal": 153,
+   "protein": 25,
+   "carbs": 9.06,
+   "fat": 1.88
+  },
+  "onion": {
+   "name": "Onion",
+   "shop": "Onion",
+   "section": "Vegetables",
+   "unit": "g",
+   "kcal": 0.4,
+   "protein": 0.011,
+   "carbs": 0.09,
+   "fat": 0.001
+  },
+  "tomato": {
+   "name": "Tomato",
+   "shop": "Tomato",
+   "section": "Vegetables",
+   "unit": "g",
+   "kcal": 0.18,
+   "protein": 0.009,
+   "carbs": 0.039,
+   "fat": 0.002
+  },
+  "veg_mix": {
+   "name": "Mixed vegetables",
+   "shop": "Mixed vegetables (beans, carrot, broccoli, cabbage)",
+   "section": "Vegetables",
+   "unit": "g",
+   "kcal": 0.3,
+   "protein": 0.02,
+   "carbs": 0.06,
+   "fat": 0.002
+  },
+  "sambar_veg": {
+   "name": "Sambar vegetables",
+   "shop": "Sambar vegetables (drumstick, brinjal, pumpkin, okra)",
+   "section": "Vegetables",
+   "unit": "g",
+   "kcal": 0.35,
+   "protein": 0.015,
+   "carbs": 0.06,
+   "fat": 0.002
+  },
+  "spinach": {
+   "name": "Spinach",
+   "shop": "Spinach",
+   "section": "Vegetables",
+   "unit": "g",
+   "kcal": 0.23,
+   "protein": 0.029,
+   "carbs": 0.036,
+   "fat": 0.004
+  },
+  "capsicum": {
+   "name": "Capsicum (bell pepper)",
+   "shop": "Capsicum",
+   "section": "Vegetables",
+   "unit": "g",
+   "kcal": 0.3,
+   "protein": 0.01,
+   "carbs": 0.06,
+   "fat": 0.003
+  },
+  "cucumber": {
+   "name": "Cucumber",
+   "shop": "Cucumber",
+   "section": "Vegetables",
+   "unit": "g",
+   "kcal": 0.15,
+   "protein": 0.007,
+   "carbs": 0.036,
+   "fat": 0.001
+  },
+  "peas": {
+   "name": "Green peas",
+   "shop": "Green peas (frozen ok)",
+   "section": "Vegetables",
+   "unit": "g",
+   "kcal": 0.81,
+   "protein": 0.054,
+   "carbs": 0.145,
+   "fat": 0.004
+  },
+  "okra": {
+   "name": "Okra",
+   "shop": "Okra",
+   "section": "Vegetables",
+   "unit": "g",
+   "kcal": 0.33,
+   "protein": 0.019,
+   "carbs": 0.075,
+   "fat": 0.002
+  },
+  "cabbage": {
+   "name": "Cabbage",
+   "shop": "Cabbage",
+   "section": "Vegetables",
+   "unit": "g",
+   "kcal": 0.25,
+   "protein": 0.013,
+   "carbs": 0.058,
+   "fat": 0.001
+  },
+  "herbs": {
+   "name": "Coriander & mint",
+   "shop": "Coriander & mint",
+   "section": "Vegetables",
+   "unit": "g",
+   "kcal": 0.3,
+   "protein": 0.03,
+   "carbs": 0.04,
+   "fat": 0.005
+  },
+  "garlic": {
+   "name": "Garlic",
+   "shop": "Garlic",
+   "section": "Vegetables",
+   "unit": "g",
+   "kcal": 1.49,
+   "protein": 0.064,
+   "carbs": 0.33,
+   "fat": 0.005
+  },
+  "chilli_red": {
+   "name": "Red chillies, fresh",
+   "shop": "Red chillies, fresh",
+   "section": "Vegetables",
+   "unit": "g",
+   "kcal": 0.4,
+   "protein": 0.019,
+   "carbs": 0.088,
+   "fat": 0.004
+  },
+  "banana_pc": {
+   "name": "Banana",
+   "shop": "Bananas",
+   "section": "Fruit",
+   "unit": "pc",
+   "kcal": 105,
+   "protein": 1.3,
+   "carbs": 27,
+   "fat": 0.4
+  },
+  "apple_pc": {
+   "name": "Apple",
+   "shop": "Apples",
+   "section": "Fruit",
+   "unit": "pc",
+   "kcal": 95,
+   "protein": 0.5,
+   "carbs": 25,
+   "fat": 0.3
+  },
+  "guava_pc": {
+   "name": "Guava",
+   "shop": "Guava",
+   "section": "Fruit",
+   "unit": "pc",
+   "kcal": 68,
+   "protein": 2.6,
+   "carbs": 14,
+   "fat": 1
+  },
+  "papaya": {
+   "name": "Papaya",
+   "shop": "Papaya",
+   "section": "Fruit",
+   "unit": "g",
+   "kcal": 0.43,
+   "protein": 0.005,
+   "carbs": 0.11,
+   "fat": 0.003
+  },
+  "pomegranate": {
+   "name": "Pomegranate arils",
+   "shop": "Pomegranate arils",
+   "section": "Fruit",
+   "unit": "g",
+   "kcal": 0.83,
+   "protein": 0.017,
+   "carbs": 0.19,
+   "fat": 0.012
+  },
+  "rice_raw": {
+   "name": "Rice (raw)",
+   "shop": "Rice",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 3.6,
+   "protein": 0.07,
+   "carbs": 0.79,
+   "fat": 0.006
+  },
+  "basmati_raw": {
+   "name": "Basmati rice (raw)",
+   "shop": "Basmati rice",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 3.58,
+   "protein": 0.072,
+   "carbs": 0.78,
+   "fat": 0.006
+  },
+  "atta": {
+   "name": "Whole wheat atta",
+   "shop": "Whole wheat atta",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 3.4,
+   "protein": 0.12,
+   "carbs": 0.72,
+   "fat": 0.017
+  },
+  "oats": {
+   "name": "Rolled oats",
+   "shop": "Rolled oats",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 3.8,
+   "protein": 0.13,
+   "carbs": 0.67,
+   "fat": 0.07
+  },
+  "idli_batter": {
+   "name": "Idli / dosa batter",
+   "shop": "Idli / dosa batter",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 1.16,
+   "protein": 0.04,
+   "carbs": 0.24,
+   "fat": 0.004
+  },
+  "pasta": {
+   "name": "Macaroni (dry)",
+   "shop": "Macaroni",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 3.55,
+   "protein": 0.125,
+   "carbs": 0.72,
+   "fat": 0.015
+  },
+  "toor": {
+   "name": "Toor dal (dry)",
+   "shop": "Toor dal",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 3.43,
+   "protein": 0.223,
+   "carbs": 0.6,
+   "fat": 0.017
+  },
+  "moong_whole": {
+   "name": "Whole green moong (dry)",
+   "shop": "Whole green moong",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 3.47,
+   "protein": 0.24,
+   "carbs": 0.63,
+   "fat": 0.012
+  },
+  "moong_yellow": {
+   "name": "Yellow moong dal (dry)",
+   "shop": "Yellow moong dal",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 3.48,
+   "protein": 0.245,
+   "carbs": 0.6,
+   "fat": 0.012
+  },
+  "soya": {
+   "name": "Soya chunks (dry)",
+   "shop": "Soya chunks / granules",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 3.45,
+   "protein": 0.52,
+   "carbs": 0.33,
+   "fat": 0.005
+  },
+  "kala_chana": {
+   "name": "Kala chana (dry)",
+   "shop": "Kala chana",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 3.6,
+   "protein": 0.171,
+   "carbs": 0.609,
+   "fat": 0.053
+  },
+  "roasted_chana": {
+   "name": "Roasted chana",
+   "shop": "Roasted chana",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 3.69,
+   "protein": 0.2,
+   "carbs": 0.56,
+   "fat": 0.05
+  },
+  "makhana": {
+   "name": "Makhana",
+   "shop": "Makhana",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 3.47,
+   "protein": 0.097,
+   "carbs": 0.77,
+   "fat": 0.001
+  },
+  "cashew": {
+   "name": "Cashews",
+   "shop": "Cashews",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 5.53,
+   "protein": 0.18,
+   "carbs": 0.3,
+   "fat": 0.44
+  },
+  "cornflour": {
+   "name": "Cornflour",
+   "shop": "Cornflour",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 3.81,
+   "protein": 0.003,
+   "carbs": 0.91,
+   "fat": 0.001
+  },
+  "ricefl": {
+   "name": "Rice flour",
+   "shop": "Rice flour",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 3.66,
+   "protein": 0.06,
+   "carbs": 0.8,
+   "fat": 0.014
+  },
+  "sesame": {
+   "name": "Sesame seeds",
+   "shop": "Sesame seeds",
+   "section": "Grains, dals & snacks",
+   "unit": "g",
+   "kcal": 5.73,
+   "protein": 0.177,
+   "carbs": 0.23,
+   "fat": 0.5
+  },
+  "oil": {
+   "name": "Cooking oil",
+   "shop": "Cooking oil",
+   "section": "Pantry",
+   "unit": "ml",
+   "kcal": 9,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 1
+  },
+  "ghee": {
+   "name": "Ghee",
+   "shop": "Ghee",
+   "section": "Pantry",
+   "unit": "g",
+   "kcal": 9,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 1
+  },
+  "tamarind": {
+   "name": "Tamarind",
+   "shop": "Tamarind",
+   "section": "Pantry",
+   "unit": "g",
+   "kcal": 2.4,
+   "protein": 0.03,
+   "carbs": 0.6,
+   "fat": 0.005
+  },
+  "gochujang": {
+   "name": "Gochujang",
+   "shop": "Gochujang (or schezwan sauce)",
+   "section": "Pantry",
+   "unit": "g",
+   "kcal": 2.0,
+   "protein": 0.04,
+   "carbs": 0.4,
+   "fat": 0.02
+  },
+  "soysauce": {
+   "name": "Soy sauce",
+   "shop": "Soy sauce",
+   "section": "Pantry",
+   "unit": "ml",
+   "kcal": 0.53,
+   "protein": 0.08,
+   "carbs": 0.05,
+   "fat": 0
+  },
+  "spices": {
+   "name": "Spices & masalas",
+   "shop": null,
+   "section": "Pantry",
+   "unit": "g",
+   "kcal": 1,
+   "protein": 0,
+   "carbs": 0,
+   "fat": 0
+  }
+ },
  "ingredients": {
   "chicken": {
    "name": "Chicken breast, boneless",
@@ -1639,6 +3794,11 @@
   "tamarind": {
    "name": "Tamarind",
    "section": "Pantry",
+   "unit": "g"
+  },
+  "chilli_red": {
+   "name": "Red chillies, fresh",
+   "section": "Vegetables",
    "unit": "g"
   },
   "gochujang": {

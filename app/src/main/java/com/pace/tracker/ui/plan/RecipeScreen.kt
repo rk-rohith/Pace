@@ -22,7 +22,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.pace.tracker.domain.RecipeText
+import kotlin.math.roundToInt
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import com.pace.tracker.domain.MealType
@@ -36,14 +45,25 @@ import com.pace.tracker.ui.components.paceViewModel
 import com.pace.tracker.ui.theme.PaceColors
 
 @Composable
-fun RecipeScreen(recipeId: String, onBack: () -> Unit) {
+fun RecipeScreen(recipeId: String, onBack: () -> Unit, onEdit: (String) -> Unit) {
     val vm = paceViewModel { MealPlanViewModel(it) }
-    val recipe = vm.plan.recipes[recipeId]
+    val loaded by vm.loadedPlan.collectAsStateWithLifecycle()
+    val plan = loaded
+    val recipe = plan?.recipes?.get(recipeId)
     val uriHandler = LocalUriHandler.current
     var logType by rememberSaveable { mutableStateOf(MealType.LUNCH) }
     var loggedAs by rememberSaveable { mutableStateOf<MealType?>(null) }
 
-    ScreenScaffold(recipe?.name ?: "Recipe", onBack = onBack) { padding ->
+    ScreenScaffold(
+        recipe?.name ?: "Recipe",
+        onBack = onBack,
+        actions = {
+            if (recipe != null && recipe.parts.isNotEmpty()) {
+                IconButton(onClick = { onEdit(recipe.id) }) { Icon(Icons.Filled.Edit, contentDescription = "Edit recipe") }
+            }
+        },
+    ) { padding ->
+        if (plan == null) return@ScreenScaffold
         if (recipe == null) {
             EmptyState("Recipe not found", "It may have been removed from the plan.", Modifier.padding(padding))
             return@ScreenScaffold
@@ -55,13 +75,41 @@ fun RecipeScreen(recipeId: String, onBack: () -> Unit) {
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 Pill(recipe.source, PaceColors.Secondary)
                 if (recipe.veg) Pill("Veg", PaceColors.Ahead)
+                if (recipe.edited) Pill("Edited", PaceColors.OnPace)
             }
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 StatTile("Calories", recipe.kcal.grouped(), Modifier.weight(1f), sub = "kcal per serving")
                 StatTile("Protein", "${recipe.protein} g", Modifier.weight(1f), sub = "C ${recipe.carbs} g · F ${recipe.fat} g")
             }
             SectionCard("Ingredients") {
-                recipe.ingredients.forEach { Text("• $it", style = MaterialTheme.typography.bodyLarge) }
+                if (recipe.parts.isEmpty()) {
+                    recipe.ingredients.forEach { Text("• $it", style = MaterialTheme.typography.bodyLarge) }
+                } else {
+                    recipe.parts.forEach { part ->
+                        val food = plan.foods[part.food]
+                        val m = plan.macros(part)
+                        Row(verticalAlignment = Alignment.Top) {
+                            Text(
+                                "• " + (food?.let { RecipeText.line(part, it) } ?: part.note),
+                                style = MaterialTheme.typography.bodyLarge,
+                                modifier = Modifier.weight(1f),
+                            )
+                            Text(
+                                "${m.kcal.roundToInt()} kcal\n${m.protein.roundToInt()} g P",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                textAlign = TextAlign.End,
+                                modifier = Modifier.padding(start = 8.dp),
+                            )
+                        }
+                    }
+                    recipe.extras.forEach { Text("• $it", style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant) }
+                    Text(
+                        "Macros are calculated from these amounts (raw weights). Tap the pencil to change them.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
             }
             SectionCard("Method") {
                 recipe.steps.forEachIndexed { i, s -> Text("${i + 1}. $s", style = MaterialTheme.typography.bodyLarge) }
