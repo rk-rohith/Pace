@@ -5,6 +5,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: write   # lets the build commit Room schema files back to the branch
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,6 +28,21 @@ jobs:
 
       - name: Build debug APK
         run: ./gradlew --no-daemon assembleDebug
+
+      # Room exports the database schema while compiling; keep it in the repo so future
+      # migrations can be checked against every past version.
+      - name: Commit Room schema changes
+        if: github.event_name == 'push'
+        run: |
+          if [ -n "$(git status --porcelain app/schemas)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add app/schemas
+            git commit -m "Update Room schema files [skip ci]"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          else
+            echo "Schema files unchanged."
+          fi
 
       - uses: actions/upload-artifact@v4
         with:
