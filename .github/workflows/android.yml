@@ -32,7 +32,7 @@ jobs:
       # Room exports the database schema while compiling; keep it in the repo so future
       # migrations can be checked against every past version.
       - name: Commit Room schema changes
-        if: github.event_name == 'push'
+        if: github.event_name != 'pull_request'
         run: |
           if [ -n "$(git status --porcelain app/schemas)" ]; then
             git config user.name "github-actions[bot]"
