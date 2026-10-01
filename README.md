@@ -113,6 +113,8 @@ All reminders live in **More → Reminders**; each one is individually toggleabl
 - **Charts** (Vico) — weight with 7-day average, adaptive target trajectory, optional "what-if / more cutdown"
   line and goal line; calories in vs out (daily & weekly); steps with goal line; workout heatmap and
   weekly counts; measurements; BMI; body-fat estimates (logged, US-Navy tape formula, BMI-based).
+- **Weekly progress card** — in each week's review: a 1080×1350 image with weight change, progress to
+  goal, average calories and protein, steps, workouts and streak; share it or save it to Pictures/Pace.
 - **Weekly review** — automatic summary (weight change, average calories, total steps, workouts, photos,
   streak status), that week's recalibration explanation, editable reflection, comparison table across weeks.
 - **Target history** — every calorie-target change with its explanation and a chart of the target over time.
@@ -129,7 +131,9 @@ All reminders live in **More → Reminders**; each one is individually toggleabl
   Updates live while the app runs and every 30 minutes otherwise.
 - **Meal plan** — two alternating weeks (Week A from the High-Protein Recipes handbook, Week B from
   Instagram reels) at 1,650–1,900 kcal and ~150 g protein a day: today's menu with one-tap logging,
-  44 recipes with macros and method, weekly grocery checklists and Sunday prep. Generated from
+  44 recipes with macros and method, weekly grocery checklists and Sunday prep. **Swap dish** replaces
+  any breakfast, lunch, dinner or snack with a similar-calorie option (veg-only on veg days); the
+  grocery list is calculated from the planned meals, so it updates with every swap. Generated from
   `tools/mealplan/` into `app/src/main/assets/meal_plan.json`.
 - **Streaks & badges** — daily logging, step goal, calorie adherence (days) and workouts (weeks);
   badges at 7 / 30 / 50 / 80 days; adaptive wins ("3 weeks on pace in a row", "new low weight", "5 kg down").

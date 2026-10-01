@@ -23,7 +23,12 @@ import java.time.LocalDate
 
 class MealPlanViewModel(private val container: AppContainer) : ViewModel() {
     private val repository = container.repository
-    val plan: MealPlan = container.mealPlan
+    private val basePlan: MealPlan = container.mealPlan
+
+    /** The plan with the user's swaps applied (swaps live in settings, so backups include them). */
+    val effectivePlan: StateFlow<MealPlan> = repository.settings.map { s -> basePlan.withSwaps(swapsFrom(s)) }
+        .stateIn(viewModelScope, SharingStarted.Eagerly, basePlan)
+    val plan: MealPlan get() = effectivePlan.value
 
     /** Week scheduled for today: A in odd programme weeks, B in even ones. */
     val currentWeekId: StateFlow<String> = repository.profile.map { p ->
@@ -40,11 +45,18 @@ class MealPlanViewModel(private val container: AppContainer) : ViewModel() {
         .map { list -> list.map { it.description }.toSet() }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptySet())
 
+    /** Ticked grocery item names per week. */
     val groceryTicks: StateFlow<Map<String, Set<String>>> = repository.settings.map { s ->
-        plan.groceries.keys.associateWith { id ->
-            s[groceryKey(id)]?.split(',')?.filter { it.isNotBlank() }?.toSet() ?: emptySet()
+        basePlan.weeks.map { it.id }.associateWith { id ->
+            s[groceryKey(id)]?.split('\n')?.filter { it.isNotBlank() }?.toSet() ?: emptySet()
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyMap())
+
+    fun swap(weekId: String, dayIndex: Int, mealIndex: Int, recipeId: String?) = viewModelScope.launch {
+        val key = SWAP_PREFIX + MealPlanSchedule.swapKey(weekId, dayIndex, mealIndex)
+        val original = basePlan.week(weekId).days.getOrNull(dayIndex)?.meals?.getOrNull(mealIndex)?.recipeIds?.firstOrNull()
+        repository.setSetting(key, if (recipeId == null || recipeId == original) "" else recipeId)
+    }
 
     fun logMeal(meal: PlanMeal) = viewModelScope.launch {
         repository.saveMeal(
@@ -65,7 +77,7 @@ class MealPlanViewModel(private val container: AppContainer) : ViewModel() {
     fun toggleGrocery(weekId: String, itemKey: String, checked: Boolean) = viewModelScope.launch {
         val current = groceryTicks.value[weekId] ?: emptySet()
         val next = if (checked) current + itemKey else current - itemKey
-        repository.setSetting(groceryKey(weekId), next.joinToString(","))
+        repository.setSetting(groceryKey(weekId), next.joinToString("\n"))
     }
 
     fun clearGroceries(weekId: String) = viewModelScope.launch {
@@ -73,4 +85,13 @@ class MealPlanViewModel(private val container: AppContainer) : ViewModel() {
     }
 
     private fun groceryKey(weekId: String) = "grocery_$weekId"
+
+    companion object {
+        const val SWAP_PREFIX = "swap_"
+
+        fun swapsFrom(settings: Map<String, String>): Map<String, String> = settings
+            .filterKeys { it.startsWith(SWAP_PREFIX) }
+            .filterValues { it.isNotBlank() }
+            .mapKeys { it.key.removePrefix(SWAP_PREFIX) }
+    }
 }

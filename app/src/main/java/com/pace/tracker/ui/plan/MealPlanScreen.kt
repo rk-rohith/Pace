@@ -16,10 +16,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material3.Checkbox
+import androidx.compose.runtime.remember
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
@@ -64,8 +67,10 @@ fun MealPlanScreen(onBack: () -> Unit, onOpenRecipe: (String) -> Unit) {
     val currentWeek by vm.currentWeekId.collectAsStateWithLifecycle()
     val logged by vm.loggedToday.collectAsStateWithLifecycle()
     val ticks by vm.groceryTicks.collectAsStateWithLifecycle()
+    val plan by vm.effectivePlan.collectAsStateWithLifecycle()
     var tab by rememberSaveable { mutableIntStateOf(0) }
-    val plan = vm.plan
+    var swapTarget by remember { mutableStateOf<SwapTarget?>(null) }
+    val onSwap: (SwapTarget) -> Unit = { swapTarget = it }
     val weekId = vm.browsedWeekId ?: currentWeek
 
     ScreenScaffold("Meal plan", onBack = onBack) { padding ->
@@ -80,13 +85,86 @@ fun MealPlanScreen(onBack: () -> Unit, onOpenRecipe: (String) -> Unit) {
                 return@Column
             }
             when (tab) {
-                0 -> TodayTab(plan, currentWeek, logged, vm::logMeal, onOpenRecipe)
-                1 -> WeekTab(plan, weekId, currentWeek, vm, onOpenRecipe)
+                0 -> TodayTab(plan, currentWeek, logged, vm::logMeal, onOpenRecipe, onSwap)
+                1 -> WeekTab(plan, weekId, currentWeek, vm, onOpenRecipe, onSwap)
                 2 -> RecipesTab(plan, onOpenRecipe)
                 else -> GroceriesTab(plan, weekId, currentWeek, vm, ticks[weekId] ?: emptySet())
             }
         }
     }
+
+    swapTarget?.let { t ->
+        val day = plan.week(t.weekId).days.getOrNull(t.dayIndex)
+        val meal = day?.meals?.getOrNull(t.mealIndex)
+        if (day == null || meal == null) {
+            swapTarget = null
+        } else {
+            SwapDialog(
+                plan = plan,
+                day = day,
+                meal = meal,
+                onPick = { id -> vm.swap(t.weekId, t.dayIndex, t.mealIndex, id); swapTarget = null },
+                onReset = { vm.swap(t.weekId, t.dayIndex, t.mealIndex, null); swapTarget = null },
+                onDismiss = { swapTarget = null },
+            )
+        }
+    }
+}
+
+/** Which meal is being swapped. */
+data class SwapTarget(val weekId: String, val dayIndex: Int, val mealIndex: Int)
+
+@Composable
+private fun SwapDialog(
+    plan: MealPlan,
+    day: PlanDay,
+    meal: PlanMeal,
+    onPick: (String) -> Unit,
+    onReset: () -> Unit,
+    onDismiss: () -> Unit,
+) {
+    val current = plan.recipes[meal.recipeIds.first()]
+    val original = plan.recipes[meal.swappedFrom ?: meal.recipeIds.first()]
+    val options = plan.swapCandidates(day, meal)
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("Swap ${meal.label.lowercase()}") },
+        text = {
+            LazyColumn(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                item {
+                    Text(
+                        "Now: ${current?.name} (${current?.kcal?.grouped()} kcal). Options within about ${MealPlanSchedule.SWAP_KCAL} kcal" +
+                            (if (day.veg) ", veg only" else "") + ". Sides stay as planned; the grocery list updates.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                if (options.isEmpty()) item { Text("No similar dishes found.") }
+                items(options, key = { it.id }) { r ->
+                    val diff = r.kcal - (original?.kcal ?: r.kcal)
+                    Row(
+                        Modifier.fillMaxWidth().clip(RoundedCornerShape(10.dp)).clickable { onPick(r.id) }.padding(vertical = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Column(Modifier.weight(1f)) {
+                            Text(r.name, style = MaterialTheme.typography.bodyLarge)
+                            Text(
+                                "${r.kcal.grouped()} kcal (" + (if (diff >= 0) "+" else "") + "$diff) · ${r.protein} g protein" +
+                                    if (r.reels.isNotEmpty()) " · reel" else "",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                        if (r.veg) Pill("Veg", PaceColors.Ahead)
+                    }
+                }
+            }
+        },
+        confirmButton = { TextButton(onClick = onDismiss) { Text("Cancel") } },
+        dismissButton = {
+            if (meal.swappedFrom != null) TextButton(onClick = onReset) { Text("Back to ${original?.name ?: "plan"}") }
+        },
+    )
 }
 
 @Composable
@@ -110,18 +188,23 @@ private fun TodayTab(
     logged: Set<String>,
     onLog: (PlanMeal) -> Unit,
     onOpenRecipe: (String) -> Unit,
+    onSwap: (SwapTarget) -> Unit,
 ) {
     val week = plan.week(weekId)
-    val day = week.days.getOrNull(MealPlanSchedule.dayIndex(LocalDate.now())) ?: return
+    val dayIndex = MealPlanSchedule.dayIndex(LocalDate.now())
+    val day = week.days.getOrNull(dayIndex) ?: return
     LazyColumn(
         Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         item { DayHeader(plan, day, "${week.title} · ${week.subtitle}") }
-        items(day.meals) { meal ->
+        itemsIndexed(day.meals) { mi, meal ->
             val title = plan.title(meal)
-            MealCard(plan, meal, done = title in logged, onLog = { onLog(meal) }, onOpenRecipe = onOpenRecipe)
+            MealCard(
+                plan, meal, done = title in logged, onLog = { onLog(meal) }, onOpenRecipe = onOpenRecipe,
+                onSwap = if (MealPlanSchedule.kindOf(meal.label) != null) ({ onSwap(SwapTarget(week.id, dayIndex, mi)) }) else null,
+            )
         }
         item {
             Text(
@@ -159,9 +242,10 @@ private fun MealCard(
     done: Boolean?,
     onLog: (() -> Unit)?,
     onOpenRecipe: (String) -> Unit,
+    onSwap: (() -> Unit)? = null,
 ) {
     SectionCard(
-        title = "${meal.time} · ${meal.label}",
+        title = "${meal.time} · ${meal.label}" + if (meal.swappedFrom != null) " · swapped" else "",
         trailing = { Text("${plan.kcal(meal).grouped()} kcal · ${plan.protein(meal)} g P", fontWeight = FontWeight.SemiBold) },
     ) {
         plan.recipesFor(meal).forEach { r ->
@@ -179,6 +263,9 @@ private fun MealCard(
                 }
             }
         }
+        if (onSwap != null) {
+            TextButton(onClick = onSwap) { Text(if (meal.swappedFrom != null) "Swap again" else "Swap dish") }
+        }
         if (onLog != null) {
             if (done == true) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -193,7 +280,14 @@ private fun MealCard(
 }
 
 @Composable
-private fun WeekTab(plan: MealPlan, weekId: String, current: String, vm: MealPlanViewModel, onOpenRecipe: (String) -> Unit) {
+private fun WeekTab(
+    plan: MealPlan,
+    weekId: String,
+    current: String,
+    vm: MealPlanViewModel,
+    onOpenRecipe: (String) -> Unit,
+    onSwap: (SwapTarget) -> Unit,
+) {
     val week = plan.week(weekId)
     val day = week.days.getOrNull(vm.selectedDay) ?: week.days.first()
     LazyColumn(
@@ -214,7 +308,12 @@ private fun WeekTab(plan: MealPlan, weekId: String, current: String, vm: MealPla
             }
         }
         item { DayHeader(plan, day, "${week.title} · ${week.subtitle}") }
-        items(day.meals) { meal -> MealCard(plan, meal, done = null, onLog = null, onOpenRecipe = onOpenRecipe) }
+        itemsIndexed(day.meals) { mi, meal ->
+            MealCard(
+                plan, meal, done = null, onLog = null, onOpenRecipe = onOpenRecipe,
+                onSwap = if (MealPlanSchedule.kindOf(meal.label) != null) ({ onSwap(SwapTarget(week.id, vm.selectedDay, mi)) }) else null,
+            )
+        }
         if (plan.adjustments.isNotEmpty()) {
             item {
                 SectionCard("When your target changes") {
@@ -283,7 +382,7 @@ private fun RecipesTab(plan: MealPlan, onOpenRecipe: (String) -> Unit) {
 
 @Composable
 private fun GroceriesTab(plan: MealPlan, weekId: String, current: String, vm: MealPlanViewModel, ticked: Set<String>) {
-    val sections = plan.groceries[weekId].orEmpty()
+    val sections = plan.groceryList(weekId)
     LazyColumn(
         Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
@@ -293,7 +392,7 @@ private fun GroceriesTab(plan: MealPlan, weekId: String, current: String, vm: Me
         item {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
-                    "For one person for one week. Ticks are saved on this phone.",
+                    "For one person for this week, calculated from the planned meals including your swaps.",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.weight(1f),
@@ -304,8 +403,8 @@ private fun GroceriesTab(plan: MealPlan, weekId: String, current: String, vm: Me
         sections.forEachIndexed { si, section ->
             item(key = "$weekId-$si") {
                 SectionCard(section.title) {
-                    section.items.forEachIndexed { i, g ->
-                        val key = "$si-$i"
+                    section.items.forEach { g ->
+                        val key = g.name
                         val checked = key in ticked
                         Row(
                             Modifier.fillMaxWidth().clickable { vm.toggleGrocery(weekId, key, !checked) },

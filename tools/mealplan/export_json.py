@@ -10,6 +10,29 @@ T['tandoori']=(T['tandoori'][0],T['tandoori'][1],T['tandoori'][2],"Handbook p.13
 T['banana']=('Basics',['1 medium banana','Black coffee (no sugar)'],['Eat 30–45 min before training.'],'Skip it on rest days, or if you train fasted.')
 T['shake']=('Basics',['1 scoop of your whey (38.5 g)','250 ml water'],['Shake and drink within an hour after training.'],'Milk instead of water adds about 90 kcal per 200 ml.')
 T['buttermilk']=('Basics',['75 g low-fat curd','200 ml water','Salt, roasted cumin, curry leaves'],['Whisk everything together.'],'')
+# Grocery ingredients: key -> (shopping-list name, section, unit). Unit g/ml/pc/scoop.
+INGREDIENTS = {
+ 'chicken':('Chicken breast, boneless','Meat, fish & eggs','g'), 'fish':('Fish fillets (seer, basa, rohu)','Meat, fish & eggs','g'),
+ 'prawn':('Prawns, cleaned','Meat, fish & eggs','g'), 'egg_pc':('Eggs','Meat, fish & eggs','pc'), 'eggwhite_pc':('Eggs','Meat, fish & eggs','pc'),
+ 'paneer_lf':('Low-fat paneer','Dairy','g'), 'paneer':('Paneer','Dairy','g'), 'curd_lf':('Curd (dahi)','Dairy','g'),
+ 'greek':('Greek yogurt (or hang double the curd)','Dairy','g'), 'milk_dt':('Double-toned milk','Dairy','ml'),
+ 'mozzarella':('Mozzarella','Dairy','g'), 'butter':('Butter','Dairy','g'), 'whey_scoop':('Whey protein','Dairy','scoop'),
+ 'onion':('Onion','Vegetables','g'), 'tomato':('Tomato','Vegetables','g'), 'veg_mix':('Mixed vegetables (beans, carrot, broccoli, cabbage)','Vegetables','g'),
+ 'sambar_veg':('Sambar vegetables (drumstick, brinjal, pumpkin, okra)','Vegetables','g'), 'spinach':('Spinach','Vegetables','g'),
+ 'capsicum':('Capsicum','Vegetables','g'), 'cucumber':('Cucumber','Vegetables','g'), 'peas':('Green peas (frozen ok)','Vegetables','g'),
+ 'okra':('Okra','Vegetables','g'), 'cabbage':('Cabbage','Vegetables','g'), 'herbs':('Coriander & mint','Vegetables','g'), 'garlic':('Garlic','Vegetables','g'),
+ 'banana_pc':('Bananas','Fruit','pc'), 'apple_pc':('Apples','Fruit','pc'), 'guava_pc':('Guava','Fruit','pc'), 'papaya':('Papaya','Fruit','g'), 'pomegranate':('Pomegranate arils','Fruit','g'),
+ 'rice_raw':('Rice','Grains, dals & snacks','g'), 'basmati_raw':('Basmati rice','Grains, dals & snacks','g'), 'atta':('Whole wheat atta','Grains, dals & snacks','g'),
+ 'oats':('Rolled oats','Grains, dals & snacks','g'), 'idli_batter':('Idli / dosa batter','Grains, dals & snacks','g'), 'pasta':('Macaroni','Grains, dals & snacks','g'),
+ 'toor':('Toor dal','Grains, dals & snacks','g'), 'moong_whole':('Whole green moong','Grains, dals & snacks','g'), 'moong_yellow':('Yellow moong dal','Grains, dals & snacks','g'),
+ 'soya':('Soya chunks / granules','Grains, dals & snacks','g'), 'kala_chana':('Kala chana','Grains, dals & snacks','g'), 'roasted_chana':('Roasted chana','Grains, dals & snacks','g'),
+ 'makhana':('Makhana','Grains, dals & snacks','g'), 'cashew':('Cashews','Grains, dals & snacks','g'), 'cornflour':('Cornflour','Grains, dals & snacks','g'),
+ 'ricefl':('Rice flour','Grains, dals & snacks','g'), 'sesame':('Sesame seeds','Grains, dals & snacks','g'),
+ 'oil':('Cooking oil','Pantry','ml'), 'ghee':('Ghee','Pantry','g'), 'tamarind':('Tamarind','Pantry','g'),
+ 'gochujang':('Gochujang (or schezwan sauce)','Pantry','g'), 'soysauce':('Soy sauce','Pantry','ml'),
+}
+STAPLES=[('Ginger','100 g',''),('Green chillies','50 g',''),('Curry leaves','1 bunch',''),('Lemons','3–4',''),
+ ('Spices','check stock','turmeric, chilli, Kashmiri chilli, coriander & cumin powder, cumin & mustard seeds, garam masala, sambar powder, tandoori/tikka masala, biryani & kabab masala, black pepper, fennel, fenugreek, hing, kasuri methi, chaat masala')]
 recipes=[]
 for k,(cat,ing,steps,tip) in T.items():
     r=R[k]; m=r['m']
@@ -17,7 +40,8 @@ for k,(cat,ing,steps,tip) in T.items():
     urls=[REEL[k]] if k in REEL else []
     if k=='tandoori': urls=[EXTRA_REEL['tandoori']]
     if k=='greensoya': urls.append(EXTRA_REEL['greensoya2'])
-    recipes.append(dict(id=k,name=r['name'],category=cat,source=src,veg=r['veg'],kcal=round(m[0]),protein=round(m[1]),carbs=round(m[2]),fat=round(m[3]),ingredients=ing,steps=steps,tip=tip,reels=urls))
+    items={n:round(q,2) for n,q in r['ings'].items() if n in INGREDIENTS}
+    recipes.append(dict(id=k,name=r['name'],category=cat,source=src,veg=r['veg'],kcal=round(m[0]),protein=round(m[1]),carbs=round(m[2]),fat=round(m[3]),ingredients=ing,steps=steps,tip=tip,reels=urls,items=items))
 SLOTS_T=[('6:00','Pre-workout','SNACK'),('7:30','Post-workout','SNACK'),('8:30','Breakfast','BREAKFAST'),('13:30','Lunch','LUNCH'),('17:00','Snack','SNACK'),('20:30','Dinner','DINNER')]
 SLOTS_R=[('8:30','Breakfast','BREAKFAST'),('13:30','Lunch','LUNCH'),('17:00','Snack','SNACK'),('20:30','Dinner','DINNER')]
 def week(plan):
@@ -40,7 +64,7 @@ PREP=[
  'Marinate tandoori chicken the night before Friday.',
 ]
 ADJ=[('+150 kcal','Add 1 chapati to dinner (120) or 100 g cooked rice (130).'),('+75 kcal','Add a glass of buttermilk and 15 g roasted chana.'),('−75 kcal','Skip the pre-workout banana, or halve the snack.'),('−150 kcal','Swap dinner rice for extra vegetables (−130) and use 3 g oil instead of 5 g.')]
-data=dict(version=1,recipes=recipes,weeks=[dict(id='A',title='Week A',subtitle='Handbook',days=week(PLAN)),dict(id='B',title='Week B',subtitle='Your reels',days=week(PLAN_B))],
+data=dict(version=2,recipes=recipes,ingredients={k:dict(name=n,section=sec,unit=u) for k,(n,sec,u) in INGREDIENTS.items()},staples=[dict(name=n,qty=q,note=no) for n,q,no in STAPLES],weeks=[dict(id='A',title='Week A',subtitle='Handbook',days=week(PLAN)),dict(id='B',title='Week B',subtitle='Your reels',days=week(PLAN_B))],
  groceries=dict(A=gro(GRO_A),B=gro(GRO_B)),prep=PREP,adjustments=[dict(change=a,how=b) for a,b in ADJ])
 import os
 OUT=os.path.join(HERE,'..','..','app','src','main','assets','meal_plan.json')

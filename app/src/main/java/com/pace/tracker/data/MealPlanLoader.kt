@@ -7,6 +7,7 @@ import com.pace.tracker.domain.GrocerySection
 import com.pace.tracker.domain.MealPlan
 import com.pace.tracker.domain.MealType
 import com.pace.tracker.domain.PlanDay
+import com.pace.tracker.domain.PlanIngredient
 import com.pace.tracker.domain.PlanMeal
 import com.pace.tracker.domain.PlanRecipe
 import com.pace.tracker.domain.PlanWeek
@@ -43,6 +44,7 @@ object MealPlanLoader {
                 steps = r.getJSONArray("steps").strings(),
                 tip = r.optString("tip", ""),
                 reels = r.optJSONArray("reels")?.strings() ?: emptyList(),
+                items = r.optJSONObject("items")?.let { o -> o.keys().asSequence().associateWith { o.getDouble(it) } } ?: emptyMap(),
             )
         }.associateBy { it.id }
         val weeks = root.getJSONArray("weeks").objects().map { w ->
@@ -78,6 +80,13 @@ object MealPlanLoader {
         }
         val prep = root.optJSONArray("prep")?.strings() ?: emptyList()
         val adjustments = root.optJSONArray("adjustments")?.objects()?.map { CalorieAdjustment(it.getString("change"), it.getString("how")) } ?: emptyList()
-        return MealPlan(recipes, weeks, groceries, prep, adjustments)
+        val ingredients = root.optJSONObject("ingredients")?.let { o ->
+            o.keys().asSequence().associateWith { k ->
+                val i = o.getJSONObject(k)
+                PlanIngredient(k, i.getString("name"), i.getString("section"), i.getString("unit"))
+            }
+        } ?: emptyMap()
+        val staples = root.optJSONArray("staples")?.objects()?.map { GroceryItem(it.getString("name"), it.getString("qty"), it.optString("note", "")) } ?: emptyList()
+        return MealPlan(recipes, weeks, groceries, prep, adjustments, ingredients, staples)
     }
 }

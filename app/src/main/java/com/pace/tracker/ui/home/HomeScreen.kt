@@ -73,10 +73,11 @@ import com.pace.tracker.ui.components.paceViewModel
 import com.pace.tracker.ui.components.shortDate
 import com.pace.tracker.ui.components.statusColor
 import com.pace.tracker.ui.nav.Routes
+import com.pace.tracker.ui.plan.MealPlanViewModel
 import com.pace.tracker.ui.theme.PaceColors
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import java.time.LocalDate
@@ -113,10 +114,12 @@ data class HomeState(
 )
 
 class HomeViewModel(private val repository: PaceRepository, private val mealPlan: MealPlan) : ViewModel() {
-    val state: StateFlow<HomeState> = repository.programData.map { it.toHome() }
+    val state: StateFlow<HomeState> = combine(repository.programData, repository.settings) { data, settings ->
+        data.toHome(mealPlan.withSwaps(MealPlanViewModel.swapsFrom(settings)))
+    }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), HomeState())
 
-    private fun ProgramData.toHome(): HomeState {
+    private fun ProgramData.toHome(plan: MealPlan): HomeState {
         val p = profile ?: return HomeState()
         val t = today()
         val dayNumber = (t - p.startEpochDay + 1).toInt().coerceAtLeast(1)
@@ -124,8 +127,8 @@ class HomeViewModel(private val repository: PaceRepository, private val mealPlan
         val toLose = (p.startWeightKg - p.targetWeightKg).coerceAtLeast(0.1)
         val lost = current?.let { p.startWeightKg - it } ?: 0.0
         val s = streaks(t)
-        val week = mealPlan.weeks.takeIf { it.isNotEmpty() }
-            ?.let { mealPlan.week(MealPlanSchedule.weekIdFor(p.toEngine().weekOf(t).coerceAtLeast(1))) }
+        val week = plan.weeks.takeIf { it.isNotEmpty() }
+            ?.let { plan.week(MealPlanSchedule.weekIdFor(p.toEngine().weekOf(t).coerceAtLeast(1))) }
         val planDay = week?.days?.getOrNull(MealPlanSchedule.dayIndex(LocalDate.ofEpochDay(t)))
         return HomeState(
             loaded = true,
@@ -153,8 +156,8 @@ class HomeViewModel(private val repository: PaceRepository, private val mealPlan
             suggestion = pendingSuggestion(),
             projectedFinish = weeklyRecals.lastOrNull()?.projectedFinishKg,
             menuWeek = week?.title ?: "",
-            menu = planDay?.meals?.map { "${it.time}  ${it.label}" to mealPlan.title(it) } ?: emptyList(),
-            menuKcal = planDay?.let { mealPlan.dayKcal(it) } ?: 0,
+            menu = planDay?.meals?.map { "${it.time}  ${it.label}" to plan.title(it) } ?: emptyList(),
+            menuKcal = planDay?.let { plan.dayKcal(it) } ?: 0,
             menuVeg = planDay?.veg == true,
         )
     }

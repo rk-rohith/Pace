@@ -1,6 +1,15 @@
 package com.pace.tracker.ui.review
 
 import androidx.compose.foundation.clickable
+import com.pace.tracker.domain.BodyMath
+import com.pace.tracker.data.latestWeight
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.draw.clip
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -131,6 +140,8 @@ fun ReviewDetailScreen(week: Int, onBack: () -> Unit) {
             Text("${w.startDay.shortDate()} – ${w.endDay.shortDate()}" + if (!w.isComplete) " · in progress" else "",
                 color = MaterialTheme.colorScheme.onSurfaceVariant)
 
+            ShareCardSection(data, w, t)
+
             SectionCard("Summary") {
                 LabeledValue("Weight change (weekly avg)", w.weightChange?.signedKg() ?: "—")
                 LabeledValue("Average weight", w.avgWeight?.kg() ?: "—")
@@ -218,5 +229,59 @@ private fun CompareTable(weeks: List<WeekSummary>, highlight: Int) {
                 }
             }
         }
+    }
+}
+
+
+@Composable
+private fun ShareCardSection(data: ProgramData, w: WeekSummary, today: Long) {
+    val p = data.profile ?: return
+    val context = LocalContext.current
+    val streak = data.streaks(today)?.logging?.current ?: 0
+    val latest = data.latestWeight()
+    val card = ProgressCardData(
+        weekIndex = w.weekIndex,
+        startDay = w.startDay,
+        endDay = w.endDay,
+        inProgress = !w.isComplete,
+        weightChange = w.weightChange,
+        avgWeight = w.avgWeight,
+        lostSoFar = latest?.let { p.startWeightKg - it },
+        toLose = (p.startWeightKg - p.targetWeightKg).coerceAtLeast(0.1),
+        status = w.recal?.status?.label,
+        avgKcal = w.avgCalories?.toInt(),
+        targetKcal = w.avgTargetKcal,
+        avgProtein = w.avgProtein?.toInt(),
+        proteinGoal = BodyMath.proteinTarget(p.targetWeightKg),
+        totalSteps = w.totalSteps,
+        avgSteps = w.avgSteps,
+        workouts = w.workouts,
+        streak = streak,
+        dayNumber = (minOf(today, w.endDay) - p.startEpochDay + 1).toInt().coerceAtLeast(1),
+        durationDays = p.durationDays,
+    )
+    val bitmap = remember(card) { ProgressCard.render(card) }
+    var message by remember { mutableStateOf<String?>(null) }
+    SectionCard("Share your week") {
+        Image(
+            bitmap = bitmap.asImageBitmap(),
+            contentDescription = "Week ${w.weekIndex} progress card",
+            modifier = Modifier.fillMaxWidth().aspectRatio(ProgressCard.WIDTH / ProgressCard.HEIGHT.toFloat()).clip(RoundedCornerShape(14.dp)),
+        )
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Button(
+                onClick = { runCatching { ProgressCard.share(context, card, bitmap) }.onFailure { message = "Couldn't open the share sheet." } },
+                modifier = Modifier.weight(1f).height(48.dp),
+            ) { Text("Share") }
+            OutlinedButton(
+                onClick = {
+                    message = if (runCatching { ProgressCard.saveToGallery(context, card, bitmap) }.getOrDefault(false)) {
+                        "Saved to Pictures/Pace."
+                    } else "Couldn't save the image."
+                },
+                modifier = Modifier.weight(1f).height(48.dp),
+            ) { Text("Save to gallery") }
+        }
+        message?.let { Text(it, style = MaterialTheme.typography.bodySmall, color = PaceColors.Ahead) }
     }
 }

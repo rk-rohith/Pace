@@ -1,5 +1,5 @@
 {
- "version": 1,
+ "version": 2,
  "recipes": [
   {
    "id": "sambar",
@@ -27,7 +27,15 @@
     "Temper oil with mustard, hing, curry leaves and red chilli; pour over."
    ],
    "tip": "Make 3 bowls on Sunday (Mon, Wed, Thu). Keeps 3 days in the fridge; freeze Thursday's.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "toor": 30,
+    "sambar_veg": 100,
+    "tamarind": 5,
+    "oil": 3,
+    "onion": 20,
+    "tomato": 30
+   }
   },
   {
    "id": "idli",
@@ -50,7 +58,17 @@
     "Serve with hot sambar."
    ],
    "tip": "Coconut chutney adds about 100 kcal per 2 tbsp; tomato or pudina chutney is almost free.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "idli_batter": 150,
+    "toor": 30,
+    "sambar_veg": 100,
+    "tamarind": 5,
+    "oil": 3,
+    "onion": 20,
+    "tomato": 30,
+    "egg_pc": 1
+   }
   },
   {
    "id": "pesarattu_p",
@@ -76,7 +94,13 @@
     "Chutney: sauté tomato, ginger and chilli in 3 g oil, then blend with salt."
    ],
    "tip": "Soak the moong the night before.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "moong_whole": 60,
+    "oil": 8,
+    "tomato": 100,
+    "paneer": 40
+   }
   },
   {
    "id": "pesarattu_e",
@@ -97,7 +121,13 @@
     "Boil the egg, or crack it over the dosa while it cooks (egg pesarattu)."
    ],
    "tip": "",
-   "reels": []
+   "reels": [],
+   "items": {
+    "moong_whole": 60,
+    "oil": 8,
+    "tomato": 100,
+    "egg_pc": 1
+   }
   },
   {
    "id": "bhurji",
@@ -122,7 +152,15 @@
     "Serve with a hot chapati."
    ],
    "tip": "Keep the yolks from the 3 whites for another day, or skip them.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "egg_pc": 2,
+    "eggwhite_pc": 3,
+    "onion": 50,
+    "tomato": 50,
+    "oil": 3,
+    "atta": 30
+   }
   },
   {
    "id": "chilla",
@@ -147,7 +185,14 @@
     "Cook both sides until golden. Serve with curd."
    ],
    "tip": "Handbook p.40.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "moong_yellow": 60,
+    "paneer": 50,
+    "onion": 20,
+    "oil": 5,
+    "curd_lf": 100
+   }
   },
   {
    "id": "oatsbowl",
@@ -171,7 +216,13 @@
     "Serve with the halved egg."
    ],
    "tip": "Handbook p.7. For a warm version, microwave the oats with yogurt for 60–90 s.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "oats": 65,
+    "greek": 100,
+    "pomegranate": 100,
+    "egg_pc": 1
+   }
   },
   {
    "id": "oatswhey",
@@ -195,7 +246,13 @@
     "Top with cinnamon; papaya on the side."
    ],
    "tip": "Handbook p.8, made with a full scoop. On Sunday this replaces the shake.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "oats": 50,
+    "milk_dt": 200,
+    "whey_scoop": 1,
+    "papaya": 150
+   }
   },
   {
    "id": "chx_rice",
@@ -220,7 +277,13 @@
     "Assemble over rice."
    ],
    "tip": "Handbook p.11.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "chicken": 150,
+    "rice_raw": 50,
+    "veg_mix": 250,
+    "oil": 5
+   }
   },
   {
    "id": "chx_chapati",
@@ -244,7 +307,13 @@
     "Serve with warm chapatis."
    ],
    "tip": "Handbook p.12.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "chicken": 150,
+    "atta": 60,
+    "veg_mix": 250,
+    "oil": 5
+   }
   },
   {
    "id": "tandoori",
@@ -271,7 +340,13 @@
    "tip": "Handbook p.13. Your reel's version adds 1 tsp soy sauce and garlic powder to the marinade and scores the chicken deeply; pan-fry 6 min a side or air-fry at 195 °C, 8 min a side.",
    "reels": [
     "https://www.instagram.com/reel/Dakh0I3N1p2/"
-   ]
+   ],
+   "items": {
+    "chicken": 150,
+    "curd_lf": 100,
+    "oil": 5,
+    "rice_raw": 50
+   }
   },
   {
    "id": "tikkamasala",
@@ -297,7 +372,16 @@
     "Stir in curd and cashew paste, add chicken, simmer 8–10 min."
    ],
    "tip": "Handbook p.15. Swap in for any chicken meal.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "chicken": 150,
+    "onion": 70,
+    "tomato": 150,
+    "curd_lf": 30,
+    "cashew": 10,
+    "oil": 5,
+    "rice_raw": 35
+   }
   },
   {
    "id": "keema",
@@ -322,7 +406,15 @@
     "Add peas and a splash of water, cover 6–8 min."
    ],
    "tip": "Handbook p.16. Ask the butcher to mince 150 g of the breast.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "chicken": 150,
+    "onion": 70,
+    "tomato": 100,
+    "peas": 50,
+    "oil": 5,
+    "rice_raw": 35
+   }
   },
   {
    "id": "fishtikka",
@@ -347,7 +439,15 @@
     "Serve with rice and lemon."
    ],
    "tip": "Handbook p.19. Check at 6 min; fish dries fast.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "fish": 150,
+    "curd_lf": 100,
+    "capsicum": 75,
+    "onion": 75,
+    "oil": 5,
+    "rice_raw": 35
+   }
   },
   {
    "id": "fishbowl",
@@ -371,7 +471,13 @@
     "Serve over rice with the vegetables."
    ],
    "tip": "Handbook p.18, rice cut to 100 g for the rest day.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "fish": 150,
+    "rice_raw": 35,
+    "veg_mix": 250,
+    "oil": 5
+   }
   },
   {
    "id": "palak",
@@ -396,7 +502,15 @@
     "Add the spinach purée, simmer 3 min, add paneer 2 min."
    ],
    "tip": "Handbook p.26. Regular paneer adds about 200 kcal.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "paneer_lf": 200,
+    "spinach": 200,
+    "onion": 70,
+    "tomato": 100,
+    "oil": 5,
+    "rice_raw": 35
+   }
   },
   {
    "id": "kadai",
@@ -421,7 +535,15 @@
     "Add paneer and vegetables, toss 2 min."
    ],
    "tip": "Handbook p.29.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "paneer_lf": 200,
+    "capsicum": 150,
+    "onion": 70,
+    "tomato": 100,
+    "oil": 5,
+    "rice_raw": 35
+   }
   },
   {
    "id": "soyacurry",
@@ -446,7 +568,14 @@
     "Add soya and ½ cup water, simmer 8–10 min."
    ],
    "tip": "Handbook p.33.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "soya": 70,
+    "onion": 70,
+    "tomato": 100,
+    "oil": 5,
+    "rice_raw": 50
+   }
   },
   {
    "id": "soyakeema",
@@ -471,7 +600,15 @@
     "Cover and cook 6–8 min until dry."
    ],
    "tip": "Handbook p.35.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "soya": 60,
+    "onion": 70,
+    "tomato": 100,
+    "peas": 50,
+    "oil": 5,
+    "rice_raw": 35
+   }
   },
   {
    "id": "eggbites",
@@ -494,7 +631,11 @@
     "Air-fry at 160 °C for 10–12 min."
    ],
    "tip": "Handbook p.41. Half a batch makes a 190 kcal snack.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "egg_pc": 4,
+    "spinach": 50
+   }
   },
   {
    "id": "pepperfry",
@@ -520,7 +661,15 @@
     "Add chicken, cook covered 8 min, then uncovered until dry, finishing with the pepper."
    ],
    "tip": "Served with protein sambar on Wednesday.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "chicken": 150,
+    "onion": 70,
+    "tomato": 50,
+    "oil": 5,
+    "rice_raw": 50,
+    "cucumber": 100
+   }
   },
   {
    "id": "pulusu",
@@ -546,7 +695,15 @@
     "Slide in the fish and simmer 8–10 min without stirring."
    ],
    "tip": "Tastes better the next day.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "fish": 150,
+    "tamarind": 10,
+    "onion": 50,
+    "tomato": 100,
+    "oil": 5,
+    "rice_raw": 50
+   }
   },
   {
    "id": "prawn",
@@ -571,7 +728,14 @@
     "Add prawns and roast 4–5 min until just curled."
    ],
    "tip": "Overcooked prawns go rubbery; stop at 5 min.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "prawn": 150,
+    "onion": 70,
+    "tomato": 100,
+    "oil": 5,
+    "atta": 45
+   }
   },
   {
    "id": "biryani",
@@ -597,7 +761,15 @@
     "Add rice and 120 ml water, cover on the lowest heat 15 min; rest 5 min."
    ],
    "tip": "Sunday treat that still fits the numbers.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "chicken": 150,
+    "basmati_raw": 60,
+    "curd_lf": 150,
+    "onion": 50,
+    "ghee": 7,
+    "cucumber": 50
+   }
   },
   {
    "id": "sprouts",
@@ -618,7 +790,12 @@
     "Toss with everything else."
    ],
    "tip": "Soak Saturday night; sprouts are ready by Monday.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "moong_whole": 40,
+    "onion": 20,
+    "tomato": 30
+   }
   },
   {
    "id": "chana_bm",
@@ -639,7 +816,11 @@
     "Eat the chana with it."
    ],
    "tip": "",
-   "reels": []
+   "reels": [],
+   "items": {
+    "roasted_chana": 30,
+    "curd_lf": 75
+   }
   },
   {
    "id": "fruitcurd",
@@ -659,7 +840,11 @@
     "Slice the apple and eat with the yogurt, cinnamon optional."
    ],
    "tip": "Hang 400 g curd overnight to get about 200 g.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "apple_pc": 1,
+    "greek": 100
+   }
   },
   {
    "id": "kalachana",
@@ -679,7 +864,12 @@
     "Toss everything together."
    ],
    "tip": "",
-   "reels": []
+   "reels": [],
+   "items": {
+    "kala_chana": 40,
+    "onion": 20,
+    "tomato": 30
+   }
   },
   {
    "id": "eggs2",
@@ -699,7 +889,11 @@
     "Boil 9 min, peel and season."
    ],
    "tip": "",
-   "reels": []
+   "reels": [],
+   "items": {
+    "egg_pc": 2,
+    "cucumber": 100
+   }
   },
   {
    "id": "makhana",
@@ -721,7 +915,12 @@
     "Season; serve with buttermilk."
    ],
    "tip": "",
-   "reels": []
+   "reels": [],
+   "items": {
+    "makhana": 25,
+    "curd_lf": 75,
+    "oil": 2
+   }
   },
   {
    "id": "okra",
@@ -749,7 +948,13 @@
    "tip": "Low in protein, so it rides with buttermilk as a snack or sits beside dal as a side.",
    "reels": [
     "https://www.instagram.com/reel/DcqWx_tA5Xs/"
-   ]
+   ],
+   "items": {
+    "okra": 150,
+    "cornflour": 10,
+    "oil": 2,
+    "curd_lf": 75
+   }
   },
   {
    "id": "dumplings",
@@ -777,7 +982,15 @@
    "tip": "The reel's single serving. No rice: 61 g protein for 506 kcal. Keep the dip to 1 tbsp.",
    "reels": [
     "https://www.instagram.com/reel/DdEZlGMNdP2/"
-   ]
+   ],
+   "items": {
+    "chicken": 200,
+    "egg_pc": 2,
+    "onion": 50,
+    "cabbage": 150,
+    "oil": 5,
+    "garlic": 10
+   }
   },
   {
    "id": "malai",
@@ -803,7 +1016,16 @@
    "tip": "Make the full 300 g batch and eat the second half on Sunday.",
    "reels": [
     "https://www.instagram.com/reel/DZxgQMDTxro/"
-   ]
+   ],
+   "items": {
+    "chicken": 150,
+    "curd_lf": 15,
+    "garlic": 5,
+    "mozzarella": 15,
+    "herbs": 10,
+    "rice_raw": 35,
+    "cucumber": 100
+   }
   },
   {
    "id": "tikkabowl",
@@ -830,7 +1052,15 @@
    "tip": "The reel says 70 g protein. That needs about 350 g paneer; this 200 g portion gives 43 g.",
    "reels": [
     "https://www.instagram.com/reel/DTXtM9NEXCa/"
-   ]
+   ],
+   "items": {
+    "paneer_lf": 200,
+    "capsicum": 120,
+    "onion": 100,
+    "curd_lf": 50,
+    "oil": 5,
+    "rice_raw": 50
+   }
   },
   {
    "id": "cgfr",
@@ -857,7 +1087,15 @@
    "tip": "The reel's version is 530 kcal / 33 g protein. Less fat and rice brings it to 484 kcal.",
    "reels": [
     "https://www.instagram.com/reel/DXGAJqODMht/"
-   ]
+   ],
+   "items": {
+    "paneer_lf": 150,
+    "oil": 5,
+    "garlic": 15,
+    "onion": 50,
+    "veg_mix": 150,
+    "rice_raw": 50
+   }
   },
   {
    "id": "kabab",
@@ -883,7 +1121,14 @@
    "tip": "Skinless chicken saves about 150 kcal over the reel's skin-on pieces.",
    "reels": [
     "https://www.instagram.com/reel/Dak2VitzaFc/"
-   ]
+   ],
+   "items": {
+    "chicken": 150,
+    "egg_pc": 0.3,
+    "cornflour": 3,
+    "atta": 60,
+    "cucumber": 100
+   }
   },
   {
    "id": "greensoya",
@@ -912,7 +1157,16 @@
    "reels": [
     "https://www.instagram.com/reel/Dc7uZfKTk1s/",
     "https://www.instagram.com/reel/DcqoMeGvrF8/"
-   ]
+   ],
+   "items": {
+    "soya": 50,
+    "rice_raw": 60,
+    "oil": 7,
+    "onion": 50,
+    "herbs": 40,
+    "garlic": 10,
+    "curd_lf": 100
+   }
   },
   {
    "id": "koreansoya",
@@ -940,7 +1194,19 @@
    "tip": "Gochujang is in most supermarkets and online; schezwan sauce is a fine swap.",
    "reels": [
     "https://www.instagram.com/reel/Dba2XvsCgD2/"
-   ]
+   ],
+   "items": {
+    "soya": 60,
+    "ricefl": 10,
+    "cornflour": 10,
+    "soysauce": 10,
+    "oil": 5,
+    "onion": 40,
+    "garlic": 10,
+    "gochujang": 15,
+    "sesame": 3,
+    "veg_mix": 150
+   }
   },
   {
    "id": "eggroast",
@@ -968,7 +1234,16 @@
    "tip": "Cutting the ghee from 4 tbsp to 1 tsp saves about 450 kcal. Grind a double batch of masala and freeze half.",
    "reels": [
     "https://www.instagram.com/reel/DcIfLPAyCv4/"
-   ]
+   ],
+   "items": {
+    "egg_pc": 3,
+    "eggwhite_pc": 2,
+    "ghee": 5,
+    "cashew": 5,
+    "tamarind": 5,
+    "garlic": 10,
+    "atta": 30
+   }
   },
   {
    "id": "pasta",
@@ -995,7 +1270,15 @@
    "tip": "The reel's 62 g protein covers 1–2 servings; one serving here is 49 g.",
    "reels": [
     "https://www.instagram.com/reel/DcD-L6Tz3bz/"
-   ]
+   ],
+   "items": {
+    "pasta": 60,
+    "paneer_lf": 200,
+    "milk_dt": 100,
+    "onion": 50,
+    "tomato": 100,
+    "garlic": 15
+   }
   },
   {
    "id": "corichicken",
@@ -1023,7 +1306,18 @@
    "tip": "Reel stated 480 kcal / 58 g protein. The stock cube is optional; it is very salty.",
    "reels": [
     "https://www.instagram.com/reel/DbyCyIizCEp/"
-   ]
+   ],
+   "items": {
+    "chicken": 180,
+    "paneer_lf": 50,
+    "cornflour": 5,
+    "butter": 5,
+    "oil": 2,
+    "onion": 40,
+    "garlic": 10,
+    "herbs": 30,
+    "atta": 30
+   }
   },
   {
    "id": "banana",
@@ -1043,7 +1337,10 @@
     "Eat 30–45 min before training."
    ],
    "tip": "Skip it on rest days, or if you train fasted.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "banana_pc": 1
+   }
   },
   {
    "id": "shake",
@@ -1063,7 +1360,10 @@
     "Shake and drink within an hour after training."
    ],
    "tip": "Milk instead of water adds about 90 kcal per 200 ml.",
-   "reels": []
+   "reels": [],
+   "items": {
+    "whey_scoop": 1
+   }
   },
   {
    "id": "buttermilk",
@@ -1084,7 +1384,299 @@
     "Whisk everything together."
    ],
    "tip": "",
-   "reels": []
+   "reels": [],
+   "items": {
+    "curd_lf": 75
+   }
+  }
+ ],
+ "ingredients": {
+  "chicken": {
+   "name": "Chicken breast, boneless",
+   "section": "Meat, fish & eggs",
+   "unit": "g"
+  },
+  "fish": {
+   "name": "Fish fillets (seer, basa, rohu)",
+   "section": "Meat, fish & eggs",
+   "unit": "g"
+  },
+  "prawn": {
+   "name": "Prawns, cleaned",
+   "section": "Meat, fish & eggs",
+   "unit": "g"
+  },
+  "egg_pc": {
+   "name": "Eggs",
+   "section": "Meat, fish & eggs",
+   "unit": "pc"
+  },
+  "eggwhite_pc": {
+   "name": "Eggs",
+   "section": "Meat, fish & eggs",
+   "unit": "pc"
+  },
+  "paneer_lf": {
+   "name": "Low-fat paneer",
+   "section": "Dairy",
+   "unit": "g"
+  },
+  "paneer": {
+   "name": "Paneer",
+   "section": "Dairy",
+   "unit": "g"
+  },
+  "curd_lf": {
+   "name": "Curd (dahi)",
+   "section": "Dairy",
+   "unit": "g"
+  },
+  "greek": {
+   "name": "Greek yogurt (or hang double the curd)",
+   "section": "Dairy",
+   "unit": "g"
+  },
+  "milk_dt": {
+   "name": "Double-toned milk",
+   "section": "Dairy",
+   "unit": "ml"
+  },
+  "mozzarella": {
+   "name": "Mozzarella",
+   "section": "Dairy",
+   "unit": "g"
+  },
+  "butter": {
+   "name": "Butter",
+   "section": "Dairy",
+   "unit": "g"
+  },
+  "whey_scoop": {
+   "name": "Whey protein",
+   "section": "Dairy",
+   "unit": "scoop"
+  },
+  "onion": {
+   "name": "Onion",
+   "section": "Vegetables",
+   "unit": "g"
+  },
+  "tomato": {
+   "name": "Tomato",
+   "section": "Vegetables",
+   "unit": "g"
+  },
+  "veg_mix": {
+   "name": "Mixed vegetables (beans, carrot, broccoli, cabbage)",
+   "section": "Vegetables",
+   "unit": "g"
+  },
+  "sambar_veg": {
+   "name": "Sambar vegetables (drumstick, brinjal, pumpkin, okra)",
+   "section": "Vegetables",
+   "unit": "g"
+  },
+  "spinach": {
+   "name": "Spinach",
+   "section": "Vegetables",
+   "unit": "g"
+  },
+  "capsicum": {
+   "name": "Capsicum",
+   "section": "Vegetables",
+   "unit": "g"
+  },
+  "cucumber": {
+   "name": "Cucumber",
+   "section": "Vegetables",
+   "unit": "g"
+  },
+  "peas": {
+   "name": "Green peas (frozen ok)",
+   "section": "Vegetables",
+   "unit": "g"
+  },
+  "okra": {
+   "name": "Okra",
+   "section": "Vegetables",
+   "unit": "g"
+  },
+  "cabbage": {
+   "name": "Cabbage",
+   "section": "Vegetables",
+   "unit": "g"
+  },
+  "herbs": {
+   "name": "Coriander & mint",
+   "section": "Vegetables",
+   "unit": "g"
+  },
+  "garlic": {
+   "name": "Garlic",
+   "section": "Vegetables",
+   "unit": "g"
+  },
+  "banana_pc": {
+   "name": "Bananas",
+   "section": "Fruit",
+   "unit": "pc"
+  },
+  "apple_pc": {
+   "name": "Apples",
+   "section": "Fruit",
+   "unit": "pc"
+  },
+  "guava_pc": {
+   "name": "Guava",
+   "section": "Fruit",
+   "unit": "pc"
+  },
+  "papaya": {
+   "name": "Papaya",
+   "section": "Fruit",
+   "unit": "g"
+  },
+  "pomegranate": {
+   "name": "Pomegranate arils",
+   "section": "Fruit",
+   "unit": "g"
+  },
+  "rice_raw": {
+   "name": "Rice",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "basmati_raw": {
+   "name": "Basmati rice",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "atta": {
+   "name": "Whole wheat atta",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "oats": {
+   "name": "Rolled oats",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "idli_batter": {
+   "name": "Idli / dosa batter",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "pasta": {
+   "name": "Macaroni",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "toor": {
+   "name": "Toor dal",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "moong_whole": {
+   "name": "Whole green moong",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "moong_yellow": {
+   "name": "Yellow moong dal",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "soya": {
+   "name": "Soya chunks / granules",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "kala_chana": {
+   "name": "Kala chana",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "roasted_chana": {
+   "name": "Roasted chana",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "makhana": {
+   "name": "Makhana",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "cashew": {
+   "name": "Cashews",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "cornflour": {
+   "name": "Cornflour",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "ricefl": {
+   "name": "Rice flour",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "sesame": {
+   "name": "Sesame seeds",
+   "section": "Grains, dals & snacks",
+   "unit": "g"
+  },
+  "oil": {
+   "name": "Cooking oil",
+   "section": "Pantry",
+   "unit": "ml"
+  },
+  "ghee": {
+   "name": "Ghee",
+   "section": "Pantry",
+   "unit": "g"
+  },
+  "tamarind": {
+   "name": "Tamarind",
+   "section": "Pantry",
+   "unit": "g"
+  },
+  "gochujang": {
+   "name": "Gochujang (or schezwan sauce)",
+   "section": "Pantry",
+   "unit": "g"
+  },
+  "soysauce": {
+   "name": "Soy sauce",
+   "section": "Pantry",
+   "unit": "ml"
+  }
+ },
+ "staples": [
+  {
+   "name": "Ginger",
+   "qty": "100 g",
+   "note": ""
+  },
+  {
+   "name": "Green chillies",
+   "qty": "50 g",
+   "note": ""
+  },
+  {
+   "name": "Curry leaves",
+   "qty": "1 bunch",
+   "note": ""
+  },
+  {
+   "name": "Lemons",
+   "qty": "3–4",
+   "note": ""
+  },
+  {
+   "name": "Spices",
+   "qty": "check stock",
+   "note": "turmeric, chilli, Kashmiri chilli, coriander & cumin powder, cumin & mustard seeds, garam masala, sambar powder, tandoori/tikka masala, biryani & kabab masala, black pepper, fennel, fenugreek, hing, kasuri methi, chaat masala"
   }
  ],
  "weeks": [
