@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Pace</string>
+    <string name="widget_description">Today\'s calories, steps and water, with a one-tap water button</string>
 </resources>

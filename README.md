@@ -115,6 +115,9 @@ All reminders live in **More → Reminders**; each one is individually toggleabl
 - **Weekly review** — automatic summary (weight change, average calories, total steps, workouts, photos,
   streak status), that week's recalibration explanation, editable reflection, comparison table across weeks.
 - **Target history** — every calorie-target change with its explanation and a chart of the target over time.
+- **Home-screen widget** — long-press the home screen → Widgets → Pace. Shows day X of N, pace, calories,
+  steps and water against today's goals, latest weight and streak, with **+1 water** and **Log** buttons.
+  Updates live while the app runs and every 30 minutes otherwise.
 - **Meal plan** — two alternating weeks (Week A from the High-Protein Recipes handbook, Week B from
   Instagram reels) at 1,650–1,900 kcal and ~150 g protein a day: today's menu with one-tap logging,
   44 recipes with macros and method, weekly grocery checklists and Sunday prep. Generated from
@@ -237,6 +240,7 @@ app/src/main/java/com/pace/tracker/
 ├── photo/         PhotoStorage (app-private JPEGs), CameraX capture + photo picker composables
 ├── health/        HealthConnectManager, StepSensorTracker
 ├── reminders/     ReminderType, ReminderScheduler (WorkManager/AlarmManager), worker, receivers, notifications
+├── widget/      Home-screen progress widget (RemoteViews)
 └── ui/            Compose screens: onboarding, home, log, photos, charts, review, history, streaks, settings
 ```
 

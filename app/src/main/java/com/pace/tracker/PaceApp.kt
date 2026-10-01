@@ -10,6 +10,7 @@ import com.pace.tracker.health.StepSensorTracker
 import com.pace.tracker.photo.PhotoStorage
 import com.pace.tracker.reminders.Notifications
 import com.pace.tracker.reminders.ReminderScheduler
+import com.pace.tracker.widget.PaceWidget
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -41,5 +42,7 @@ class PaceApp : Application() {
         container.appScope.launch {
             runCatching { container.repository.runPendingRecalibrations() }
         }
+        // Keep home-screen widgets in sync with anything logged while the process is alive.
+        PaceWidget.observe(this, container.repository, container.appScope)
     }
 }
