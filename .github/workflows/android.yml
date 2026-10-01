@@ -8,6 +8,11 @@ on:
 permissions:
   contents: write   # lets the build commit Room schema files back to the branch
 
+# One build per branch at a time, so two runs never race to push schema commits.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
