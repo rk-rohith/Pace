@@ -32,6 +32,11 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 
 …or copy the APK to the phone and open it (allow "Install unknown apps" for your file manager).
 
+Every build — local or CI — is signed with the same key, `app/pace-debug.keystore` (a debug key with the
+standard `android` passwords), so a new APK installs over the old one and keeps your data. Builds made
+before this key was added were signed with a random per-runner key; replacing one of those needs a single
+uninstall (back up first: More → Backup & restore).
+
 In Android Studio: *File → Open* the `Pace` folder, let Gradle sync, then press **Run ▶**.
 
 ### No Android Studio? Build in GitHub Actions

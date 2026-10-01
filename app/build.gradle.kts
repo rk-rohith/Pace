@@ -18,6 +18,18 @@ android {
         vectorDrawables { useSupportLibrary = true }
     }
 
+    // One fixed signing key for every build. Without it, each CI runner signs with a fresh random debug key
+    // and Android refuses to update the installed app ("package conflicts with an existing package").
+    // This is a debug key with the standard public passwords - fine for personal installs, not for Play.
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file("pace-debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
